@@ -1,4 +1,4 @@
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
 

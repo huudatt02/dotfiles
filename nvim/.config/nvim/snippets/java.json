@@ -1,0 +1,28 @@
+{
+  "Javadoc Method": {
+    "prefix": "javadoc_method",
+    "body": [
+      "/**",
+      " * ${1:Description}",
+      " *",
+      " * @param ${2:paramName} ${3:paramDescription}",
+      " * @return ${4:returnDescription}",
+      " */"
+    ],
+    "description": "Insert a Javadoc comment for a method"
+  },
+
+  "Javadoc Class": {
+    "prefix": "javadoc_class",
+    "body": [
+      "/**",
+      " * ${1:Description}",
+      " *",
+      " * @author ${2:Author}",
+      " * @version ${3:*}",
+      " * @since ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+      " */"
+    ],
+    "description": "Insert a Javadoc comment for a class"
+  }
+}

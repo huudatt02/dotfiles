@@ -12,7 +12,6 @@ return {
 			go = { "gofumpt" },
 			java = { "google-java-format" },
 			python = { "ruff_format", "ruff_organize_imports" },
-			html = { "biome-check" },
 			css = { "biome-check" },
 			javascript = { "biome-check" },
 			typescript = { "biome-check" },

@@ -28,7 +28,7 @@ return {
 				"jdtls",
 				"pyright",
 				"biome",
-				"superhtml",
+				"html",
 				"cssls",
 				"tailwindcss",
 				"emmet_language_server",

@@ -1,0 +1,112 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[░▒▓](gray)\
+$os\
+[](fg:gray bg:blue)\
+$directory\
+[](fg:blue bg:slate_blue)\
+$git_branch\
+$git_status\
+[](fg:slate_blue bg:dark_blue)\
+$nodejs\
+$rust\
+$golang\
+$java\
+$python\
+[](fg:dark_blue bg:black_blue)\
+$time\
+[ ](fg:black_blue)\
+$cmd_duration\
+$line_break\
+$character"""
+
+palette = 'tokyonight'
+
+[os]
+disabled = false
+style = "fg:text_black bg:gray"
+
+[os.symbols]
+Windows = " 󰍲"
+Ubuntu  = " 󰕈"
+NixOS   = " 󱄅"
+Mint    = " 󰣭"
+Macos   = " 󰀵"
+Fedora  = " 󰣛"
+Arch    = " 󰣇"
+Debian  = " 󰣚"
+Redhat  = " 󱄛"
+
+[directory]
+style = "fg:text_white bg:blue"
+format = "[ $path]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "fg:text_blue bg:slate_blue"
+format = '[ $symbol $branch]($style)'
+
+[git_status]
+style = "fg:text_blue bg:slate_blue"
+format = '[$all_status$ahead_behind]($style)'
+conflicted = "[ ](fg:red bg:slate_blue)"
+ahead = "[ 󰕒${count}](fg:green bg:slate_blue)"
+behind = "[ 󰇚${count}](fg:yellow bg:slate_blue)"
+diverged = "[ 󰕒${ahead_count}](fg:green bg:slate_blue)[ 󰇚${behind_count}](fg:yellow bg:slate_blue)"
+untracked = "[ 󰋖](fg:red bg:slate_blue)"
+stashed = "[ 󰇁](fg:blue bg:slate_blue)"
+modified = "[ 󰛄](fg:yellow bg:slate_blue)"
+staged = "[ 󰄬](fg:green bg:slate_blue)"
+renamed = "[ 󰁕](fg:purple bg:slate_blue)"
+deleted = "[ 󰅖](fg:red bg:slate_blue)"
+
+[nodejs]
+symbol = "󰎙"
+style = "fg:text_blue bg:dark_blue"
+format = '[ $symbol ($version)]($style)'
+
+[golang]
+symbol = ""
+style = "fg:text_blue bg:dark_blue"
+format = '[ $symbol ($version)]($style)'
+
+[java]
+symbol = "󰬷"
+style = "fg:text_blue bg:dark_blue"
+format = '[ $symbol ($version)]($style)'
+detect_extensions = ['java', 'class', 'gradle', 'jar', 'cljs', 'cljc', 'kts']
+
+[python]
+symbol = "󰌠"
+style = "fg:text_blue bg:dark_blue"
+format = '[ $symbol ($version)(\(#$virtualenv\))]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "fg:text_gray bg:black_blue"
+format = '[ 󰅐 $time]($style)'
+
+[cmd_duration]
+show_milliseconds = true
+format = "󰄿 in $duration"
+disabled = false
+show_notifications = true
+min_time_to_notify = 45000
+
+[line_break]
+disabled = false
+
+[palettes.tokyonight]
+text_black   = "#090c0c"
+text_white   = "#e3e5e5"
+text_blue    = "#769ff0"
+text_gray    = "#a0a9cb"
+gray         = "#a3aed2"
+blue         = "#769ff0"
+slate_blue   = "#394260"
+dark_blue    = "#2a3448"
+black_blue   = "#1d2230"

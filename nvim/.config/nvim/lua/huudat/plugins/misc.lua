@@ -39,7 +39,13 @@ return {
 		event = "BufReadPre",
 		opts = {
 			user_default_options = {
-				tailwind = true,
+				names = true,
+				css = true,
+				css_fn = true,
+				tailwind = "both",
+				tailwind_opts = {
+					update_names = true,
+				},
 			},
 		},
 	},

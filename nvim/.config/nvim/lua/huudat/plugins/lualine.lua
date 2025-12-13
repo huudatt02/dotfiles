@@ -40,7 +40,7 @@ return {
 
 		local diff = {
 			"diff",
-			symbols = { added = "󰐕", modified = "󰜥", removed = "󰅖" },
+			symbols = { added = "󰐕", modified = "󰛄", removed = "󰅖" },
 			colored = true,
 			diff_color = {
 				added = { fg = "#9ece6a" },

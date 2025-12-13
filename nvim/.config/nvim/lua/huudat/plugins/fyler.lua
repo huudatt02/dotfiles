@@ -1,9 +1,14 @@
 return {
 	"A7Lavinraj/fyler.nvim",
 	dependencies = { "nvim-mini/mini.icons" },
+	lazy = false,
 	opts = {
 		views = {
 			finder = {
+				close_on_select = true,
+				confirm_simple = false,
+				default_explorer = false,
+				delete_to_trash = false,
 				git_status = {
 					enabled = true,
 					symbols = {
@@ -21,6 +26,6 @@ return {
 		},
 	},
 	keys = {
-		{ "<leader>e", function() require('fyler').open() end, desc = "Open Fyler View" },
+		{ "<leader>e", "<Cmd>Fyler<Cr>", desc = "Open Fyler View" },
 	},
 }

@@ -26,6 +26,6 @@ return {
 		},
 	},
 	keys = {
-		{ "<leader>e", "<Cmd>Fyler<Cr>", desc = "Open Fyler View" },
+		{ "<leader>e", "<cmd>Fyler<CR>", desc = "Open Fyler View" },
 	},
 }

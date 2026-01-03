@@ -14,19 +14,55 @@ return {
 							silent = true,
 						})
 					end
-					map("n", "gr", "<cmd>FzfLua lsp_references<CR>", "Show LSP references")
-					map("n", "gd", "<cmd>FzfLua lsp_definitions<CR>", "Show LSP definitions")
-					map("n", "gD", "<cmd>FzfLua lsp_declarations<CR>", "Go to declaration")
-					map("n", "gi", "<cmd>FzfLua lsp_implementations<CR>", "Show LSP implementations")
-					map("n", "gt", "<cmd>FzfLua lsp_typedefs<CR>", "Show LSP type definitions")
-					map("n", "gai", "<cmd>FzfLua lsp_incoming_calls<CR>", "Incoming Calls")
-					map("n", "gao", "<cmd>FzfLua lsp_outgoing_calls<CR>", "Outgoing Calls")
-					map("n", "<leader>ls", "<cmd>FzfLua lsp_document_symbols<CR>", "Show document symbols")
-					map("n", "<leader>lS", "<cmd>FzfLua lsp_workspace_symbols<CR>", "Show workspace symbols")
-					map({ "n", "v" }, "<leader>ca", "<cmd>FzfLua lsp_code_actions<CR>", "See available code actions")
+					map("n", "gr", function()
+						require("fzf-lua").lsp_references()
+					end, "Show LSP references")
+
+					map("n", "gd", function()
+						require("fzf-lua").lsp_definitions()
+					end, "Show LSP definitions")
+
+					map("n", "gD", function()
+						require("fzf-lua").lsp_declarations()
+					end, "Go to declaration")
+
+					map("n", "gi", function()
+						require("fzf-lua").lsp_implementations()
+					end, "Show LSP implementations")
+
+					map("n", "gt", function()
+						require("fzf-lua").lsp_typedefs()
+					end, "Show LSP type definitions")
+
+					map("n", "gai", function()
+						require("fzf-lua").lsp_incoming_calls()
+					end, "Incoming Calls")
+
+					map("n", "gao", function()
+						require("fzf-lua").lsp_outgoing_calls()
+					end, "Outgoing Calls")
+
+					map("n", "<leader>ls", function()
+						require("fzf-lua").lsp_document_symbols()
+					end, "Show document symbols")
+
+					map("n", "<leader>lS", function()
+						require("fzf-lua").lsp_workspace_symbols()
+					end, "Show workspace symbols")
+
+					map({ "n", "v" }, "<leader>ca", function()
+						require("fzf-lua").lsp_code_actions()
+					end, "See available code actions")
+
+					map("n", "<leader>ld", function()
+						require("fzf-lua").diagnostics_document()
+					end, "Show document diagnostics")
+
+					map("n", "<leader>lD", function()
+						require("fzf-lua").diagnostics_workspace()
+					end, "Show workspace diagnostics")
+
 					map("n", "<leader>rn", vim.lsp.buf.rename, "Smart rename")
-					map("n", "<leader>ld", "<cmd>FzfLua diagnostics_document<CR>", "Show document diagnostics")
-					map("n", "<leader>lD", "<cmd>FzfLua diagnostics_workspace<CR>", "Show workspace diagnostics")
 					map("n", "K", vim.lsp.buf.hover, "Show documentation for what is under cursor")
 					map("n", "<leader>rs", "<cmd>LspRestart<CR>", "Restart LSP")
 				end,

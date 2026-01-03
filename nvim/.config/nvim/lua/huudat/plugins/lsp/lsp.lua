@@ -7,6 +7,7 @@ return {
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
 				callback = function(ev)
+					local fzf = require("fzf-lua")
 					local function map(modes, lhs, rhs, desc)
 						vim.keymap.set(modes, lhs, rhs, {
 							buffer = ev.buf,
@@ -14,54 +15,19 @@ return {
 							silent = true,
 						})
 					end
-					map("n", "gr", function()
-						require("fzf-lua").lsp_references()
-					end, "Show LSP references")
 
-					map("n", "gd", function()
-						require("fzf-lua").lsp_definitions()
-					end, "Show LSP definitions")
-
-					map("n", "gD", function()
-						require("fzf-lua").lsp_declarations()
-					end, "Go to declaration")
-
-					map("n", "gi", function()
-						require("fzf-lua").lsp_implementations()
-					end, "Show LSP implementations")
-
-					map("n", "gt", function()
-						require("fzf-lua").lsp_typedefs()
-					end, "Show LSP type definitions")
-
-					map("n", "gai", function()
-						require("fzf-lua").lsp_incoming_calls()
-					end, "Incoming Calls")
-
-					map("n", "gao", function()
-						require("fzf-lua").lsp_outgoing_calls()
-					end, "Outgoing Calls")
-
-					map("n", "<leader>ls", function()
-						require("fzf-lua").lsp_document_symbols()
-					end, "Show document symbols")
-
-					map("n", "<leader>lS", function()
-						require("fzf-lua").lsp_workspace_symbols()
-					end, "Show workspace symbols")
-
-					map({ "n", "v" }, "<leader>ca", function()
-						require("fzf-lua").lsp_code_actions()
-					end, "See available code actions")
-
-					map("n", "<leader>ld", function()
-						require("fzf-lua").diagnostics_document()
-					end, "Show document diagnostics")
-
-					map("n", "<leader>lD", function()
-						require("fzf-lua").diagnostics_workspace()
-					end, "Show workspace diagnostics")
-
+					map("n", "gr", fzf.lsp_references, "References")
+					map("n", "gd", fzf.lsp_definitions, "Go to definition")
+					map("n", "gD", fzf.lsp_declarations, "Go to declaration")
+					map("n", "gi", fzf.lsp_implementations, "Implementations")
+					map("n", "gt", fzf.lsp_typedefs, "Type definitions")
+					map("n", "gai", fzf.lsp_incoming_calls, "Incoming calls")
+					map("n", "gao", fzf.lsp_outgoing_calls, "Outgoing calls")
+					map("n", "<leader>ls", fzf.lsp_document_symbols, "Document symbols")
+					map("n", "<leader>lS", fzf.lsp_workspace_symbols, "Workspace symbols")
+					map("n", "<leader>ld", fzf.diagnostics_document, "Document diagnostics")
+					map("n", "<leader>lD", fzf.diagnostics_workspace, "Workspace diagnostics")
+					map({ "n", "v" }, "<leader>ca", fzf.lsp_code_actions, "Code actions")
 					map("n", "<leader>rn", vim.lsp.buf.rename, "Smart rename")
 					map("n", "K", vim.lsp.buf.hover, "Show documentation for what is under cursor")
 					map("n", "<leader>rs", "<cmd>LspRestart<CR>", "Restart LSP")

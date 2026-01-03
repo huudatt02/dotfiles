@@ -46,6 +46,7 @@ return {
 			end,
 		},
 	},
+
 	{
 		"sindrets/diffview.nvim",
 		cmd = {

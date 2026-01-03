@@ -1,0 +1,80 @@
+return {
+	{
+		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
+		branch = "master",
+		build = ":TSUpdate",
+		main = "nvim-treesitter.configs",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+		},
+		opts = {
+			ensure_installed = {
+				"html",
+				"css",
+				"javascript",
+				"typescript",
+				"tsx",
+				"go",
+				"gomod",
+				"gosum",
+				"gowork",
+				"java",
+				"kotlin",
+				"python",
+				"groovy",
+				"xml",
+				"sql",
+				"json",
+				"yaml",
+				"graphql",
+				"dockerfile",
+				"gitignore",
+				"toml",
+				"lua",
+			},
+			auto_install = true,
+			sync_install = false,
+			highlight = { enable = true },
+			indent = { enable = true },
+			textobjects = {
+				select = {
+					enable = true,
+					lookahead = true,
+					keymaps = {
+						["af"] = "@function.outer",
+						["if"] = "@function.inner",
+						["ac"] = "@class.outer",
+						["ic"] = "@class.inner",
+					},
+					selection_modes = {
+						["@parameter.outer"] = "v",
+						["@function.outer"] = "V",
+						["@class.outer"] = "<c-v>",
+					},
+					include_surrounding_whitespace = false,
+				},
+				move = {
+					enable = true,
+					set_jumps = true,
+					goto_next_start = {
+						["]f"] = "@function.outer",
+						["]c"] = "@class.outer",
+						["]l"] = "@loop.outer",
+					},
+					goto_previous_start = {
+						["[f"] = "@function.outer",
+						["[c"] = "@class.outer",
+						["[l"] = "@loop.outer",
+					},
+					goto_next = {
+						["]d"] = "@conditional.outer",
+					},
+					goto_previous = {
+						["[d"] = "@conditional.outer",
+					},
+				},
+			},
+		},
+	},
+}

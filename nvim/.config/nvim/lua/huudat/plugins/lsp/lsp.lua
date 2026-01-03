@@ -1,0 +1,82 @@
+return {
+	{
+		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = { "saghen/blink.cmp" },
+		config = function()
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
+				callback = function(ev)
+					local function map(modes, lhs, rhs, desc)
+						vim.keymap.set(modes, lhs, rhs, {
+							buffer = ev.buf,
+							desc = desc,
+							silent = true,
+						})
+					end
+					map("n", "gr", "<cmd>FzfLua lsp_references<CR>", "Show LSP references")
+					map("n", "gd", "<cmd>FzfLua lsp_definitions<CR>", "Show LSP definitions")
+					map("n", "gD", "<cmd>FzfLua lsp_declarations<CR>", "Go to declaration")
+					map("n", "gi", "<cmd>FzfLua lsp_implementations<CR>", "Show LSP implementations")
+					map("n", "gt", "<cmd>FzfLua lsp_typedefs<CR>", "Show LSP type definitions")
+					map("n", "gai", "<cmd>FzfLua lsp_incoming_calls<CR>", "Incoming Calls")
+					map("n", "gao", "<cmd>FzfLua lsp_outgoing_calls<CR>", "Outgoing Calls")
+					map("n", "<leader>ls", "<cmd>FzfLua lsp_document_symbols<CR>", "Show document symbols")
+					map("n", "<leader>lS", "<cmd>FzfLua lsp_workspace_symbols<CR>", "Show workspace symbols")
+					map({ "n", "v" }, "<leader>ca", "<cmd>FzfLua lsp_code_actions<CR>", "See available code actions")
+					map("n", "<leader>rn", vim.lsp.buf.rename, "Smart rename")
+					map("n", "<leader>ld", "<cmd>FzfLua diagnostics_document<CR>", "Show document diagnostics")
+					map("n", "<leader>lD", "<cmd>FzfLua diagnostics_workspace<CR>", "Show workspace diagnostics")
+					map("n", "K", vim.lsp.buf.hover, "Show documentation for what is under cursor")
+					map("n", "<leader>rs", "<cmd>LspRestart<CR>", "Restart LSP")
+				end,
+			})
+
+			vim.diagnostic.config({
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = "󰅙 ",
+						[vim.diagnostic.severity.WARN] = "󰀦 ",
+						[vim.diagnostic.severity.HINT] = "󰠠 ",
+						[vim.diagnostic.severity.INFO] = "󰋼 ",
+					},
+				},
+				virtual_text = false,
+				underline = true,
+				update_in_insert = false,
+				severity_sort = true,
+			})
+		end,
+	},
+
+	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy",
+		priority = 1000,
+		opts = {
+			preset = "classic",
+			transparent_bg = false,
+			transparent_cursorline = true,
+			options = {
+				add_messages = {
+					display_count = true,
+				},
+				multilines = {
+					enabled = true,
+					always_show = true,
+				},
+			},
+		},
+	},
+
+	{
+		"j-hui/fidget.nvim",
+		opts = {
+			notification = {
+				window = {
+					winblend = 0,
+				},
+			},
+		},
+	},
+}

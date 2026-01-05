@@ -58,15 +58,13 @@ local config = {
 		"-data",
 		workspace_dir,
 	},
-    root_dir = require('jdtls.setup').find_root({
+    root_dir = vim.fs.root(0, {
         ".git",
         "mvnw",
         "gradlew",
         "pom.xml",
         "build.gradle",
         "build.gradle.kts",
-        "settings.gradle",
-        "settings.gradle.kts",
     }),
 	settings = {
 		java = {

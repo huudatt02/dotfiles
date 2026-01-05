@@ -26,12 +26,9 @@ return {
 		-- Git
 		{ "<leader>gf", "<cmd>FzfLua git_files<CR>", desc = "Git Files" },
 		{ "<leader>gs", "<cmd>FzfLua git_status<CR>", desc = "Git Status" },
-		{ "<leader>gS", "<cmd>FzfLua git_stash<CR>", desc = "Git Stash" },
 		{ "<leader>gb", "<cmd>FzfLua git_branches<CR>", desc = "Git Branches" },
-		{ "<leader>gB", "<cmd>FzfLua git_blame<CR>", desc = "Git Blame" },
 		{ "<leader>gc", "<cmd>FzfLua git_commits<CR>", desc = "Git Commits" },
 		{ "<leader>gC", "<cmd>FzfLua git_bcommits<CR>", desc = "Git Bcommits" },
-		{ "<leader>gd", "<cmd>FzfLua git_diff HEAD<CR>", desc = "Git Diff (HEAD)" },
 
 		-- Misc
 		{ "<leader>ut", "<cmd>FzfLua undotree<CR>", desc = "Undotree" },

@@ -10,7 +10,6 @@ if not status then
 end
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
-extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
 local os_config = ""
 if vim.fn.has("macunix") == 1 then

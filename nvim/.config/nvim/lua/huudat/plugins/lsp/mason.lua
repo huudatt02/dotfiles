@@ -47,6 +47,7 @@ return {
 				"golangci-lint",
 				"google-java-format",
 				"java-debug-adapter",
+				"java-test",
 				"ruff",
 				"yamlfmt",
 			},

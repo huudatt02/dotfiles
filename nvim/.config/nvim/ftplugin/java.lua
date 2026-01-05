@@ -95,9 +95,14 @@ local config = {
 require("jdtls").start_or_attach(config)
 
 local map = vim.keymap.set
-map("n", "<leader>co", jdtls.organize_imports, { desc = "Organize Imports" })
-map("n", "<leader>crv", jdtls.extract_variable, { desc = "Extract Variable" })
-map("n", "<leader>crc", jdtls.extract_constant, { desc = "Extract Constant" })
-map("v", "<leader>crv", function() jdtls.extract_variable(true) end, { desc = "Extract Variable" })
-map("v", "<leader>crc", function() jdtls.extract_constant(true) end, { desc = "Extract Constant" })
-map("v", "<leader>crm", function() jdtls.extract_method(true) end, { desc = "Extract Method" })
+-- Normal mode
+map("n", "<leader>co", jdtls.organize_imports, { desc = "JDTLS: Organize Imports" })
+map("n", "<leader>crv", jdtls.extract_variable, { desc = "JDTLS: Extract Variable" })
+map("n", "<leader>crc", jdtls.extract_constant, { desc = "JDTLS: Extract Constant" })
+map("n", "<leader>df", jdtls.test_class, { desc = "JDTLS: Test Class" })
+map("n", "<leader>dn", jdtls.test_nearest_method, { desc = "JDTLS: Test Nearest Method" })
+
+-- Visual mode
+map("v", "<leader>crv", function() jdtls.extract_variable(true) end, { desc = "JDTLS: Extract Variable" })
+map("v", "<leader>crc", function() jdtls.extract_constant(true) end, { desc = "JDTLS: Extract Constant" })
+map("v", "<leader>crm", function() jdtls.extract_method(true) end, { desc = "JDTLS: Extract Method" })

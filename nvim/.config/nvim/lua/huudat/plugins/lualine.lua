@@ -52,21 +52,6 @@ return {
 			},
 		}
 
-		local function filesize()
-			if vim.fn.winwidth(0) < 80 then
-				return ""
-			end
-
-			local size = math.max(vim.fn.line2byte(vim.fn.line("$") + 1) - 1, 0)
-			if size < 1024 then
-				return string.format("%dB", size)
-			elseif size < 1048576 then
-				return string.format("%.2fKiB", size / 1024)
-			else
-				return string.format("%.2fMiB", size / 1048576)
-			end
-		end
-
 		return {
 			options = {
 				theme = "tokyonight",
@@ -79,7 +64,7 @@ return {
 				lualine_a = { mode },
 				lualine_b = { branch, diff, diagnostics },
 				lualine_c = { filename },
-				lualine_x = { "copilot", "filetype", filesize, "encoding" },
+				lualine_x = { "copilot", "filetype", "encoding" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
 			},

@@ -27,7 +27,7 @@ return {
 					map("n", "<leader>lS", fzf.lsp_workspace_symbols, "Workspace symbols")
 					map("n", "<leader>ld", fzf.diagnostics_document, "Document diagnostics")
 					map("n", "<leader>lD", fzf.diagnostics_workspace, "Workspace diagnostics")
-					map({ "n", "v" }, "<leader>ca", fzf.lsp_code_actions, "Code actions")
+					map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code actions")
 					map("n", "<leader>rn", vim.lsp.buf.rename, "Smart rename")
 					map("n", "K", vim.lsp.buf.hover, "Show documentation for what is under cursor")
 					map("n", "<leader>rs", "<cmd>LspRestart<CR>", "Restart LSP")

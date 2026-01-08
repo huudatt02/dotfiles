@@ -48,17 +48,11 @@ return {
 	},
 
 	{
-		"sindrets/diffview.nvim",
-		cmd = {
-			"DiffviewOpen",
-			"DiffviewClose",
-			"DiffviewFileHistory",
-		},
+		"esmuellert/codediff.nvim",
+		dependencies = { "MunifTanjim/nui.nvim" },
+		cmd = "CodeDiff",
 		keys = {
-			{ "<leader>dv", "<cmd>DiffviewOpen<CR>", desc = "Diffview: open" },
-			{ "<leader>dc", "<cmd>DiffviewClose<CR>", desc = "Diffview: close" },
-			{ "<leader>df", "<cmd>DiffviewFileHistory %<CR>", desc = "Diffview: file history" },
-			{ "<leader>dF", "<cmd>DiffviewFileHistory<CR>", desc = "Diffview: repo history" },
+			{ "<leader>cd", "<cmd>CodeDiff<CR>", desc = "Toggle CodeDiff" },
 		},
 	},
 }

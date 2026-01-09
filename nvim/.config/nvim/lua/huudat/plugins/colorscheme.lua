@@ -15,9 +15,6 @@ return {
 			hl.LineNrAbove = { fg = c.dark5 }
 			hl.LineNrBelow = { fg = c.dark5 }
 			hl.EndOfBuffer = { fg = c.dark5 }
-			hl.diffAdded = { fg = c.green, bg = c.none }
-			hl.diffChanged = { fg = c.yellow, bg = c.none }
-			hl.diffRemoved = { fg = c.red, bg = c.none }
 		end,
 	},
 	config = function(_, opts)

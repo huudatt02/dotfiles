@@ -4,7 +4,13 @@ return {
 	lazy = false,
 	opts = {
 		bufdelete = { enabled = true },
-		indent = { enabled = false },
+		image = { enabled = true },
+		indent = {
+			enabled = false,
+			animate = {
+				enabled = false,
+			},
+		},
 		input = { enabled = true },
 		picker = { enabled = true },
 		quickfile = { enabled = true },

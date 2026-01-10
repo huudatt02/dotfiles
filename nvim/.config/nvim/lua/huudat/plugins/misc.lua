@@ -70,4 +70,18 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		opts = {},
 	},
+
+	{
+		"nvim-mini/mini.pairs",
+		version = false,
+		event = "InsertEnter",
+		opts = {},
+	},
+
+	{
+		"nvim-mini/mini.surround",
+		version = false,
+		event = { "BufReadPost", "BufNewFile" },
+		opts = {},
+	},
 }

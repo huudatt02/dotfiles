@@ -3,6 +3,7 @@ return {
 	event = "VeryLazy",
 	dependencies = {
 		"AndreM222/copilot-lualine",
+		"nvim-tree/nvim-web-devicons",
 	},
 	opts = function()
 		local mode = {

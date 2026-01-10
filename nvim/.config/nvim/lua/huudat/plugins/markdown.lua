@@ -3,7 +3,7 @@ return {
 	ft = "markdown",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
-		"nvim-tree/nvim-web-devicons",
+		"nvim-mini/mini.icons",
 	},
 	opts = {},
 }

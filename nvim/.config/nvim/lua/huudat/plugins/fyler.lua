@@ -12,8 +12,9 @@ return {
 			finder = {
 				close_on_select = true,
 				confirm_simple = false,
-				default_explorer = false,
+				default_explorer = true,
 				delete_to_trash = false,
+				columns_order = { "git", "diagnostic" },
 				columns = {
 					git = {
 						enabled = true,

@@ -5,12 +5,6 @@ return {
 	opts = {
 		bufdelete = { enabled = true },
 		image = { enabled = true },
-		indent = {
-			enabled = false,
-			animate = {
-				enabled = false,
-			},
-		},
 		input = { enabled = true },
 		picker = { enabled = true },
 		quickfile = { enabled = true },

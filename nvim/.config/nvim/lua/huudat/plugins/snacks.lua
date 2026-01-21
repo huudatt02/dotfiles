@@ -4,7 +4,6 @@ return {
 	lazy = false,
 	opts = {
 		bufdelete = { enabled = true },
-		image = { enabled = true },
 		input = { enabled = true },
 		picker = { enabled = true },
 		quickfile = { enabled = true },

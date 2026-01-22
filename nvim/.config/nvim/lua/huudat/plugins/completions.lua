@@ -36,7 +36,6 @@ return {
 				auto_show = false,
 				window = { border = "rounded" },
 			},
-			ghost_text = { enabled = true },
 		},
 		cmdline = {
 			keymap = { preset = "inherit" },

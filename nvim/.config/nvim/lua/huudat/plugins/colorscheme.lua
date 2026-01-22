@@ -16,9 +16,9 @@ return {
 			hl.LineNrBelow = { fg = c.dark5 }
 			hl.EndOfBuffer = { fg = c.dark5 }
 			hl.LspInlayHint = { fg = c.comment, bg = c.none, italic = true }
-            hl.diffAdded = { fg = c.green }
-            hl.diffChanged = { fg = c.orange }
-            hl.diffRemoved = { fg = c.red }
+			hl.diffAdded = { fg = c.green }
+			hl.diffChanged = { fg = c.orange }
+			hl.diffRemoved = { fg = c.red }
 		end,
 	},
 	config = function(_, opts)

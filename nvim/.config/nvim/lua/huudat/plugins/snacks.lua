@@ -6,6 +6,7 @@ return {
 		bufdelete = { enabled = true },
 		input = { enabled = true },
 		picker = { enabled = true },
+		notifier = { enabled = true },
 		quickfile = { enabled = true },
 		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
@@ -27,5 +28,8 @@ return {
 
 		-- terminal
 		{ "<C-\\>", function() Snacks.terminal.toggle() end, desc = "Toggle Terminal" },
+
+		-- notifier
+		{ "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
 	},
 }

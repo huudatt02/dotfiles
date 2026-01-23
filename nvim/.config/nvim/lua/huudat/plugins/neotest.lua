@@ -23,11 +23,6 @@ return {
 				"theHamsta/nvim-dap-virtual-text",
 			},
 		},
-		{
-			"nvim-neotest/neotest-python",
-			ft = "python",
-			dependencies = { "mfussenegger/nvim-dap-python" },
-		},
 	},
 	config = function()
 		require("neotest").setup({
@@ -36,12 +31,6 @@ return {
 					runner = "gotestsum",
 				}),
 				require("neotest-java"),
-				require("neotest-python")({
-					dap = { justMyCode = false },
-					args = { "--log-level", "DEBUG" },
-					runner = "pytest",
-					python = ".venv/bin/python",
-				}),
 			},
 		})
 	end,

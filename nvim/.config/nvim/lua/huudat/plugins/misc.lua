@@ -36,10 +36,9 @@ return {
 			user_default_options = {
 				names = false,
 				css = true,
-				tailwind = "both",
-				tailwind_opts = {
-					update_names = true,
-				},
+				tailwind = "lsp",
+				mode = "virtualtext",
+				virtualtext_inline = "before",
 			},
 		},
 	},
@@ -49,11 +48,11 @@ return {
 		event = "VeryLazy",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {},
-        keys = {
+		keys = {
             { "]t", function() require("todo-comments").jump_next() end, desc = "Next Todo Comment" },
             { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous Todo Comment" },
             { "<leader>st", function() require("todo-comments.fzf").todo() end, desc = "Todo" },
-        }
+		},
 	},
 
 	{

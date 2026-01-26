@@ -29,11 +29,8 @@ return {
 
 		-- terminal
 		{ "<C-\\>", function() Snacks.terminal.toggle() end, desc = "Toggle Terminal" },
-
-		-- notifier
-		{ "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
 		{
-			"<leader>t",
+			"<C-S-\\>",
 			function()
 				local dir = vim.fn.expand("%:p:h")
 				if dir == "" then
@@ -43,5 +40,8 @@ return {
 			end,
 			desc = "Terminal (buffer dir)",
 		},
+
+		-- notifier
+		{ "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
 	},
 }

@@ -46,4 +46,15 @@ return {
 			end,
 		},
 	},
+
+	{
+		"esmuellert/codediff.nvim",
+		dependencies = { "MunifTanjim/nui.nvim" },
+		cmd = "CodeDiff",
+		keys = {
+			{ "<leader>cd", "<cmd>CodeDiff<CR>", desc = "CodeDiff: diff code" },
+			{ "<leader>ch", "<cmd>CodeDiff history %<CR>", desc = "CodeDiff: File History" },
+			{ "<leader>cH", "<cmd>CodeDiff history<CR>", desc = "CodeDiff: History (pick file)" },
+		},
+	},
 }

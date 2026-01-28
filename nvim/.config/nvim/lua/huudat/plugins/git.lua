@@ -49,6 +49,9 @@ return {
 
 	{
 		"sindrets/diffview.nvim",
+		cmd = {
+			"DiffviewOpen",
+		},
 		keys = {
 			{
 				"<leader>dv",
@@ -61,6 +64,30 @@ return {
 					end
 				end,
 				desc = "Toggle Diffview",
+			},
+			{
+				"<leader>dh",
+				function()
+					local lib = require("diffview.lib")
+					if next(lib.views) == nil then
+						vim.cmd("DiffviewFileHistory")
+					else
+						vim.cmd("DiffviewClose")
+					end
+				end,
+				desc = "Toggle Diffview File History",
+			},
+			{
+				"<leader>df",
+				function()
+					local lib = require("diffview.lib")
+					if next(lib.views) == nil then
+						vim.cmd("DiffviewFileHistory %")
+					else
+						vim.cmd("DiffviewClose")
+					end
+				end,
+				desc = "Toggle Diffview File History (current file)",
 			},
 		},
 	},

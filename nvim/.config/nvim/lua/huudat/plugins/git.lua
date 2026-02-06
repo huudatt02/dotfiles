@@ -57,4 +57,6 @@ return {
 			{ "<leader>cH", "<cmd>CodeDiff history<CR>", desc = "CodeDiff: History (pick file)" },
 		},
 	},
+
+	{ "tpope/vim-fugitive" },
 }

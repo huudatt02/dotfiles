@@ -58,5 +58,21 @@ return {
 		},
 	},
 
-	{ "tpope/vim-fugitive" },
+	{
+		"FabijanZulj/blame.nvim",
+		lazy = false,
+		opts = {},
+		keys = {
+			{
+				"<leader>bl",
+				"<cmd>BlameToggle<cr>",
+				desc = "Git blame (window)",
+			},
+			{
+				"<leader>bL",
+				"<cmd>BlameToggle virtual<cr>",
+				desc = "Git blame (virtual)",
+			},
+		},
+	},
 }

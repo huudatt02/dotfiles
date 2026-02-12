@@ -1,0 +1,21 @@
+theme = TokyoNight Night
+
+font-family = JetBrainsMonoNL Nerd Font
+font-size = 16
+
+adjust-cursor-thickness = 20%
+adjust-cursor-height = 20%
+
+macos-titlebar-style = hidden
+macos-titlebar-proxy-icon = hidden
+macos-window-shadow = false
+
+window-padding-x = 10
+window-padding-balance = true
+
+background-opacity = 0.8
+background-blur = 10
+
+macos-option-as-alt = left
+
+confirm-close-surface = false

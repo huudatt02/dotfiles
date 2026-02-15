@@ -42,6 +42,7 @@ return {
 		opts = {
 			ensure_installed = {
 				"stylua",
+				"delve",
 				"gofumpt",
 				"gotestsum",
 				"golangci-lint",

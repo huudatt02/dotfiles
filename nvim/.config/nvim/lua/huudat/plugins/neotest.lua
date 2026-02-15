@@ -7,15 +7,10 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		{
 			"fredrikaverpil/neotest-golang",
-			ft = "go",
 			version = "*",
-			dependencies = {
-				"leoluz/nvim-dap-go",
-			},
 		},
 		{
 			"rcasia/neotest-java",
-			ft = "java",
 			dependencies = {
 				"mfussenegger/nvim-jdtls",
 				"mfussenegger/nvim-dap",

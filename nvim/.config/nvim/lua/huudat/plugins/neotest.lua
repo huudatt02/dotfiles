@@ -7,7 +7,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		{
 			"fredrikaverpil/neotest-golang",
-            ft = "go",
+			ft = "go",
 			version = "*",
 			dependencies = {
 				"leoluz/nvim-dap-go",
@@ -23,6 +23,7 @@ return {
 				"theHamsta/nvim-dap-virtual-text",
 			},
 		},
+		"nvim-neotest/neotest-jest",
 	},
 	config = function()
 		require("neotest").setup({
@@ -31,10 +32,18 @@ return {
 					runner = "gotestsum",
 				}),
 				require("neotest-java"),
+				require("neotest-jest")({
+					jestCommand = "npm test --",
+					env = { CI = true },
+					cwd = function(path)
+						return vim.fn.getcwd()
+					end,
+				}),
 			},
 		})
 	end,
 	keys = {
+        -- stylua: ignore start
         { "<leader>ta", function() require("neotest").run.attach() end, desc = "Attach to Test (Neotest)" },
         { "<leader>tt", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run File (Neotest)" },
         { "<leader>tT", function() require("neotest").run.run(vim.uv.cwd()) end, desc = "Run All Test Files (Neotest)" },
@@ -46,5 +55,6 @@ return {
         { "<leader>tO", function() require("neotest").output_panel.toggle() end, desc = "Toggle Output Panel (Neotest)" },
         { "<leader>tS", function() require("neotest").run.stop() end, desc = "Stop (Neotest)" },
         { "<leader>tw", function() require("neotest").watch.toggle(vim.fn.expand("%")) end, desc = "Toggle Watch (Neotest)" },
-    },
+		-- stylua: ignore end
+	},
 }

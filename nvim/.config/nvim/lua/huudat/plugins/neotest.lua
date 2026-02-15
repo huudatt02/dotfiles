@@ -33,7 +33,7 @@ return {
 				}),
 				require("neotest-java"),
 				require("neotest-jest")({
-					jestCommand = "npm test --",
+					jestCommand = "pnpm exec jest",
 					env = { CI = true },
 					cwd = function(path)
 						return vim.fn.getcwd()

@@ -2,15 +2,21 @@ return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
+		{
+			"theHamsta/nvim-dap-virtual-text",
+			opts = {
+				virt_text_pos = "eol",
+			},
+		},
 		"nvim-neotest/nvim-nio",
 		"leoluz/nvim-dap-go",
 	},
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")
+		dapui.setup()
 
 		require("dap-go").setup()
-		dapui.setup()
 
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
@@ -26,6 +32,7 @@ return {
 		end
 	end,
 	keys = {
+        -- stylua: ignore start
 		{ "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
 		{ "<leader>dd", function() require("dap").continue() end, desc = "Start/Continue" },
 		{ "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
@@ -33,5 +40,6 @@ return {
 		{ "<leader>du", function() require("dap").step_out() end, desc = "Step Out" },
 		{ "<leader>dr", function() require("dap").restart() end, desc = "Restart" },
 		{ "<leader>dt", function() require("dapui").toggle() end, desc = "DAP UI Toggle" },
+		-- stylua: ignore end
 	},
 }

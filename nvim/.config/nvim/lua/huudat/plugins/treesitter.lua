@@ -29,7 +29,7 @@ return {
 				-- config / data
 				"xml",
 				"sql",
-				"json",
+				"json5",
 				"yaml",
 				"proto",
 				"graphql",

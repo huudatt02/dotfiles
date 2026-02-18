@@ -10,4 +10,5 @@ alias ls="eza -1 --icons --group-directories-first"
 
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
+eval "$(zoxide init zsh)"
 

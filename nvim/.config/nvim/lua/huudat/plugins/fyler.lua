@@ -21,7 +21,7 @@ return {
 						symbols = {
 							Untracked = "󰋖 ",
 							Added = " ",
-							Modified = " ",
+							Modified = "󰜥 ",
 							Deleted = " ",
 							Renamed = "󰁕 ",
 							Copied = " ",

@@ -20,7 +20,7 @@ return {
 				"jdtls",
 				"gopls",
 				"vtsls",
-				"html",
+				"superhtml",
 				"cssls",
 				"eslint",
 				"tailwindcss",

@@ -16,29 +16,11 @@ return {
 			end,
 		}
 
-		local filename = {
-			"filename",
-			path = 1,
-			fmt = function(name)
-				if vim.fn.winwidth(0) < 100 then
-					return vim.fn.fnamemodify(name, ":t")
-				end
-
-				local parts = vim.split(name, "/")
-				local len = #parts
-				if len <= 3 then
-					return name
-				else
-					return table.concat({ parts[len - 2], parts[len - 1], parts[len] }, "/")
-				end
-			end,
-		}
-
 		local branch = { "branch", icon = "" }
 
 		local diagnostics = {
 			"diagnostics",
-			symbols = { error = " ", warn = " ", info = " ", hint = " " },
+			symbols = { error = " ", warn = " ", info = " ", hint = " " },
 			colored = true,
 		}
 
@@ -64,7 +46,7 @@ return {
 			sections = {
 				lualine_a = { mode },
 				lualine_b = { branch, diff, diagnostics },
-				lualine_c = { filename },
+				lualine_c = { "filename" },
 				lualine_x = { "copilot", "filetype", "encoding" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },

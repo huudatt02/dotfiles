@@ -22,6 +22,7 @@ return {
 		words = { enabled = true },
 	},
 	keys = {
+        -- stylua: ignore start
 		-- bufdelete
 		{ "<leader>bd", function() Snacks.bufdelete.delete() end, desc = "Delete buffer" },
 		{ "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Delete other buffers" },
@@ -29,19 +30,9 @@ return {
 
 		-- terminal
 		{ "<C-\\>", function() Snacks.terminal.toggle() end, desc = "Toggle Terminal" },
-		{
-			"<C-S-\\>",
-			function()
-				local dir = vim.fn.expand("%:p:h")
-				if dir == "" then
-					dir = vim.fn.getcwd()
-				end
-				Snacks.terminal.open(nil, { cwd = dir })
-			end,
-			desc = "Terminal (buffer dir)",
-		},
 
 		-- notifier
 		{ "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
+        -- stylua: ignore end
 	},
 }

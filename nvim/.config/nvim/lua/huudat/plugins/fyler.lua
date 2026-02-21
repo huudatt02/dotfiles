@@ -24,7 +24,7 @@ return {
 							Modified = "󰜥 ",
 							Deleted = " ",
 							Renamed = "󰁕 ",
-							Copied = " ",
+							Copied = " ",
 							Conflict = " ",
 							Ignored = " ",
 						},

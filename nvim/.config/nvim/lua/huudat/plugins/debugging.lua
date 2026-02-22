@@ -18,10 +18,12 @@ return {
 
 		require("dap-go").setup()
 
-		vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "", linehl = "", numhl = "" })
-		vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "", linehl = "", numhl = "" })
-		vim.fn.sign_define("DapConditionalBreakpoint", { text = "󰋖", texthl = "", linehl = "", numhl = "" })
-		vim.fn.sign_define("DapStopped", { text = "", texthl = "", linehl = "", numhl = "" })
+        -- stylua: ignore start
+		vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+		vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+		vim.fn.sign_define("DapConditionalBreakpoint", { text = "󰋖", texthl = "DiagnosticSignWarn", linehl = "", numhl = "" })
+		vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticSignInfo", linehl = "Visual", numhl = "" })
+        -- stylua: ignore end
 
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()

@@ -1,4 +1,3 @@
-export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh

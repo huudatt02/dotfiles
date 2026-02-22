@@ -1,3 +1,3 @@
-require("huudat.core.keymaps")
-require("huudat.core.options")
-require("huudat.core.lazy")
+require("huudat.config.keymaps")
+require("huudat.config.options")
+require("huudat.config.lazy")

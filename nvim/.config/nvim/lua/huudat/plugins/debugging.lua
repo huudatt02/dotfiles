@@ -18,6 +18,11 @@ return {
 
 		require("dap-go").setup()
 
+		vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "", linehl = "", numhl = "" })
+		vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "", linehl = "", numhl = "" })
+		vim.fn.sign_define("DapConditionalBreakpoint", { text = "󰋖", texthl = "", linehl = "", numhl = "" })
+		vim.fn.sign_define("DapStopped", { text = "", texthl = "", linehl = "", numhl = "" })
+
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
 		end

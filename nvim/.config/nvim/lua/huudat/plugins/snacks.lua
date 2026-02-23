@@ -5,6 +5,7 @@ return {
 	opts = {
 		bigfile = { enabled = true },
 		bufdelete = { enabled = true },
+		image = { enabled = true },
 		input = {
 			enabled = true,
 			previewers = {

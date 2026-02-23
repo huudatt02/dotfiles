@@ -51,7 +51,7 @@ return {
 		{ "<C-\\>", function() Snacks.terminal.toggle() end, desc = "Toggle Terminal" },
 
 		-- notifier
-		{ "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
+        { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
 
         -- find
         { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },

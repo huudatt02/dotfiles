@@ -6,7 +6,8 @@ return {
 		bigfile = { enabled = true },
 		bufdelete = { enabled = true },
 		image = { enabled = true },
-		input = {
+		input = { enabled = true },
+		picker = {
 			enabled = true,
 			previewers = {
 				diff = {
@@ -26,7 +27,6 @@ return {
 				},
 			},
 		},
-		picker = { enabled = true },
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
 		scroll = { enabled = true },

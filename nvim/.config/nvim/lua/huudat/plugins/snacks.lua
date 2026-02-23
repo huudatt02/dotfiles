@@ -71,6 +71,7 @@ return {
         { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
         { "<leader>sl", function() Snacks.picker.loclist() end, desc = "Location List" },
         { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
+        { "<leader>st", function() Snacks.picker.todo_comments() end, desc = "Todo" },
         { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
 		-- stylua: ignore end
 	},

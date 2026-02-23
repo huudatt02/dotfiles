@@ -7,7 +7,6 @@ return {
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
 				callback = function(ev)
-					local fzf = require("fzf-lua")
 					local function map(modes, lhs, rhs, desc)
 						vim.keymap.set(modes, lhs, rhs, {
 							buffer = ev.buf,
@@ -16,19 +15,21 @@ return {
 						})
 					end
 
-					map("n", "gr", fzf.lsp_references, "References")
-					map("n", "gd", fzf.lsp_definitions, "Go to definition")
-					map("n", "gD", fzf.lsp_declarations, "Go to declaration")
-					map("n", "gi", fzf.lsp_implementations, "Implementations")
-					map("n", "gt", fzf.lsp_typedefs, "Type definitions")
-					map("n", "<leader>ls", fzf.lsp_document_symbols, "Document symbols")
-					map("n", "<leader>lS", fzf.lsp_workspace_symbols, "Workspace symbols")
-					map("n", "<leader>ld", fzf.diagnostics_document, "Document diagnostics")
-					map("n", "<leader>lD", fzf.diagnostics_workspace, "Workspace diagnostics")
-					map({ "n", "v" }, "<leader>ca", fzf.lsp_code_actions, "Code actions")
+                    -- stylua: ignore start
+					map("n", "gr", function() Snacks.picker.lsp_references() end, "References")
+					map("n", "gd", function() Snacks.picker.lsp_definitions() end, "Goto Definition")
+					map("n", "gD", function() Snacks.picker.lsp_declarations() end, "Goto Declaration")
+					map("n", "gi", function() Snacks.picker.lsp_implementations() end, "Goto Implementation")
+					map("n", "gt", function() Snacks.picker.lsp_type_definitions() end, "Goto Type Definition")
+					map("n", "<leader>ss", function() Snacks.picker.lsp_symbols() end, "LSP Symbols")
+					map("n", "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, "LSP Workspace Symbols")
+					map("n", "<leader>sd", function() Snacks.picker.diagnostics_buffer() end, "Buffer Diagnostics")
+					map("n", "<leader>sD", function() Snacks.picker.diagnostics() end, "Diagnostics")
+					map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code actions")
 					map("n", "<leader>rn", vim.lsp.buf.rename, "Smart rename")
 					map("n", "K", vim.lsp.buf.hover, "Show documentation for what is under cursor")
 					map("n", "<leader>rs", "<cmd>LspRestart<CR>", "Restart LSP")
+					-- stylua: ignore end
 				end,
 			})
 

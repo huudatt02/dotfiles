@@ -5,7 +5,26 @@ return {
 	opts = {
 		bigfile = { enabled = true },
 		bufdelete = { enabled = true },
-		input = { enabled = true },
+		input = {
+			enabled = true,
+			previewers = {
+				diff = {
+					style = "syntax",
+				},
+			},
+			win = {
+				input = {
+					keys = {
+						["<a-.>"] = { "toggle_hidden", mode = { "i", "n" } },
+					},
+				},
+				list = {
+					keys = {
+						["<a-.>"] = "toggle_hidden",
+					},
+				},
+			},
+		},
 		picker = { enabled = true },
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
@@ -33,6 +52,23 @@ return {
 
 		-- notifier
 		{ "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
-        -- stylua: ignore end
+
+        -- find
+        { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+        { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+        { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
+
+        -- git
+        { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
+        { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
+
+        -- search
+        { "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep" },
+        { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
+        { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
+        { "<leader>sl", function() Snacks.picker.loclist() end, desc = "Location List" },
+        { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
+        { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
+		-- stylua: ignore end
 	},
 }

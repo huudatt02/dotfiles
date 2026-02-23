@@ -9,7 +9,6 @@ return {
 		ft = { "java", "yaml", "jproperties" },
 		dependencies = {
 			"mfussenegger/nvim-jdtls",
-			"ibhagwan/fzf-lua",
 		},
 		opts = {},
 	},

@@ -10,6 +10,19 @@ return {
 	},
 
 	{
+		"nvim-mini/mini.icons",
+		version = false,
+		lazy = true,
+		opts = {},
+		init = function()
+			package.preload["nvim-web-devicons"] = function()
+				require("mini.icons").mock_nvim_web_devicons()
+				return package.loaded["nvim-web-devicons"]
+			end
+		end,
+	},
+
+	{
 		"numToStr/Comment.nvim",
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
@@ -23,6 +36,19 @@ return {
 				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 			})
 		end,
+	},
+
+	{
+		"folke/todo-comments.nvim",
+		event = "VeryLazy",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {},
+		keys = {
+            -- stylua: ignore start
+			{ "]t", function() require("todo-comments").jump_next() end, desc = "Next Todo Comment" },
+			{ "[t", function() require("todo-comments").jump_prev() end, desc = "Previous Todo Comment" },
+			-- stylua: ignore end
+		},
 	},
 
 	{
@@ -64,21 +90,21 @@ return {
 	},
 
 	{
-		"folke/todo-comments.nvim",
-		event = "VeryLazy",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		"windwp/nvim-ts-autotag",
+		event = { "BufReadPost", "BufNewFile" },
 		opts = {},
-		keys = {
-            -- stylua: ignore start
-			{ "]t", function() require("todo-comments").jump_next() end, desc = "Next Todo Comment" },
-			{ "[t", function() require("todo-comments").jump_prev() end, desc = "Previous Todo Comment" },
-			-- stylua: ignore end
-		},
 	},
 
 	{
-		"windwp/nvim-ts-autotag",
-		event = { "BufReadPost", "BufNewFile" },
+		"kylechui/nvim-surround",
+		version = "^4.0.0",
+		event = "VeryLazy",
+		opts = {},
+	},
+
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
 		opts = {},
 	},
 }

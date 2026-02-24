@@ -16,6 +16,9 @@ require("lazy").setup({
 		{ import = "huudat.plugins" },
 		{ import = "huudat.plugins.lsp" },
 	},
+	ui = {
+		border = "rounded",
+	},
 	checker = {
 		enabled = true,
 		notify = false,

@@ -40,6 +40,7 @@ return {
 				"toml",
 				"lua",
 				-- docs & editor
+				"regex",
 				"markdown",
 				"markdown_inline",
 			},

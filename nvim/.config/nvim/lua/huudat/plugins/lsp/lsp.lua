@@ -7,12 +7,14 @@ return {
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
 				callback = function(ev)
-					local function map(modes, lhs, rhs, desc)
-						vim.keymap.set(modes, lhs, rhs, {
+					local function map(modes, lhs, rhs, desc, opts)
+						opts = vim.tbl_extend("force", {
 							buffer = ev.buf,
 							desc = desc,
 							silent = true,
-						})
+						}, opts or {})
+
+						vim.keymap.set(modes, lhs, rhs, opts)
 					end
 
                     -- stylua: ignore start

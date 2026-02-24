@@ -28,7 +28,9 @@ return {
 					map("n", "<leader>sd", function() Snacks.picker.diagnostics_buffer() end, "Buffer Diagnostics")
 					map("n", "<leader>sD", function() Snacks.picker.diagnostics() end, "Diagnostics")
 					map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code actions")
-					map("n", "<leader>rn", vim.lsp.buf.rename, "Smart rename")
+                    map("n", "<leader>rn", function()
+                        return ":IncRename " .. vim.fn.expand("<cword>")
+                    end, "Smart rename", { expr = true })
 					map("n", "K", vim.lsp.buf.hover, "Show documentation for what is under cursor")
 					map("n", "<leader>rs", "<cmd>LspRestart<CR>", "Restart LSP")
 					-- stylua: ignore end
@@ -81,5 +83,10 @@ return {
 				},
 			},
 		},
+	},
+
+	{
+		"smjonas/inc-rename.nvim",
+		opts = {},
 	},
 }

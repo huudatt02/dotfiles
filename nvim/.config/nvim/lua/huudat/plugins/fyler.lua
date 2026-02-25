@@ -35,7 +35,7 @@ return {
 							Error = " ",
 							Warn = " ",
 							Info = " ",
-							Hint = " ",
+							Hint = " ",
 						},
 					},
 				},

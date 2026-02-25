@@ -10,7 +10,7 @@ return {
 	},
 
 	{
-		"NickvanDyke/opencode.nvim",
+		"nickjvandyke/opencode.nvim",
 		dependencies = {
 			"folke/snacks.nvim",
 		},

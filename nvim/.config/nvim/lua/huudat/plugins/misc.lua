@@ -23,6 +23,13 @@ return {
 	},
 
 	{
+		"nvim-mini/mini.surround",
+		version = false,
+		event = "VeryLazy",
+		opts = {},
+	},
+
+	{
 		"numToStr/Comment.nvim",
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
@@ -92,13 +99,6 @@ return {
 	{
 		"windwp/nvim-ts-autotag",
 		event = { "BufReadPost", "BufNewFile" },
-		opts = {},
-	},
-
-	{
-		"kylechui/nvim-surround",
-		version = "^4.0.0",
-		event = "VeryLazy",
 		opts = {},
 	},
 

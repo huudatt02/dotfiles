@@ -17,9 +17,15 @@ return {
 					style = "syntax",
 				},
 			},
+			actions = {
+				opencode_send = function(...)
+					return require("opencode").snacks_picker_send(...)
+				end,
+			},
 			win = {
 				input = {
 					keys = {
+						["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
 						["<a-.>"] = { "toggle_hidden", mode = { "i", "n" } },
 					},
 				},

@@ -20,9 +20,9 @@ return {
 
         -- stylua: ignore start
 		vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-		vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-		vim.fn.sign_define("DapConditionalBreakpoint", { text = "󰋖", texthl = "DiagnosticSignWarn", linehl = "", numhl = "" })
-		vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticSignInfo", linehl = "Visual", numhl = "" })
+		vim.fn.sign_define("DapBreakpointRejected", { text = "󰜺", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+		vim.fn.sign_define("DapConditionalBreakpoint", { text = "󰈲", texthl = "DiagnosticSignWarn", linehl = "", numhl = "" })
+		vim.fn.sign_define("DapStopped", { text = "󰐊", texthl = "DiagnosticSignInfo", linehl = "Visual", numhl = "" })
         -- stylua: ignore end
 
 		dap.listeners.before.attach.dapui_config = function()

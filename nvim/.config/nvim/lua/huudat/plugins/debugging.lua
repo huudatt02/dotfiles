@@ -18,12 +18,27 @@ return {
 
 		require("dap-go").setup()
 
+		for _, adapter in ipairs({ "pwa-node", "pwa-chrome" }) do
+			dap.adapters[adapter] = {
+				type = "server",
+				host = "localhost",
+				port = "${port}",
+				executable = {
+					command = "node",
+					args = {
+						vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+						"${port}",
+					},
+				},
+			}
+		end
+
         -- stylua: ignore start
 		vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 		vim.fn.sign_define("DapBreakpointRejected", { text = "󰜺", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 		vim.fn.sign_define("DapConditionalBreakpoint", { text = "󰈲", texthl = "DiagnosticSignWarn", linehl = "", numhl = "" })
 		vim.fn.sign_define("DapStopped", { text = "󰐊", texthl = "DiagnosticSignInfo", linehl = "Visual", numhl = "" })
-        -- stylua: ignore end
+		-- stylua: ignore end
 
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()

@@ -28,6 +28,14 @@ return {
 					runner = "gotestsum",
 				}),
 				require("neotest-java"),
+				require("neotest-jest")({
+					jestCommand = "pnpm exec jest",
+					env = { CI = true },
+					cwd = function(path)
+						return vim.fn.getcwd()
+					end,
+				}),
+				require("neotest-vitest"),
 			},
 		})
 	end,

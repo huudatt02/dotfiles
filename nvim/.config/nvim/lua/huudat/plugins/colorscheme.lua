@@ -21,6 +21,7 @@ return {
 			hl.LineNrBelow = { fg = c.dark3 }
 			hl.EndOfBuffer = { fg = c.dark3 }
 			hl.LspInlayHint = { fg = c.comment, bg = c.none, italic = true }
+			hl.NeoTreeExpander = { fg = c.blue }
 		end,
 	},
 	config = function(_, opts)

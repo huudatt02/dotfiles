@@ -37,15 +37,33 @@ return {
 			mappings = {
 				["l"] = "toggle_node",
 				["h"] = "close_node",
-				["Y"] = {
+				["c"] = {
 					function(state)
 						local node = state.tree:get_node()
+						if not node then
+							return
+						end
+
 						local path = node:get_id()
 						local rel_path = vim.fn.fnamemodify(path, ":.")
-
 						vim.fn.setreg("+", rel_path)
 						vim.notify("Copied relative path: " .. rel_path)
 					end,
+					desc = "Copy relative path",
+				},
+
+				["C"] = {
+					function(state)
+						local node = state.tree:get_node()
+						if not node then
+							return
+						end
+
+						local abs_path = node:get_id()
+						vim.fn.setreg("+", abs_path)
+						vim.notify("Copied absolute path: " .. abs_path)
+					end,
+					desc = "Copy absolute path",
 				},
 			},
 		},

@@ -67,6 +67,12 @@ return {
 				},
 			},
 		},
+		filesystem = {
+			follow_current_file = {
+				enabled = true,
+				leave_dirs_open = false,
+			},
+		},
 	},
 	keys = {
 		{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle NeoTree" },

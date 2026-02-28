@@ -23,13 +23,6 @@ return {
 	},
 
 	{
-		"nvim-mini/mini.surround",
-		version = false,
-		event = "VeryLazy",
-		opts = {},
-	},
-
-	{
 		"numToStr/Comment.nvim",
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
@@ -97,6 +90,12 @@ return {
 	},
 
 	{
+		"NMAC427/guess-indent.nvim",
+		event = "BufReadPost",
+		opts = {},
+	},
+
+	{
 		"windwp/nvim-ts-autotag",
 		event = { "BufReadPost", "BufNewFile" },
 		opts = {},
@@ -105,6 +104,13 @@ return {
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
+		opts = {},
+	},
+
+	{
+		"nvim-mini/mini.surround",
+		version = false,
+		event = "VeryLazy",
 		opts = {},
 	},
 }

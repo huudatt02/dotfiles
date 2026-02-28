@@ -35,7 +35,7 @@ return {
 		},
 		window = {
 			mappings = {
-				["l"] = "toggle_node",
+				["l"] = "open",
 				["h"] = "close_node",
 				["c"] = {
 					function(state)
@@ -65,12 +65,6 @@ return {
 					end,
 					desc = "Copy absolute path",
 				},
-			},
-		},
-		filesystem = {
-			follow_current_file = {
-				enabled = true,
-				leave_dirs_open = true,
 			},
 		},
 	},

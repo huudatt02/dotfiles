@@ -12,9 +12,6 @@ return {
 		"fang2hou/blink-copilot",
 	},
 	opts = {
-		enabled = function()
-			return not vim.tbl_contains({ "fyler" }, vim.bo.filetype)
-		end,
 		keymap = {
 			preset = "default",
 			["<CR>"] = { "accept", "fallback" },

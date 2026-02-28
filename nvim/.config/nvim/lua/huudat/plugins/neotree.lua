@@ -17,6 +17,21 @@ return {
 				expander_expanded = "",
 				expander_highlight = "NeoTreeExpander",
 			},
+			git_status = {
+				symbols = {
+					-- Change type
+					added = "",
+					modified = "",
+					deleted = "",
+					renamed = "󰁕",
+					-- Status type
+					untracked = "󰋖",
+					ignored = "󰿟",
+					unstaged = "",
+					staged = "",
+					conflict = "",
+				},
+			},
 		},
 	},
 	keys = {

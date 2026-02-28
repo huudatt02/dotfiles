@@ -33,6 +33,18 @@ return {
 				},
 			},
 		},
+		window = {
+			mappings = {
+				["l"] = "toggle_node",
+				["h"] = "close_node",
+			},
+		},
+		filesystem = {
+			follow_current_file = {
+				enabled = true,
+				leave_dirs_open = false,
+			},
+		},
 	},
 	keys = {
 		{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle NeoTree" },

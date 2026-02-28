@@ -27,7 +27,7 @@ return {
 					-- Status type
 					untracked = "󰋖",
 					ignored = "󰿟",
-					unstaged = "",
+					unstaged = "",
 					staged = "",
 					conflict = "",
 				},
@@ -70,7 +70,7 @@ return {
 		filesystem = {
 			follow_current_file = {
 				enabled = true,
-				leave_dirs_open = false,
+				leave_dirs_open = true,
 			},
 		},
 	},

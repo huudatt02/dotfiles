@@ -109,6 +109,39 @@ return {
 	},
 
 	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {
+			preset = "helix",
+			spec = {
+				mode = { "n", "v" },
+				{ "<leader>b", group = "Buffers" },
+				{ "<leader>c", group = "Code" },
+				{ "<leader>d", group = "Debug" },
+				{ "<leader>f", group = "Files" },
+				{ "<leader>g", group = "Git" },
+				{ "<leader>h", group = "Gitsigns" },
+				{ "<leader>l", group = "Lint" },
+				{ "<leader>r", group = "LSP" },
+				{ "<leader>s", group = "Search" },
+				{ "<leader>t", group = "Neotest" },
+			},
+			win = {
+				border = "rounded",
+			},
+		},
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
+	},
+
+	{
 		"NMAC427/guess-indent.nvim",
 		event = "BufReadPost",
 		opts = {},

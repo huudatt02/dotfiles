@@ -9,9 +9,6 @@ return {
 		input = { enabled = true },
 		picker = {
 			enabled = true,
-			layout = {
-				cycle = false,
-			},
 			previewers = {
 				diff = {
 					style = "syntax",

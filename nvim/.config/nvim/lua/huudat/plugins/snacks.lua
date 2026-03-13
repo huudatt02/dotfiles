@@ -27,11 +27,15 @@ return {
 					keys = {
 						["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
 						["<a-.>"] = { "toggle_hidden", mode = { "i", "n" } },
+						["<c-j>"] = false,
+						["<c-k>"] = false,
 					},
 				},
 				list = {
 					keys = {
 						["<a-.>"] = "toggle_hidden",
+						["<c-j>"] = false,
+						["<c-k>"] = false,
 					},
 				},
 			},

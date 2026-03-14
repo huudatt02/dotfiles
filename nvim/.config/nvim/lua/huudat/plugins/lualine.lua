@@ -3,7 +3,6 @@ return {
 	event = "VeryLazy",
 	dependencies = {
 		"nvim-mini/mini.icons",
-		"AndreM222/copilot-lualine",
 	},
 	opts = function()
 		local mode = {
@@ -47,7 +46,7 @@ return {
 				lualine_a = { mode },
 				lualine_b = { branch, diff, diagnostics },
 				lualine_c = { "filename" },
-				lualine_x = { "copilot", "filetype", "encoding" },
+				lualine_x = { "filetype", "encoding" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
 			},

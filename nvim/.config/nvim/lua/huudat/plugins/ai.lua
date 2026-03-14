@@ -7,7 +7,7 @@ return {
 			panel = { enabled = false },
 			suggestion = {
 				enabled = true,
-				auto_trigger = true,
+				auto_trigger = false,
 				hide_during_completion = true,
 				debounce = 15,
 				trigger_on_accept = true,

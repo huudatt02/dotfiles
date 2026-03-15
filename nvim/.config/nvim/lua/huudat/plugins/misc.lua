@@ -39,6 +39,15 @@ return {
 	},
 
 	{
+		"laytan/cloak.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {},
+		keys = {
+			{ "<leader>ct", "<cmd>CloakToggle<cr>", desc = "Toggle cloak" },
+		},
+	},
+
+	{
 		"folke/todo-comments.nvim",
 		event = "VeryLazy",
 		dependencies = { "nvim-lua/plenary.nvim" },

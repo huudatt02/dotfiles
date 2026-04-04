@@ -62,7 +62,7 @@ return {
 		{ "<leader>gg", function() Snacks.lazygit.open() end, desc = "Lazygit" },
 
 		-- terminal
-		{ "<C-\\>", function() Snacks.terminal.toggle() end, desc = "Toggle Terminal" },
+		{ "<C-t>", function() Snacks.terminal.toggle() end, desc = "Toggle Terminal" },
 
 		-- notifier
 		{ "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },

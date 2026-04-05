@@ -44,6 +44,9 @@ return {
 	config = function(_, opts)
 		require("snacks").setup(opts)
 
+		vim.ui.select = Snacks.picker.select
+		vim.ui.input = Snacks.input
+
 		Snacks.toggle.indent():map("<leader>ug")
 		Snacks.toggle.dim():map("<leader>ud")
 

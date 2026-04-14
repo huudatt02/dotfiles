@@ -2,9 +2,6 @@ vim.g.mapleader = " "
 
 local map = vim.keymap.set
 
--- Exit insert mode
-map("i", "jk", "<Esc>", { desc = "Exit insert mode" })
-
 -- save file
 map("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
 map("x", "<leader>w", "<cmd>w<CR>gv", { desc = "Save file in visual mode" })

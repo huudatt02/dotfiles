@@ -25,35 +25,27 @@ Each directory in this repo is a **package** that mirrors the structure of `$HOM
 ## 🚀 Setup
 
 ### 1. Setup GitHub SSH
-Generate a new SSH key:
 ```zsh
+# Generate a new SSH key:
 ssh-keygen -t ed25519 -C "your_email@example.com"
-```
 
-Add SSH key to the ssh-agent
-Start the ssh-agent in the background
-```zsh
+# Add SSH key to the ssh-agent
+
+# Start the ssh-agent in the background
 eval "$(ssh-agent -s)"
-```
 
-Add your SSH private key to the ssh-agent and store your passphrase in the keychain
-```zsh
+# Add your SSH private key to the ssh-agent and store your passphrase in the keychain
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-```
 
-Add the SSH key to GitHub
-```zsh
+# Add the SSH key to GitHub
 pbcopy < ~/.ssh/id_ed25519.pub
-```
 
-Test SSH connection
-```zsh
+# Test SSH connection
 ssh -T git@github.com
 ```
 
 ### 2. Git Global Commands
 To set your global Git user name and email, run the following commands in your terminal:
-
 ```zsh
 # Set your global Git username
 git config --global user.name "Your Name"
@@ -65,7 +57,6 @@ git config --global user.email "you@example.com"
 ### 3. Clone repository
 ```zsh
 git clone https://github.com/huudatt02/dotfiles.git ~/dotfiles
-cd ~/dotfiles
 ```
 
 ### 4. Install packages
@@ -78,17 +69,16 @@ brew bundle --file=~/dotfiles/brew/Brewfile
 
 ### 5. Stow packages
 ```zsh
+cd ~/dotfiles
 stow aerospace bat ghostty mise nvim starship tmux zsh
 ```
 
 ### 6. Setup Mise (runtime manager)
-Trust configuration:
 ```zsh
+# Trust configuration:
 mise trust ~/.config/mise
-```
 
-Install tools:
-```zsh
+# Install tools:
 mise install
 ```
 
@@ -99,16 +89,11 @@ bat cache --build
 ```
 
 ### 8. Login to GitHub CLI
-Authenticate GitHub CLI so you can interact with GitHub from terminal:
 ```zsh
+# Authenticate GitHub CLI so you can interact with GitHub from terminal:
 gh auth login
-```
-- Choose GitHub.com (or Enterprise if needed)
-- Choose HTTPS or SSH for Git operations
-- Authenticate via Browser or Personal Access Token (PAT)
 
-Check your login status:
-```zsh
+# Check your login status:
 gh auth status
 ```
 ## 🧠 Notes

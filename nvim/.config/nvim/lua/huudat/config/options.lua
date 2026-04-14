@@ -51,4 +51,5 @@ opt.updatetime = 300
 opt.virtualedit = "block"
 opt.wildmode = "longest:full,full"
 opt.winminwidth = 5
+opt.winborder = "rounded"
 opt.wrap = false

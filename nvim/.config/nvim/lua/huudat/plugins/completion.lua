@@ -22,8 +22,10 @@ return {
       accept = {
         auto_brackets = { enabled = true },
       },
+      menu = { border = "rounded" },
       documentation = {
         auto_show = false,
+        window = { border = "rounded" },
       },
       ghost_text = { enabled = true },
     },
@@ -38,6 +40,7 @@ return {
         show_on_trigger_character = false,
         show_on_insert_on_trigger_character = false,
       },
+      window = { border = "rounded" },
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },

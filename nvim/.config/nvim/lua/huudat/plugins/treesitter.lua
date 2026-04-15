@@ -45,6 +45,11 @@ return {
         if lang and vim.treesitter.query.get(lang, "indents") then
           vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end
+
+        if lang and vim.treesitter.query.get(lang, "folds") then
+          vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+          vim.wo[0][0].foldmethod = "expr"
+        end
       end,
     })
   end,

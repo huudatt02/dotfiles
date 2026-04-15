@@ -15,9 +15,7 @@ return {
     bigfile = { enabled = true },
     indent = {
       enabled = false,
-      animate = {
-        enabled = false,
-      },
+      animate = { enabled = false },
     },
     input = { enabled = true },
     lazygit = {

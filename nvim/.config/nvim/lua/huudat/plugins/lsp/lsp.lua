@@ -35,7 +35,7 @@ return {
         end,
       })
 
-      vim.lsp.enable("dartls")
+      vim.lsp.enable({ "dartls", "sourcekit" })
 
       vim.diagnostic.config({
         signs = {

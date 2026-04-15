@@ -17,6 +17,12 @@ opt.fillchars = {
   diff = "╱",
   eob = " ",
 }
+opt.foldcolumn = "0"
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
+opt.foldmethod = "indent"
+opt.foldtext = ""
 opt.ignorecase = true
 opt.inccommand = "nosplit"
 opt.jumpoptions = "view"

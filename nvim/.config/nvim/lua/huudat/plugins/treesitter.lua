@@ -6,6 +6,8 @@ return {
     require("nvim-treesitter").install({
       -- dart
       "dart",
+      -- swift
+      "swift",
       -- nodejs
       "tsx",
       "typescript",

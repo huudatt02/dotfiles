@@ -90,7 +90,7 @@ return {
           { "<leader>s", group = "Search", icon = "" },
           { "<leader>t", group = "Test", icon = "󰙨" },
           { "<leader>u", group = "UI", icon = "" },
-          { "<leader>x", group = "Xcode", icon = "" },
+          { "<leader>x", group = "Xcode", icon = "" },
           { "[", group = "Prev" },
           { "]", group = "Next" },
           { "g", group = "Goto" },

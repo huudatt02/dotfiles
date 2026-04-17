@@ -31,7 +31,15 @@ return {
     },
     cmdline = {
       keymap = { preset = "inherit" },
-      completion = { menu = { auto_show = true } },
+      completion = {
+        list = { selection = { preselect = false } },
+        menu = {
+          auto_show = function(ctx)
+            return vim.fn.getcmdtype() == ":"
+          end,
+        },
+        ghost_text = { enabled = true },
+      },
     },
     signature = {
       enabled = true,

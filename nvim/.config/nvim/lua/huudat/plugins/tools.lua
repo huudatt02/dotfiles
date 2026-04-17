@@ -94,7 +94,7 @@ return {
           { "[", group = "Prev" },
           { "]", group = "Next" },
           { "g", group = "Goto" },
-          { "gs", group = "Surround" },
+          { "s", group = "Surround" },
           { "z", group = "Fold" },
         },
       },

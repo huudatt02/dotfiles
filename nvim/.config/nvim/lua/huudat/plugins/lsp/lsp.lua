@@ -26,11 +26,12 @@ return {
           map("n", "<leader>ss", function() Snacks.picker.lsp_symbols() end, "Document Symbols")
           map("n", "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, "Workspace Symbols")
           map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code Actions")
-          map("n", "<leader>rn", function()
+          map("n", "<leader>ln", function()
             return ":IncRename " .. vim.fn.expand("<cword>")
           end, "Smart rename", { expr = true })
           map("n", "K", vim.lsp.buf.hover, "Show documentation for what is under cursor")
-          map("n", "<leader>rs", "<cmd>LspRestart<CR>", "Restart LSP")
+          map("n", "<leader>li", "<cmd>LspInfo<cr>", "LSP Info")
+          map("n", "<leader>lr", "<cmd>LspRestart<CR>", "LSP Restart")
           -- stylua: ignore end
         end,
       })

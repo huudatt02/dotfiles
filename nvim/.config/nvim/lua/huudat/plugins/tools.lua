@@ -82,7 +82,7 @@ return {
           { "<leader>e", desc = "Explorer", icon = "" },
           { "<leader>f", group = "Files", icon = "" },
           { "<leader>g", group = "Git", icon = "" },
-          { "<leader>gh", group = "Hunks", icon = "" },
+          { "<leader>h", group = "Hunks", icon = "" },
           { "<leader>l", group = "LSP", icon = "" },
           { "<leader>o", group = "OpenCode", icon = "󰚩" },
           { "<leader>q", group = "Quit", icon = "󰅙" },

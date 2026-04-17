@@ -82,10 +82,6 @@ return {
 
     Snacks.toggle.indent():map("<leader>ug")
     Snacks.toggle.dim():map("<leader>ud")
-
-    if vim.lsp.inlay_hint then
-      Snacks.toggle.inlay_hints():map("<leader>uh")
-    end
   end,
   -- stylua: ignore start
   keys = {

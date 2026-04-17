@@ -14,7 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     { import = "huudat.plugins" },
-    { import = "huudat.plugins.lsp" },
   },
   ui = {
     border = "rounded",

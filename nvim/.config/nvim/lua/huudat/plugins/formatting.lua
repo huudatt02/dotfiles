@@ -23,7 +23,6 @@ return {
       yaml = { "yamlfmt" },
     },
     formatters = {
-      injected = { options = { ignore_errors = true } },
       ["google-java-format"] = {
         prepend_args = { "--aosp" }, -- Ensure 4-space indentation
       },
@@ -34,14 +33,6 @@ return {
       "<leader>cf",
       function()
         require("conform").format({ timeout_ms = 3000 })
-      end,
-      mode = { "n", "x" },
-      desc = "Format file or range",
-    },
-    {
-      "<leader>cF",
-      function()
-        require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
       end,
       mode = { "n", "x" },
       desc = "Format file or range",

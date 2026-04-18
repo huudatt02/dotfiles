@@ -22,7 +22,12 @@ return {
       accept = {
         auto_brackets = { enabled = true },
       },
-      menu = { border = "rounded" },
+      menu = {
+        border = "rounded",
+        draw = {
+          treesitter = { "lsp" },
+        },
+      },
       documentation = {
         auto_show = false,
         window = { border = "rounded" },

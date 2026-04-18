@@ -30,6 +30,7 @@ return {
       "yaml",
       "json",
       "toml",
+      "regex",
       "proto",
       "graphql",
       "gitignore",

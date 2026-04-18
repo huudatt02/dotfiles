@@ -32,7 +32,10 @@ return {
     {
       "<leader>cf",
       function()
-        require("conform").format({ timeout_ms = 3000 })
+        require("conform").format({
+          timeout_ms = 3000,
+          lsp_format = "fallback",
+        })
       end,
       mode = { "n", "x" },
       desc = "Format file or range",

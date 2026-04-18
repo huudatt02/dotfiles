@@ -2,10 +2,11 @@ return {
   "stevearc/conform.nvim",
   cmd = { "ConformInfo" },
   opts = {
-    formatters = {
-      ["google-java-format"] = {
-        prepend_args = { "--aosp" }, -- Ensure 4-space indentation
-      },
+    default_format_opts = {
+      timeout_ms = 3000,
+      async = false,
+      quiet = false,
+      lsp_format = "fallback",
     },
     formatters_by_ft = {
       lua = { "stylua" },
@@ -21,16 +22,18 @@ return {
       json = { "prettierd" },
       yaml = { "yamlfmt" },
     },
+    formatters = {
+      injected = { options = { ignore_errors = true } },
+      ["google-java-format"] = {
+        prepend_args = { "--aosp" }, -- Ensure 4-space indentation
+      },
+    },
   },
   keys = {
     {
       "<leader>cf",
       function()
-        require("conform").format({
-          lsp_fallback = true,
-          async = false,
-          timeout_ms = 3000,
-        })
+        require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
       end,
       mode = { "n", "x" },
       desc = "Format file or range",

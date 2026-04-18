@@ -4,6 +4,8 @@ return {
   opts = {
     events = { "BufEnter", "BufWritePost", "InsertLeave" },
     linters_by_ft = {
+      sh = { "shellcheck" },
+      bash = { "shellcheck" },
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
       javascriptreact = { "eslint_d" },

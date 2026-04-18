@@ -21,6 +21,8 @@ return {
       typescriptreact = { "prettierd" },
       json = { "prettierd" },
       yaml = { "yamlfmt" },
+      sh = { "shfmt" },
+      bash = { "shfmt" },
     },
     formatters = {
       ["google-java-format"] = {

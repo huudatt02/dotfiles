@@ -23,6 +23,7 @@ return {
       "kotlin",
       "groovy",
       -- config / data
+      "bash",
       "lua",
       "sql",
       "xml",

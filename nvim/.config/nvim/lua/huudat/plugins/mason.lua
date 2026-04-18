@@ -17,6 +17,7 @@ return {
     "mason-org/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {
+        "bashls",
         "lua_ls",
         "jdtls",
         "gopls",
@@ -41,6 +42,8 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
+        "shfmt",
+        "shellcheck",
         "stylua",
         "delve",
         "gofumpt",

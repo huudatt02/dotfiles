@@ -5,8 +5,8 @@ map("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
 map("x", "<leader>w", "<cmd>w<CR>gv", { desc = "Save file in visual mode" })
 
 -- Quit file
-map("n", "<leader>qq", "<cmd>confirm q<CR>", { desc = "Quit file" })
-map("n", "<leader>qa", "<cmd>confirm qa<CR>", { desc = "Quit all files" })
+map("n", "<leader>q", "<cmd>confirm q<CR>", { desc = "Quit file" })
+map("n", "<leader>Q", "<cmd>confirm qa<CR>", { desc = "Quit all files" })
 
 -- buffers
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
@@ -79,7 +79,7 @@ map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
 map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
 -- quickfix list
-map("n", "<leader>qf", function()
+map("n", "<leader>uq", function()
   local success, err = pcall(vim.fn.getqflist({ winid = 0 }).winid ~= 0 and vim.cmd.cclose or vim.cmd.copen)
   if not success and err then
     vim.notify(err, vim.log.levels.ERROR)

@@ -70,6 +70,7 @@ brew bundle --file=~/dotfiles/brew/Brewfile
 ### 5. Stow packages
 ```zsh
 cd ~/dotfiles
+
 stow aerospace bat ghostty mise nvim starship tmux zsh
 ```
 

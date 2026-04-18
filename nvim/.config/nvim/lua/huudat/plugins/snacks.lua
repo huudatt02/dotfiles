@@ -80,8 +80,9 @@ return {
   config = function(_, opts)
     require("snacks").setup(opts)
 
-    Snacks.toggle.indent():map("<leader>ug")
     Snacks.toggle.dim():map("<leader>ud")
+    Snacks.toggle.indent():map("<leader>ug")
+    Snacks.toggle.inlay_hints():map("<leader>uh")
   end,
   -- stylua: ignore start
   keys = {

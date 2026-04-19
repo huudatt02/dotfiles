@@ -19,7 +19,8 @@ return {
   ]], { i(1, "name"), i(2), i(3), i(4, "Void"), i(5), i(0) })),
 
   s("main", fmt([[
-    @main public struct {} {{
+    @main
+    public struct {} {{
       public static func main() {{
         {}
       }}

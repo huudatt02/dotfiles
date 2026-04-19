@@ -15,7 +15,7 @@ return {
     func {}({}) async{} -> {} {{
       {}
     }}
-  ]], { i(1, "name"), i(2), i(3), i(0) })),
+  ]], { i(1, "name"), i(2), i(3), i(4, "Void"), i(0) })),
 
   s("main", fmt([[
     @main public struct {} {{

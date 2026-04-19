@@ -1,7 +1,6 @@
 local ls = require("luasnip")
 local s = ls.snippet
 local i = ls.insert_node
-local rep = require("luasnip.extras").rep
 local fmt = require("luasnip.extras.fmt").fmt
 
 return {
@@ -10,10 +9,10 @@ return {
       {}
     }}
     {}
-  ]], { i(1, "value"), rep(1), i(2), i(0) })),
+  ]], { i(1, "pattern"), i(2, "value"), i(2), i(0) })),
 
   s("funcasync", fmt([[
-    func {}({}) async{} {{
+    func {}({}) async{} -> {} {{
       {}
     }}
   ]], { i(1, "name"), i(2), i(3), i(0) })),

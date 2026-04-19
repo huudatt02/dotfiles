@@ -9,7 +9,7 @@ return {
       {}
     }}
     {}
-  ]], { i(1, "pattern"), i(2, "value"), i(2), i(0) })),
+  ]], { i(1, "pattern"), i(2, "value"), i(3), i(0) })),
 
   s("funcasync", fmt([[
     func {}({}) async{} -> {} {{

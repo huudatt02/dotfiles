@@ -28,14 +28,14 @@ return {
         Property = "󰖷",
 
         Class = "󰠲",
-        Interface = "",
-        Struct = "",
+        Interface = "󰌗",
+        Struct = "󱏒",
         Module = "",
 
         Unit = "󰑭",
         Value = "󰎠",
-        Enum = "󰖽",
-        EnumMember = "󰖽",
+        Enum = "󰈍",
+        EnumMember = "󰈍",
 
         Keyword = "󰻾",
         Constant = "󰏿",

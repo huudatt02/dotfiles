@@ -41,9 +41,9 @@ return {
         expander_highlight = "NeoTreeExpander",
       },
       icon = {
-        folder_closed = "",
-        folder_open = "",
-        folder_empty = "",
+        folder_closed = "󰉋",
+        folder_open = "󰝰",
+        folder_empty = "󰉖",
         provider = function(icon, node)
           local text, hl
           local mini_icons = require "mini.icons"

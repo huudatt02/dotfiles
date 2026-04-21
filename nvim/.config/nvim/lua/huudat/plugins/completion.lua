@@ -24,23 +24,23 @@ return {
         Constructor = "󰒓",
 
         Field = "󰜢",
-        Variable = "󰆦",
+        Variable = "󰀫",
         Property = "󰖷",
 
-        Class = "󱡠",
-        Interface = "󱡠",
-        Struct = "󱡠",
-        Module = "󰅩",
+        Class = "󰠲",
+        Interface = "",
+        Struct = "",
+        Module = "",
 
-        Unit = "󰪚",
-        Value = "󰦨",
-        Enum = "󰦨",
-        EnumMember = "󰦨",
+        Unit = "󰑭",
+        Value = "󰎠",
+        Enum = "󰖽",
+        EnumMember = "󰖽",
 
         Keyword = "󰻾",
         Constant = "󰏿",
 
-        Snippet = "󱄽",
+        Snippet = "",
         Color = "󰏘",
         File = "󰈔",
         Reference = "󰬲",

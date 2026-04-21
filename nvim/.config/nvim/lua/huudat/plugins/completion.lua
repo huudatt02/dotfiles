@@ -30,7 +30,7 @@ return {
         Class = "󰠱",
         Interface = "󰒪",
         Struct = "󰙅",
-        Module = "",
+        Module = "󰆧",
 
         Unit = "󰑭",
         Value = "󰎠",

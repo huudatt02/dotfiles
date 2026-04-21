@@ -27,9 +27,9 @@ return {
         Variable = "󰀫",
         Property = "󰖷",
 
-        Class = "󰠲",
-        Interface = "󰌗",
-        Struct = "󱏒",
+        Class = "󰠱",
+        Interface = "󰒪",
+        Struct = "󰙅",
         Module = "",
 
         Unit = "󰑭",

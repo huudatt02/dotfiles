@@ -35,6 +35,10 @@ return {
 
       vim.lsp.enable({ "dartls", "sourcekit" })
 
+      vim.lsp.document_color.enable(true, nil, {
+        style = "virtual",
+      })
+
       vim.diagnostic.config({
         signs = {
           text = {

@@ -18,12 +18,16 @@ return {
 
     require("dap-go").setup()
 
-    -- stylua: ignore start
-    vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-    vim.fn.sign_define("DapBreakpointRejected", { text = "󰜺", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-    vim.fn.sign_define("DapConditionalBreakpoint", { text = "󰈲", texthl = "DiagnosticSignWarn", linehl = "", numhl = "" })
-    vim.fn.sign_define("DapStopped", { text = "󰐊", texthl = "DiagnosticSignInfo", linehl = "Visual", numhl = "" })
-    -- stylua: ignore end
+    local icons = require("config.core").icons.dap
+
+    for name, sign in pairs(icons) do
+      vim.fn.sign_define("Dap" .. name, {
+        text = sign.text,
+        texthl = sign.texthl or "DiagnosticInfo",
+        linehl = sign.linehl,
+        numhl = sign.numhl,
+      })
+    end
 
     dap.listeners.before.attach.dapui_config = function()
       dapui.open()

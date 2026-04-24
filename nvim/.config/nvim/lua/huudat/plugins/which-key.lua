@@ -9,7 +9,7 @@ return {
         { "<leader>b", group = "Buffers", icon = "" },
         { "<leader>c", group = "Code", icon = "" },
         { "<leader>d", group = "Debug", icon = "" },
-        { "<leader>e", desc = "Explorer", icon = "" },
+        { "<leader>e", desc = "Explorer", icon = "󰙅" },
         { "<leader>f", group = "Files", icon = "󰈮" },
         { "<leader>g", group = "Git", icon = "" },
         { "<leader>h", group = "Hunks", icon = "" },

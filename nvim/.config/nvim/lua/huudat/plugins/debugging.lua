@@ -18,7 +18,7 @@ return {
 
     require("dap-go").setup()
 
-    local icons = require("config.core").icons.dap
+    local icons = require("huudat.config.core").icons.dap
 
     for name, sign in pairs(icons) do
       vim.fn.sign_define("Dap" .. name, {

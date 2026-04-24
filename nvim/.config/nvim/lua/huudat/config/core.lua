@@ -2,11 +2,11 @@ local M = {}
 
 M.icons = {
   dap = {
-    Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
-    Breakpoint = " ",
-    BreakpointCondition = " ",
-    BreakpointRejected = { " ", "DiagnosticError" },
-    LogPoint = ".>",
+    Stopped = { text = "󰁕 ", texthl = "DiagnosticWarn", linehl = "DapStoppedLine" },
+    Breakpoint = { text = " " },
+    BreakpointCondition = { text = " " },
+    BreakpointRejected = { text = " ", texthl = "DiagnosticError" },
+    LogPoint = { text = ".>" },
   },
   diagnostics = {
     Error = " ",

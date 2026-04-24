@@ -52,3 +52,5 @@ M.icons = {
     TypeParameter = "󰬛 ",
   },
 }
+
+return M

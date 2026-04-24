@@ -15,13 +15,11 @@ return {
     local dap = require("dap")
     local dapui = require("dapui")
     dapui.setup()
-
     require("dap-go").setup()
 
     vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
     local icons = require("huudat.config.core").icons.dap
-
     for name, sign in pairs(icons) do
       if type(sign) ~= "table" then
         sign = { text = sign }

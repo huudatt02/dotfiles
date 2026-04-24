@@ -65,7 +65,7 @@ return {
   config = function(_, opts)
     local core = require("huudat.config.core")
     opts.appearance = opts.appearance or {}
-    opts.appearance.kind_icons = core.icons.kind_icons
+    opts.appearance.kind_icons = core.icons.kinds
 
     require("blink.cmp").setup(opts)
     require("luasnip.loaders.from_vscode").lazy_load()

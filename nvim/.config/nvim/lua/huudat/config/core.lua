@@ -1,6 +1,24 @@
 local M = {}
 
 M.icons = {
+  dap = {
+    Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+    Breakpoint = " ",
+    BreakpointCondition = " ",
+    BreakpointRejected = { " ", "DiagnosticError" },
+    LogPoint = ".>",
+  },
+  diagnostics = {
+    Error = " ",
+    Warn = " ",
+    Hint = " ",
+    Info = " ",
+  },
+  git = {
+    added = " ",
+    modified = "󰜥 ",
+    removed = " ",
+  },
   kinds = {
     Text = "󰉿 ",
     Method = "󰊕 ",
@@ -32,16 +50,5 @@ M.icons = {
     Event = "󱐋 ",
     Operator = "󰪚 ",
     TypeParameter = "󰬛 ",
-  },
-  diagnostics = {
-    Error = " ",
-    Warn = " ",
-    Hint = " ",
-    Info = " ",
-  },
-  git = {
-    added = " ",
-    modified = "󰜥 ",
-    removed = " ",
   },
 }

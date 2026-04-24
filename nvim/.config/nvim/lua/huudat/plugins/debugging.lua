@@ -21,6 +21,10 @@ return {
     local icons = require("huudat.config.core").icons.dap
 
     for name, sign in pairs(icons) do
+      if type(sign) ~= "table" then
+        sign = { text = sign }
+      end
+
       vim.fn.sign_define("Dap" .. name, {
         text = sign.text,
         texthl = sign.texthl or "DiagnosticInfo",

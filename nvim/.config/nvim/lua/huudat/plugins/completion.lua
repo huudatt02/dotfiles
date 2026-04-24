@@ -17,38 +17,6 @@ return {
     },
     appearance = {
       nerd_font_variant = "mono",
-      kind_icons = {
-        Text = "󰉿",
-        Method = "󰊕",
-        Function = "󰊕",
-        Constructor = "󰒓",
-
-        Field = "󰜢",
-        Variable = "󰀫",
-        Property = "󰖷",
-
-        Class = "󰠱",
-        Interface = "󰒪",
-        Struct = "󰙅",
-        Module = "󰆧",
-
-        Unit = "󰑭",
-        Value = "󰎠",
-        Enum = "󰈍",
-        EnumMember = "󰈍",
-
-        Keyword = "󰻾",
-        Constant = "󰏿",
-
-        Snippet = "󰅴",
-        Color = "󰏘",
-        File = "󰈔",
-        Reference = "󰬲",
-        Folder = "󰉋",
-        Event = "󱐋",
-        Operator = "󰪚",
-        TypeParameter = "󰬛",
-      },
     },
     completion = {
       accept = {
@@ -95,6 +63,10 @@ return {
   },
   opts_extend = { "sources.default" },
   config = function(_, opts)
+    local core = require("huudat.config.core")
+    opts.appearance = opts.appearance or {}
+    opts.appearance.kind_icons = core.icons.kind_icons
+
     require("blink.cmp").setup(opts)
     require("luasnip.loaders.from_vscode").lazy_load()
     require("luasnip.loaders.from_lua").lazy_load({

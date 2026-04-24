@@ -5,6 +5,8 @@ return {
     "nvim-mini/mini.icons",
   },
   opts = function()
+    local icons = require("huudat.config.core").icons
+
     local mode = {
       "mode",
       fmt = function(str)
@@ -19,12 +21,21 @@ return {
 
     local diagnostics = {
       "diagnostics",
-      symbols = { error = " ", warn = " ", info = " ", hint = " " },
+      symbols = {
+        error = icons.diagnostics.Error,
+        warn = icons.diagnostics.Warn,
+        info = icons.diagnostics.Info,
+        hint = icons.diagnostics.Hint,
+      },
     }
 
     local diff = {
       "diff",
-      symbols = { added = "", modified = "󰜥", removed = "" },
+      symbols = {
+        added = icons.git.added,
+        modified = icons.git.modified,
+        removed = icons.git.removed,
+      },
     }
 
     return {

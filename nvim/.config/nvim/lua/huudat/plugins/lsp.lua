@@ -39,13 +39,14 @@ return {
         style = "virtual",
       })
 
+      local icons = require("huudat.config.core").icons
       vim.diagnostic.config({
         signs = {
           text = {
-            [vim.diagnostic.severity.ERROR] = " ",
-            [vim.diagnostic.severity.WARN] = " ",
-            [vim.diagnostic.severity.HINT] = " ",
-            [vim.diagnostic.severity.INFO] = " ",
+            [vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
+            [vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
+            [vim.diagnostic.severity.HINT] = icons.diagnostics.Hint,
+            [vim.diagnostic.severity.INFO] = icons.diagnostics.Info,
           },
         },
         virtual_text = false,

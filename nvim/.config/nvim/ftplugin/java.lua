@@ -47,6 +47,7 @@ local config = {
     "-Dosgi.bundles.defaultStartLevel=4",
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
     "-Dlog.level=ALL",
+    "-Xms1G",
     "-Xmx2G",
     "--add-modules=ALL-SYSTEM",
     "--add-opens",

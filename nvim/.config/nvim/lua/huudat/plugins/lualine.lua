@@ -40,6 +40,17 @@ return {
       padding = { left = 0, right = 1 },
     }
 
+    local filesize = function()
+      local size = math.max(vim.fn.line2byte(vim.fn.line("$") + 1) - 1, 0)
+      if size < 1024 then
+        return string.format("%dB", size)
+      elseif size < 1048576 then
+        return string.format("%.2fKB", size / 1024)
+      else
+        return string.format("%.2fMB", size / 1048576)
+      end
+    end
+
     return {
       options = {
         theme = "auto",
@@ -63,7 +74,7 @@ return {
             padding = { left = 0, right = 0 },
           },
         },
-        lualine_x = { "encoding" },
+        lualine_x = { filesize, "encoding" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },

@@ -21,12 +21,12 @@ return {
       hl.LineNrBelow = { fg = c.dark3 }
       hl.Visual = { bg = "#2e3c64" }
       hl.CursorLine = { bg = "#2e3c64" }
-      hl.LspInlayHint = { fg = c.comment, italic = true }
+      hl.LspInlayHint = { fg = c.dark3, italic = true }
 
       hl.NeoTreeExpander = { fg = c.blue }
       hl.NeoTreeDimText = { fg = c.dark3 }
       hl.NeoTreeDotfile = { fg = c.dark3 }
-      hl.NeoTreeMessage = { fg = c.comment, italic = true }
+      hl.NeoTreeMessage = { fg = c.dark3, italic = true }
     end,
   },
   config = function(_, opts)

@@ -7,12 +7,11 @@ return {
       file = {
         [".keep"] = { glyph = "󰊢", hl = "MiniIconsGrey" },
         ["devcontainer.json"] = { glyph = "", hl = "MiniIconsAzure" },
-        [".md"] = { glyph = "", hl = "MiniIconsBlue" },
+        ["README.md"] = { glyph = "", hl = "MiniIconsGrey" },
       },
       filetype = {
         env = { glyph = "", hl = "MiniIconsYellow" },
         dotenv = { glyph = "", hl = "MiniIconsYellow" },
-        markdown = { glyph = "", hl = "MiniIconsBlue" },
       },
     },
     init = function()

@@ -74,7 +74,13 @@ return {
             padding = { left = 0, right = 0 },
           },
         },
-        lualine_x = { filesize, "encoding" },
+        lualine_x = {
+          filesize,
+          {
+            "encoding",
+            padding = { left = 0, right = 1 },
+          },
+        },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },

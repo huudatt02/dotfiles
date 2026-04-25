@@ -27,6 +27,7 @@ return {
         info = icons.diagnostics.Info,
         hint = icons.diagnostics.Hint,
       },
+      padding = { left = 0, right = 1 },
     }
 
     local diff = {
@@ -36,6 +37,7 @@ return {
         modified = icons.git.modified,
         removed = icons.git.removed,
       },
+      padding = { left = 0, right = 1 },
     }
 
     return {
@@ -49,7 +51,18 @@ return {
       sections = {
         lualine_a = { mode },
         lualine_b = { branch, diff, diagnostics },
-        lualine_c = { "filename" },
+        lualine_c = {
+          {
+            "filetype",
+            icon_only = true,
+            separator = "",
+            padding = { left = 1, right = 0 },
+          },
+          {
+            "filename",
+            padding = { left = 0, right = 0 },
+          },
+        },
         lualine_x = { "filetype", "encoding" },
         lualine_y = { "progress" },
         lualine_z = { "location" },

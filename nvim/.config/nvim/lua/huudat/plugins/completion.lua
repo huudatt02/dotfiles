@@ -12,8 +12,7 @@ return {
   },
   opts = {
     keymap = {
-      preset = "default",
-      ["<CR>"] = { "accept", "fallback" },
+      preset = "enter",
     },
     appearance = {
       nerd_font_variant = "mono",

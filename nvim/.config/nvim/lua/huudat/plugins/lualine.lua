@@ -76,9 +76,12 @@ return {
             require("noice").api.status.search.get,
             cond = require("noice").api.status.search.has,
             color = { fg = "#ff9e64" },
-            padding = { left = 0, right = 0 },
+            padding = { left = 0, right = 1 },
           },
-          filesize,
+          {
+            filesize,
+            padding = { left = 0, right = 1 },
+          },
           {
             "encoding",
             padding = { left = 0, right = 1 },

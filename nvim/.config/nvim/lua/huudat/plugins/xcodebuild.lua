@@ -21,33 +21,26 @@ return {
       },
     })
 
-    local map = function(keys, cmd, desc)
-      vim.keymap.set("n", keys, cmd, { desc = desc, silent = true })
-    end
+    local map = vim.keymap.set
 
-    -- build & run
-    map("<leader>xb", "<cmd>XcodebuildBuild<cr>", "Build")
-    map("<leader>xB", "<cmd>XcodebuildBuildForTesting<cr>", "Build for Testing")
-    map("<leader>xr", "<cmd>XcodebuildBuildRun<cr>", "Build & Run")
-    map("<leader>xR", "<cmd>XcodebuildRun<cr>", "Run (no build)")
+    map("n", "<leader>xb", "<cmd>XcodebuildBuild<cr>", { desc = "Build Project" })
+    map("n", "<leader>xB", "<cmd>XcodebuildBuildForTesting<cr>", { desc = "Build For Testing" })
+    map("n", "<leader>xr", "<cmd>XcodebuildBuildRun<cr>", { desc = "Build & Run Project" })
+    map("n", "<leader>xR", "<cmd>XcodebuildRun<cr>", { desc = "Run Project" })
 
-    -- tests
-    map("<leader>xt", "<cmd>XcodebuildTest<cr>", "Run Tests")
-    map("<leader>xT", "<cmd>XcodebuildTestClass<cr>", "Test Current Class")
+    map("n", "<leader>xt", "<cmd>XcodebuildTest<cr>", { desc = "Run Tests" })
+    map("n", "<leader>xT", "<cmd>XcodebuildTestClass<cr>", { desc = "Run Current Test Class" })
 
-    -- project
-    map("<leader>xs", "<cmd>XcodebuildSetup<cr>", "Setup Project")
-    map("<leader>xS", "<cmd>XcodebuildSelectScheme<cr>", "Select Scheme")
-    map("<leader>xd", "<cmd>XcodebuildSelectDevice<cr>", "Select Device")
-    map("<leader>xP", "<cmd>XcodebuildPicker<cr>", "Xcode Picker")
+    map("n", "<leader>xp", "<cmd>XcodebuildPicker<cr>", { desc = "Xcode Picker" })
+    map("n", "<leader>xs", "<cmd>XcodebuildSetup<cr>", { desc = "Setup Project" })
+    map("n", "<leader>xS", "<cmd>XcodebuildSelectScheme<cr>", { desc = "Select Scheme" })
+    map("n", "<leader>xd", "<cmd>XcodebuildSelectDevice<cr>", { desc = "Select Device" })
 
-    -- utilities
-    map("<leader>xl", "<cmd>XcodebuildToggleLogs<cr>", "Toggle Logs")
-    map("<leader>xC", "<cmd>XcodebuildCleanBuild<cr>", "Clean Build")
+    map("n", "<leader>xl", "<cmd>XcodebuildToggleLogs<cr>", { desc = "Toggle Logs" })
+    map("n", "<leader>xc", "<cmd>XcodebuildCleanBuild<cr>", { desc = "Clean Build" })
 
-    -- simulator
-    map("<leader>xo", "<cmd>XcodebuildBootSimulator<cr>", "Boot Simulator")
-    map("<leader>xi", "<cmd>XcodebuildInstallApp<cr>", "Install App")
-    map("<leader>xu", "<cmd>XcodebuildUninstallApp<cr>", "Uninstall App")
+    map("n", "<leader>xo", "<cmd>XcodebuildBootSimulator<cr>", { desc = "Boot Simulator" })
+    map("n", "<leader>xi", "<cmd>XcodebuildInstallApp<cr>", { desc = "Install App" })
+    map("n", "<leader>xu", "<cmd>XcodebuildUninstallApp<cr>", { desc = "Uninstall App" })
   end,
 }

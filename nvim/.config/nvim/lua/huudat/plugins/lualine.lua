@@ -72,6 +72,12 @@ return {
           },
         },
         lualine_x = {
+          {
+            require("noice").api.status.search.get,
+            cond = require("noice").api.status.search.has,
+            color = { fg = "#ff9e64" },
+            padding = { left = 0, right = 0 },
+          },
           filesize,
           {
             "encoding",

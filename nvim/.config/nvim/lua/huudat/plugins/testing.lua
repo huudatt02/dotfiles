@@ -24,7 +24,7 @@ return {
       },
     })
   end,
-  -- stylua: ignore start
+  -- stylua: ignore
   keys = {
     { "<leader>tr", function() require("neotest").run.run() end, desc = "Run Nearest (Neotest)" },
     { "<leader>tR", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run File (Neotest)" },
@@ -33,5 +33,4 @@ return {
     { "<leader>td", function() require("neotest").run.run({ strategy = "dap" }) end, desc = "Debug Nearest" },
     { "<leader>to", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show Output (Neotest)" },
   },
-  -- stylua: ignore end
 }

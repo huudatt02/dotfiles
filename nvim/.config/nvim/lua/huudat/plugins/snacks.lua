@@ -84,7 +84,7 @@ return {
     Snacks.toggle.indent():map("<leader>ug")
     Snacks.toggle.inlay_hints():map("<leader>uh")
   end,
-  -- stylua: ignore start
+  -- stylua: ignore
   keys = {
     -- bufdelete
     { "<leader>bd", function() Snacks.bufdelete.delete() end, desc = "Delete buffer" },
@@ -128,5 +128,4 @@ return {
     { "<leader>sn", function() Snacks.picker.notifications() end, desc = "Notification History" },
     { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
   },
-  -- stylua: ignore end
 }

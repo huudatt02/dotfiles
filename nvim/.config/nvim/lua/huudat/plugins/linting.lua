@@ -28,9 +28,8 @@ return {
       end,
     })
   end,
-  -- stylua: ignore start
+  -- stylua: ignore
   keys = {
     { "<leader>ll", function() require("lint").try_lint() end, desc = "Run linter" },
   },
-  -- stylua: ignore end
 }

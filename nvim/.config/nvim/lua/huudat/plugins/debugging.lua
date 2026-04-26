@@ -46,7 +46,7 @@ return {
       dapui.close()
     end
   end,
-  -- stylua: ignore start
+  -- stylua: ignore
   keys = {
     { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
     { "<leader>dc", function() require("dap").continue() end, desc = "Start/Continue" },
@@ -56,5 +56,4 @@ return {
     { "<leader>dr", function() require("dap").restart() end, desc = "Restart" },
     { "<leader>du", function() require("dapui").toggle() end, desc = "DAP UI Toggle" },
   },
-  -- stylua: ignore end
 }

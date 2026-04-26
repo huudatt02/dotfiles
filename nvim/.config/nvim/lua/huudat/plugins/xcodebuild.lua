@@ -19,6 +19,7 @@ return {
       enabled = true,
     },
   },
+  -- stylua: ignore
   keys = {
     -- build & run
     { "<leader>xb", "<cmd>XcodebuildBuild<cr>", desc = "Build" },

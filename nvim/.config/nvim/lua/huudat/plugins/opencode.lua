@@ -30,7 +30,7 @@ return {
 
     vim.o.autoread = true
   end,
-  -- stylua: ignore start
+  -- stylua: ignore
   keys = {
     { "<leader>ot", function() require("opencode").toggle() end, mode = { "n", "t" }, desc = "Toggle opencode" },
     { "<leader>oa", function() require("opencode").ask("@this: ", { submit = true }) end, mode = { "n", "x" }, desc = "Ask opencode" },
@@ -41,5 +41,4 @@ return {
     { "<S-C-u>", function() require("opencode").command("session.half.page.up") end, mode = "n", desc = "opencode half page up" },
     { "<S-C-d>", function() require("opencode").command("session.half.page.down") end, mode = "n", desc = "opencode half page down" },
   },
-  -- stylua: ignore end
 }

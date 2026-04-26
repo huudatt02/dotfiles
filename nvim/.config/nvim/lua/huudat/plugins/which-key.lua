@@ -29,9 +29,8 @@ return {
       },
     },
   },
-  -- stylua: ignore start
+  -- stylua: ignore
   keys = {
     { "<leader>?", function() require("which-key").show({ global = false }) end, desc = "Buffer Local Keymaps" },
   },
-  -- stylua: ignore end
 }

@@ -6,44 +6,48 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  opts = {
-    show_build_progress_bar = true,
-    logs = {
-      auto_open_on_success_tests = false,
-      auto_open_on_failed_tests = false,
-      auto_open_on_success_build = false,
-      auto_open_on_failed_build = true,
-      auto_focus = false,
-    },
-    code_coverage = {
-      enabled = true,
-    },
-  },
-  -- stylua: ignore
-  keys = {
+  config = function()
+    require("xcodebuild").setup({
+      show_build_progress_bar = true,
+      logs = {
+        auto_open_on_success_tests = false,
+        auto_open_on_failed_tests = false,
+        auto_open_on_success_build = false,
+        auto_open_on_failed_build = true,
+        auto_focus = false,
+      },
+      code_coverage = {
+        enabled = true,
+      },
+    })
+
+    local map = function(keys, cmd, desc)
+      vim.keymap.set("n", keys, cmd, { desc = desc, silent = true })
+    end
+
     -- build & run
-    { "<leader>xb", "<cmd>XcodebuildBuild<cr>", desc = "Build" },
-    { "<leader>xB", "<cmd>XcodebuildBuildForTesting<cr>", desc = "Build for Testing" },
-    { "<leader>xr", "<cmd>XcodebuildBuildRun<cr>", desc = "Build & Run" },
-    { "<leader>xR", "<cmd>XcodebuildRun<cr>", desc = "Run (no build)" },
+    map("<leader>xb", "<cmd>XcodebuildBuild<cr>", "Build")
+    map("<leader>xB", "<cmd>XcodebuildBuildForTesting<cr>", "Build for Testing")
+    map("<leader>xr", "<cmd>XcodebuildBuildRun<cr>", "Build & Run")
+    map("<leader>xR", "<cmd>XcodebuildRun<cr>", "Run (no build)")
 
     -- tests
-    { "<leader>xt", "<cmd>XcodebuildTest<cr>", desc = "Run Tests" },
-    { "<leader>xT", "<cmd>XcodebuildTestClass<cr>", desc = "Test Current Class" },
+    map("<leader>xt", "<cmd>XcodebuildTest<cr>", "Run Tests")
+    map("<leader>xT", "<cmd>XcodebuildTestClass<cr>", "Test Current Class")
 
     -- project
-    { "<leader>xs", "<cmd>XcodebuildSetup<cr>", desc = "Setup Project" },
-    { "<leader>xS", "<cmd>XcodebuildSelectScheme<cr>", desc = "Select Scheme" },
-    { "<leader>xd", "<cmd>XcodebuildSelectDevice<cr>", desc = "Select Device" },
-    { "<leader>xp", "<cmd>XcodebuildPicker<cr>", desc = "Xcode Picker" },
+    map("<leader>xs", "<cmd>XcodebuildSetup<cr>", "Setup Project")
+    map("<leader>xS", "<cmd>XcodebuildSelectScheme<cr>", "Select Scheme")
+    map("<leader>xd", "<cmd>XcodebuildSelectDevice<cr>", "Select Device")
+    map("<leader>xP", "<cmd>XcodebuildPicker<cr>", "Xcode Picker")
 
     -- utilities
-    { "<leader>xl", "<cmd>XcodebuildToggleLogs<cr>", desc = "Toggle Logs" },
-    { "<leader>xc", "<cmd>XcodebuildCleanBuild<cr>", desc = "Clean Build" },
+    map("<leader>xl", "<cmd>XcodebuildToggleLogs<cr>", "Toggle Logs")
+    map("<leader>xC", "<cmd>XcodebuildCleanBuild<cr>", "Clean Build")
 
     -- simulator
-    { "<leader>xo", "<cmd>XcodebuildBootSimulator<cr>", desc = "Boot Simulator" },
-    { "<leader>xi", "<cmd>XcodebuildInstallApp<cr>", desc = "Install App" },
-    { "<leader>xu", "<cmd>XcodebuildUninstallApp<cr>", desc = "Uninstall App" },
-  },
+    map("<leader>xo", "<cmd>XcodebuildBootSimulator<cr>", "Boot Simulator")
+    map("<leader>xi", "<cmd>XcodebuildInstallApp<cr>", "Install App")
+    map("<leader>xu", "<cmd>XcodebuildUninstallApp<cr>", "Uninstall App")
+  end,
 }

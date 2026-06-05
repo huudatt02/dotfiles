@@ -1,5 +1,5 @@
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-export BAT_THEME="tokyonight_night"
+export BAT_THEME='tokyonight_night'
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --strip-cwd-prefix'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

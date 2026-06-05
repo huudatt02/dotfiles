@@ -38,6 +38,9 @@ source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
 zinit ice wait lucid blockf atpull'zinit creinstall -q .'
 zinit light zsh-users/zsh-completions
 
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+
 zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
 zinit light zdharma-continuum/fast-syntax-highlighting
 

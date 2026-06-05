@@ -46,6 +46,7 @@ zinit light zsh-users/zsh-autosuggestions
 
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 
 source <(fzf --zsh)
 
@@ -68,6 +69,4 @@ alias clst='colima status'
 alias ls='eza --icons --group-directories-first'
 alias la='eza -a --icons --group-directories-first'
 alias ll='eza -lah --icons --group-directories-first'
-
-eval "$(starship init zsh)"
 

@@ -41,16 +41,23 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu no
 
-zinit wait lucid light-mode for \
-  atinit"zicompinit; zicdreplay" \
-      Aloxaf/fzf-tab \
-      jeffreytse/zsh-vi-mode \
-      hlissner/zsh-autopair \
-      zdharma-continuum/fast-syntax-highlighting \
-  atload"_zsh_autosuggest_start" \
-      zsh-users/zsh-autosuggestions \
-  blockf atpull'zinit creinstall -q .' \
-      zsh-users/zsh-completions
+zinit ice wait lucid blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
+
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+
+zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
+zinit light Aloxaf/fzf-tab
+
+zinit ice wait lucid
+zinit light hlissner/zsh-autopair
+
+zinit ice wait lucid
+zinit light zdharma-continuum/fast-syntax-highlighting
+
+zinit ice wait lucid atload'_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
 
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:*' use-fzf-default-opts yes

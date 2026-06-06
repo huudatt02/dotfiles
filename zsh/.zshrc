@@ -46,6 +46,9 @@ zinit wait lucid light-mode for \
   blockf atpull'zinit creinstall -q .' \
       zsh-users/zsh-completions
 
+zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"

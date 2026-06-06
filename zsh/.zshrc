@@ -1,9 +1,9 @@
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export BAT_THEME='tokyonight_night'
 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --strip-cwd-prefix'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --strip-cwd-prefix'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git --strip-cwd-prefix'
+export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git --strip-cwd-prefix'
 
 export FZF_CTRL_T_OPTS="--preview 'if [ -d {} ]; then eza --tree --level=2 --icons --color=always --group-directories-first {}; else bat -n --color=always --line-range=:500 {}; fi'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 --icons --color=always --group-directories-first {}'"

@@ -50,11 +50,11 @@ zinit light Aloxaf/fzf-tab
 zinit ice wait lucid
 zinit light hlissner/zsh-autopair
 
-zinit ice wait lucid
-zinit light zdharma-continuum/fast-syntax-highlighting
-
 zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
+
+zinit ice wait lucid
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 zstyle ':fzf-tab:complete:(cd|z):*' fzf-preview '
   eza --tree --level=2 --color=always --group-directories-first $realpath

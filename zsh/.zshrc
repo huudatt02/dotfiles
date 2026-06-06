@@ -37,6 +37,9 @@ source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
 
 zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
+      Aloxaf/fzf-tab \
+      jeffreytse/zsh-vi-mode \
+      hlissner/zsh-autopair \
       zdharma-continuum/fast-syntax-highlighting \
   atload"_zsh_autosuggest_start" \
       zsh-users/zsh-autosuggestions \

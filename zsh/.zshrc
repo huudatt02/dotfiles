@@ -35,6 +35,8 @@ export FZF_DEFAULT_OPTS="
 
 source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
 
+zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu no
 
@@ -52,6 +54,7 @@ zinit wait lucid light-mode for \
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:*' switch-group '<' '>'
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"

@@ -35,20 +35,13 @@ export FZF_DEFAULT_OPTS="
 
 source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
 
-zinit ice wait lucid blockf atpull'zinit creinstall -q .'
-zinit light zsh-users/zsh-completions
-
-zinit ice depth=1
-zinit light jeffreytse/zsh-vi-mode
-
-zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
-zinit light zdharma-continuum/fast-syntax-highlighting
-
-zinit ice wait lucid
-zinit light hlissner/zsh-autopair
-
-zinit ice wait lucid atload'_zsh_autosuggest_start'
-zinit light zsh-users/zsh-autosuggestions
+zinit wait lucid light-mode for \
+  atinit"zicompinit; zicdreplay" \
+      zdharma-continuum/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" \
+      zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' \
+      zsh-users/zsh-completions
 
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"

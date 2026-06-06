@@ -44,9 +44,6 @@ zstyle ':completion:*' menu no
 zinit ice wait lucid blockf atpull'zinit creinstall -q .'
 zinit light zsh-users/zsh-completions
 
-zinit ice depth=1
-zinit light jeffreytse/zsh-vi-mode
-
 zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
 zinit light Aloxaf/fzf-tab
 

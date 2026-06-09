@@ -83,11 +83,27 @@ automatically-unhide-macos-hidden-apps = false
     shift-down = ['volume set 0', 'mode main']
 
 [[on-window-detected]]
-    if.app-id = 'com.apple.finder'
+    if.app-id = 'com.apple.AppStore'
     run = 'layout floating'
 
 [[on-window-detected]]
-    if.app-id = 'com.apple.systempreferences'
+    if.app-id = 'com.apple.iCal'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.FaceTime'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.findmy'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.freeform'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.finder'
     run = 'layout floating'
 
 [[on-window-detected]]
@@ -99,11 +115,7 @@ automatically-unhide-macos-hidden-apps = false
     run = 'layout floating'
 
 [[on-window-detected]]
-    if.app-id = 'com.apple.mobilephone'
-    run = 'layout floating'
-
-[[on-window-detected]]
-    if.app-id = 'com.apple.FaceTime'
+    if.app-id = 'com.apple.Music'
     run = 'layout floating'
 
 [[on-window-detected]]
@@ -111,19 +123,7 @@ automatically-unhide-macos-hidden-apps = false
     run = 'layout floating'
 
 [[on-window-detected]]
-    if.app-id = 'com.apple.reminders'
-    run = 'layout floating'
-
-[[on-window-detected]]
-    if.app-id = 'com.apple.freeform'
-    run = 'layout floating'
-
-[[on-window-detected]]
-    if.app-id = 'com.apple.VoiceMemos'
-    run = 'layout floating'
-
-[[on-window-detected]]
-    if.app-id = 'com.apple.Music'
+    if.app-id = 'com.apple.mobilephone'
     run = 'layout floating'
 
 [[on-window-detected]]
@@ -131,15 +131,11 @@ automatically-unhide-macos-hidden-apps = false
     run = 'layout floating'
 
 [[on-window-detected]]
-    if.app-id = 'com.apple.iCal'
+    if.app-id = 'com.apple.reminders'
     run = 'layout floating'
 
 [[on-window-detected]]
-    if.app-id = 'com.apple.findmy'
-    run = 'layout floating'
-
-[[on-window-detected]]
-    if.app-id = 'com.apple.weather'
+    if.app-id = 'com.apple.Preview'
     run = 'layout floating'
 
 [[on-window-detected]]
@@ -147,7 +143,19 @@ automatically-unhide-macos-hidden-apps = false
     run = 'layout floating'
 
 [[on-window-detected]]
-    if.app-id = 'com.apple.Preview'
+    if.app-id = 'com.apple.systempreferences'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.TextEdit'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.VoiceMemos'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.weather'
     run = 'layout floating'
 
 [[on-window-detected]]

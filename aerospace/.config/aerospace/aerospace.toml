@@ -115,6 +115,22 @@ automatically-unhide-macos-hidden-apps = false
     run = 'layout floating'
 
 [[on-window-detected]]
+    if.app-id = 'com.apple.freeform'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.VoiceMemos'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Music'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.podcasts'
+    run = 'layout floating'
+
+[[on-window-detected]]
     if.app-id = 'com.apple.iCal'
     run = 'layout floating'
 
@@ -124,6 +140,14 @@ automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
     if.app-id = 'com.apple.weather'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.QuickTimePlayerX'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Preview'
     run = 'layout floating'
 
 [[on-window-detected]]

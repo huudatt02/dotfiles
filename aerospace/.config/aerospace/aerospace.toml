@@ -91,6 +91,18 @@ automatically-unhide-macos-hidden-apps = false
     run = 'layout floating'
 
 [[on-window-detected]]
+    if.app-id = 'com.apple.MobileSMS'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.mobilephone'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.FaceTime'
+    run = 'layout floating'
+
+[[on-window-detected]]
     if.app-id = 'com.TablePro'
     run = 'layout floating'
 

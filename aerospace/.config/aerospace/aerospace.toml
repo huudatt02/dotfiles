@@ -23,10 +23,10 @@ automatically-unhide-macos-hidden-apps = false
     outer.bottom =     10
     outer.top =        10
     outer.right =      10
-    outer.left = [{monitor."Built-in Retina Display" = 15}, {monitor.secondary = 25}, {monitor."DELL S2722DC" = 25}, 3]
-    outer.top = [{monitor."Built-in Retina Display" = 0}, {monitor.secondary = 25}, {monitor."DELL S2722DC" = 25}, 3]
-    outer.bottom = [{monitor."Built-in Retina Display" = 20}, {monitor.secondary = 25}, {monitor."DELL S2722DC" = 25}, 3]
-    outer.right = [{monitor."Built-in Retina Display" = 15}, {monitor.secondary = 25}, {monitor."DELL S2722DC" = 25}, 3]
+    outer.left = [{monitor."Built-in Retina Display" = 10}, {monitor."LG FULL HD" = 10}, {monitor.secondary = 10}, 10]
+    outer.top = [{monitor."Built-in Retina Display" = 10}, {monitor."LG FULL HD" = 44}, {monitor.secondary = 44}, 10]
+    outer.bottom = [{monitor."Built-in Retina Display" = 10}, {monitor."LG FULL HD" = 10}, {monitor.secondary = 10}, 10]
+    outer.right = [{monitor."Built-in Retina Display" = 10}, {monitor."LG FULL HD" = 10}, {monitor.secondary = 10}, 10]
 
 [mode.main.binding]
 

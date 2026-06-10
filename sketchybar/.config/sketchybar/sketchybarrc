@@ -1,3 +1,4 @@
+ITEM_DIR="$CONFIG_DIR/items"
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 ##### Bar Appearance #####
@@ -8,6 +9,8 @@ bar=(
   y_offset=2
   sticky=on
   topmost=window
+  padding_left=10
+  padding_right=10
 )
 sketchybar --bar "${bar[@]}"
 

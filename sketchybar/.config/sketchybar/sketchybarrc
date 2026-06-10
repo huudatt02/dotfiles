@@ -1,7 +1,13 @@
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 ##### Bar Appearance #####
-sketchybar --bar position=top height=40 blur_radius=30 color=0x40000000
+bar=(
+  position=top
+  height=30
+  color=0x00000000
+  y_offset=2
+)
+sketchybar --bar "${bar[@]}"
 
 ##### Changing Defaults #####
 default=(

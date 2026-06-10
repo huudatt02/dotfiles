@@ -6,6 +6,8 @@ bar=(
   height=30
   color=0x00000000
   y_offset=2
+  sticky=on
+  topmost=window
 )
 sketchybar --bar "${bar[@]}"
 
@@ -13,8 +15,8 @@ sketchybar --bar "${bar[@]}"
 default=(
   padding_left=5
   padding_right=5
-  icon.font="Hack Nerd Font:Bold:17.0"
-  label.font="Hack Nerd Font:Bold:14.0"
+  icon.font="SF Pro:Semibold:14.0"
+  label.font="SF Pro:Semibold:13.0"
   icon.color=0xffffffff
   label.color=0xffffffff
   icon.padding_left=4

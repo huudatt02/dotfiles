@@ -77,7 +77,7 @@ brew bundle --file=~/dotfiles/brew/Brewfile
 ```zsh
 cd ~/dotfiles
 
-stow aerospace bat ghostty mise nvim starship tmux yazi zsh
+stow aerospace bat ghostty mise nvim sketchybar starship tmux yazi zsh
 ```
 
 ### 6. Setup Mise (runtime manager)

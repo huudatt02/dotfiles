@@ -9,7 +9,7 @@ default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = "move-mouse window-lazy-center"
+on-focus-changed = 'move-mouse window-lazy-center'
 
 automatically-unhide-macos-hidden-apps = false
 
@@ -18,14 +18,37 @@ automatically-unhide-macos-hidden-apps = false
 
 [gaps]
     inner.horizontal = 10
-    inner.vertical =   10
-    outer.left = [{monitor."Built-in Retina Display" = 10}, {monitor."LG FULL HD" = 10}, {monitor.secondary = 10}, 10]
-    outer.top = [{monitor."Built-in Retina Display" = 10}, {monitor."LG FULL HD" = 44}, {monitor.secondary = 44}, 10]
-    outer.bottom = [{monitor."Built-in Retina Display" = 10}, {monitor."LG FULL HD" = 10}, {monitor.secondary = 10}, 10]
-    outer.right = [{monitor."Built-in Retina Display" = 10}, {monitor."LG FULL HD" = 10}, {monitor.secondary = 10}, 10]
+    inner.vertical = 10
+
+    outer.left = [
+        {monitor.'Built-in Retina Display' = 10},
+        {monitor.'LG FULL HD' = 10},
+        {monitor.secondary = 10},
+        10
+    ]
+
+    outer.top = [
+        {monitor.'Built-in Retina Display' = 10},
+        {monitor.'LG FULL HD' = 44},
+        {monitor.secondary = 44},
+        10
+    ]
+
+    outer.bottom = [
+        {monitor.'Built-in Retina Display' = 10},
+        {monitor.'LG FULL HD' = 10},
+        {monitor.secondary = 10},
+        10
+    ]
+
+    outer.right = [
+        {monitor.'Built-in Retina Display' = 10},
+        {monitor.'LG FULL HD' = 10},
+        {monitor.secondary = 10},
+        10
+    ]
 
 [mode.main.binding]
-
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
 

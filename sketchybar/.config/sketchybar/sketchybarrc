@@ -20,7 +20,7 @@ sketchybar --bar "${bar[@]}"
 default=(
   padding_left=5
   padding_right=5
-  icon.font="SF Pro:Semibold:14.0"
+  icon.font="SF Pro:Regular:15.0"
   label.font="SF Pro:Semibold:13.0"
   icon.color=0xffffffff
   label.color=0xffffffff

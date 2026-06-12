@@ -3,9 +3,9 @@
 plist=$(defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources)
 
 if echo "$plist" | grep -q "com.apple.inputmethod.VietnameseIM"; then
-    icon="VI"
+    label="VI"
 else
-    icon="EN"
+    label="EN"
 fi
 
-sketchybar --set "$NAME" icon="$icon"
+sketchybar --set "$NAME" label="$label"

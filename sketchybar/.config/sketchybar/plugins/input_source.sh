@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 plist=$(defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources)
 

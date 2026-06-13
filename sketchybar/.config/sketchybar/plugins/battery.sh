@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 source "$CONFIG_DIR/icons.sh"
 source "$CONFIG_DIR/colors.sh"
@@ -28,4 +28,4 @@ if [[ "$CHARGING" != "" ]]; then
   COLOR=$YELLOW
 fi
 
-sketchybar --set "$NAME" icon="$ICON" icon.color=$COLOR label="${PERCENTAGE}%"
+sketchybar --set "$NAME" icon="$ICON" icon.color="$COLOR" label="${PERCENTAGE}%"

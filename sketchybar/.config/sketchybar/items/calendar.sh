@@ -1,7 +1,7 @@
 #!/bin/bash
 
 calendar=(
-  update_freq=10
+  update_freq=30
   script="$PLUGIN_DIR/calendar.sh"
 )
 

@@ -4,18 +4,16 @@ WIDTH=100
 
 volume_change() {
   source "$CONFIG_DIR/icons.sh"
-  case $INFO in
-    [6-9][0-9]|100) ICON=$VOLUME_100
-    ;;
-    [3-5][0-9]) ICON=$VOLUME_66
-    ;;
-    [1-2][0-9]) ICON=$VOLUME_33
-    ;;
-    [1-9]) ICON=$VOLUME_10
-    ;;
-    0) ICON=$VOLUME_0
-    ;;
-    *) ICON=$VOLUME_100
+  case "$INFO" in
+    [5-9][0-9]|100)
+      ICON=$VOLUME_HIGH
+      ;;
+    [1-4][0-9]|50)
+      ICON=$VOLUME_LOW
+      ;;
+    *)
+      ICON=$VOLUME_MUTED
+      ;;
   esac
 
   sketchybar --set volume_icon label=$ICON \

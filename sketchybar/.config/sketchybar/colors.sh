@@ -12,8 +12,8 @@ export GREY=0xff828bb8
 
 export TRANSPARENT=0x00000000
 export BG0=0xff1e2030
-export BG1=0x603c3e4f
-export BG2=0x60494d64
+export BG1=0x603b4261
+export BG2=0x60444a73
 
 # General bar colors
 export BAR_COLOR=$BG0

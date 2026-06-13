@@ -7,4 +7,4 @@ calendar=(
 )
 
 sketchybar --add item calendar right \
-           --set clock "${calendar[@]}"
+           --set calendar "${calendar[@]}"

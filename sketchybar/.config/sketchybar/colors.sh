@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# TokyoNight
 export BLACK=0xff191B29
 export WHITE=0xffc8d3f5
 export RED=0xffff757f
@@ -9,7 +10,6 @@ export YELLOW=0xffffc777
 export ORANGE=0xffff966c
 export MAGENTA=0xffc099ff
 export GREY=0xff828bb8
-
 export TRANSPARENT=0x00000000
 export BG0=0xff1e2030
 export BG1=0x603b4261

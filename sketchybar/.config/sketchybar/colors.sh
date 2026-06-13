@@ -16,8 +16,8 @@ export TRANSPARENT=0x00000000
 
 # Surfaces
 export BG0=0xff1c1c1e
-export BG1=0xaa2c2c2e
-export BG2=0xff48484a
+export BG1=0x602c2c2e
+export BG2=0x6048484a
 
 # Bar
 export BAR_COLOR=$BG0

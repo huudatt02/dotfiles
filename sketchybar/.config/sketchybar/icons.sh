@@ -8,6 +8,7 @@ ACTIVITY=􀒓
 LOCK=􀒳
 BELL=􀋚
 BELL_DOT=􀝗
+CALENDAR=􀉉
 
 # Battery Icons
 BATTERY_100=􀛨

@@ -4,6 +4,8 @@ source "$CONFIG_DIR/icons.sh"
 ITEM_DIR="$CONFIG_DIR/items"
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
+FONT="SF Pro"
+
 ##### Bar Appearance #####
 bar=(
   position=top
@@ -19,14 +21,17 @@ sketchybar --bar "${bar[@]}"
 
 ##### Changing Defaults #####
 default=(
+  updates=when_shown
   padding_left=5
   padding_right=5
-  icon.font="SF Pro:Regular:15.0"
-  label.font="SF Pro:Semibold:13.0"
+
+  icon.font="$FONT:Regular:15.0"
   icon.color=0xffffffff
-  label.color=0xffffffff
   icon.padding_left=4
   icon.padding_right=4
+
+  label.font="$FONT:Semibold:13.0"
+  label.color=0xffffffff
   label.padding_left=4
   label.padding_right=4
 )

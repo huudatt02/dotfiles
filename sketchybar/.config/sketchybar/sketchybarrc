@@ -25,12 +25,12 @@ default=(
   padding_left=5
   padding_right=5
 
-  icon.font="$FONT:Regular:15.0"
+  icon.font="$FONT:Regular:16.0"
   icon.color=0xffffffff
   icon.padding_left=4
   icon.padding_right=4
 
-  label.font="$FONT:Semibold:13.0"
+  label.font="$FONT:Semibold:14.0"
   label.color=0xffffffff
   label.padding_left=4
   label.padding_right=4

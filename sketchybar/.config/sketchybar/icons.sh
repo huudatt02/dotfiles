@@ -19,11 +19,9 @@ BATTERY_0=􀛪
 BATTERY_CHARGING=􀢋
 
 # Volume Icons
-VOLUME_100=􀊩
-VOLUME_66=􀊧
-VOLUME_33=􀊥
-VOLUME_10=􀊡
-VOLUME_0=􀊣
+VOLUME_HIGH=􀊩
+VOLUME_LOW=􀊥
+VOLUME_MUTED=􀊣
 
 # WiFi
 WIFI_CONNECTED=􀙇

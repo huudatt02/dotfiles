@@ -8,7 +8,7 @@ export BLUE=0xff82aaff
 export YELLOW=0xffffc777
 export ORANGE=0xfff5a97f
 export MAGENTA=0xffc6a0f6
-export GREY=0xff939ab7
+export GREY=0xff828bb8
 
 export TRANSPARENT=0x00000000
 export BG0=0xff1e1e2e

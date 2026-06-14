@@ -206,7 +206,6 @@ function icon_map() {
     ;;
   esac
 }
-
 ### END-OF-ICON-MAP
 
 icon_map "$1"

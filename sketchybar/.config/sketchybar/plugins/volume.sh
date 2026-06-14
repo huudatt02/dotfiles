@@ -8,7 +8,13 @@ show_label() {
   [ -f "$PID_FILE" ] &&
     kill "$(cat "$PID_FILE")" 2>/dev/null
 
-  sketchybar --set "$NAME" label.width=40
+  WIDTH=$(sketchybar --query "$NAME" | jq -r '.label.width')
+
+  if [ "$WIDTH" -eq 0 ]; then
+    sketchybar --animate tanh 20 --set "$NAME" label.width=40
+  else
+    sketchybar --set "$NAME" label.width=40
+  fi
 
   (
     sleep 2

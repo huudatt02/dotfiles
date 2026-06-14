@@ -11,9 +11,9 @@ show_label() {
   WIDTH=$(sketchybar --query "$NAME" | jq -r '.label.width')
 
   if [ "$WIDTH" -eq 0 ]; then
-    sketchybar --animate tanh 20 --set "$NAME" label.width=40
+    sketchybar --animate tanh 20 --set "$NAME" label.width=42
   else
-    sketchybar --set "$NAME" label.width=40
+    sketchybar --set "$NAME" label.width=42
   fi
 
   (

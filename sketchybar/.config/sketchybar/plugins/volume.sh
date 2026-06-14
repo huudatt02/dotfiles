@@ -3,12 +3,19 @@
 source "$CONFIG_DIR/icons.sh"
 
 show_label() {
-  sketchybar --set "$NAME" label.drawing=on
+  PID_FILE="/tmp/sketchybar-volume.pid"
+
+  [ -f "$PID_FILE" ] &&
+    kill "$(cat "$PID_FILE")" 2>/dev/null
+
+  sketchybar --set "$NAME" label.width=40
 
   (
     sleep 2
-    sketchybar --set "$NAME" label.drawing=off
+    sketchybar --animate tanh 20 --set "$NAME" label.width=0
   ) &
+
+  echo $! > "$PID_FILE"
 }
 
 case "$SENDER" in

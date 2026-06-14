@@ -4,7 +4,7 @@ volume=(
   script="$PLUGIN_DIR/volume.sh"
   icon="$VOLUME_MEDIUM"
   label="--%"
-  label.drawing=off
+  label.width=0
   updates=on
 )
 

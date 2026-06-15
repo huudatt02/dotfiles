@@ -2,49 +2,94 @@ tap "anomalyco/tap"
 tap "felixkratz/formulae"
 tap "nikitabobko/tap"
 tap "oven-sh/bun"
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Dependency manager for Cocoa projects
 brew "cocoapods"
+# Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
+# Pack, ship and run any application as a lightweight container
 brew "docker"
+# Isolated development environments using Docker
 brew "docker-compose"
+# Modern, maintained replacement for ls
 brew "eza"
+# Simple, fast and user-friendly alternative to find
 brew "fd"
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
+# Lazier way to manage everything docker
 brew "lazydocker"
+# Simple terminal UI for git commands
 brew "lazygit"
+# Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Fast, disk space efficient package manager
 brew "pnpm"
+# PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
+# SVG rendering tool and library
 brew "resvg"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
+# Cross-shell prompt for astronauts
 brew "starship"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
+# Terminal multiplexer
 brew "tmux"
+# Plugin manager for tmux
 brew "tpm"
+# Parser generator tool
 brew "tree-sitter-cli"
+# Build server protocol implementation for integrating Xcode with sourcekit-lsp
 brew "xcode-build-server"
+# Fast & lightweight command-line tool for managing Xcode projects, built in Swift
 brew "xcp"
+# Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
+# Flexible and fast Zsh plugin manager
 brew "zinit"
+# Shell extension to navigate your filesystem faster
 brew "zoxide"
-brew "anomalyco/tap/opencode"
-brew "felixkratz/formulae/sketchybar"
-brew "oven-sh/bun/bun"
+# The AI coding agent built for the terminal.
+brew "anomalyco/tap/opencode", trusted: true
+# Custom macOS statusbar with shell plugin, interaction and graph support
+brew "felixkratz/formulae/sketchybar", trusted: true
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun", trusted: true
+# AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace"
+# Tools for building Android applications
 cask "android-studio"
+# Open source IDE for exploring and testing APIs
 cask "bruno"
+# Free app that makes your Internet safer
 cask "cloudflare-warp"
+# Web browser
 cask "firefox"
+# UI toolkit for building applications for mobile, web and desktop
 cask "flutter"
 cask "font-maple-mono-nl-nf"
 cask "font-sf-pro"
+cask "font-sketchybar-app-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Open-source software for live streaming and screen recording
 cask "obs"
+# System monitor for the menu bar
 cask "stats"
+# Native database client for many database types
 cask "tablepro"

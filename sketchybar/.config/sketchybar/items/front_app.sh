@@ -8,7 +8,7 @@ chevron=(
 )
 
 front_app=(
-  label.font="$FONT:Bold:16.0"
+  label.font="$FONT:Bold:14.0"
   icon.background.drawing=on
   display=active
   script="$PLUGIN_DIR/front_app.sh"

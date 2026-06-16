@@ -11,7 +11,8 @@ for monitor in $(aerospace list-monitors --format "%{monitor-appkit-nsscreen-scr
       background.corner_radius=5 \
       background.height=20 \
       background.drawing=off \
-      label="$sid" \
+      icon="$sid" \
+      icon.font="$FONT:Semibold:14.0" \
       click_script="aerospace workspace $sid" \
       script="$CONFIG_DIR/plugins/space.sh $sid"
   done

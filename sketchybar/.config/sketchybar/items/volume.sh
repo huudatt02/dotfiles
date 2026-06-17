@@ -1,11 +1,11 @@
 #!/bin/bash
 
 volume=(
-  script="$PLUGIN_DIR/volume.sh"
   icon="$VOLUME_MEDIUM"
   label="--%"
   label.width=0
   updates=on
+  script="$PLUGIN_DIR/volume.sh"
 )
 
 sketchybar --add item volume right \

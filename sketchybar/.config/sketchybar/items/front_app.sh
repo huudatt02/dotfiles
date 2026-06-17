@@ -1,16 +1,16 @@
 #!/bin/bash
 
 chevron=(
+  background.drawing=off
   icon=􀆊
   icon.font="SF Pro:Bold:16.0"
   label.drawing=off
-  background.drawing=off
 )
 
 front_app=(
-  label.font="$FONT:Bold:14.0"
-  icon.background.drawing=on
   display=active
+  icon.background.drawing=on
+  label.font="$FONT:Bold:14.0"
   script="$PLUGIN_DIR/front_app.sh"
   click_script="open -a 'Mission Control'"
 )

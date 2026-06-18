@@ -1,5 +1,6 @@
 local cal = sbar.add("item", {
 	icon = {
+		padding_right = 5,
 		font = {
 			style = "Semibold",
 			size = 14.0,

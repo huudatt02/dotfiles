@@ -15,8 +15,9 @@ local cal = sbar.add("item", {
 	},
 	position = "right",
 	update_freq = 30,
+	click_script = "open -a 'Calendar'",
 })
 
 cal:subscribe({ "forced", "routine", "system_woke" }, function(env)
-  cal:set({ icon = os.date("%a %d %b"), label = os.date("%H:%M") })
+	cal:set({ icon = os.date("%a %d %b"), label = os.date("%H:%M") })
 end)

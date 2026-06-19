@@ -4,8 +4,8 @@ local front_app = sbar.add("item", {
 	},
 	label = {
 		font = {
-			style = "Black",
-			size = 12.0,
+			style = "Bold",
+			size = 14.0,
 		},
 	},
 })

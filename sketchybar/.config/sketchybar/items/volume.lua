@@ -111,22 +111,3 @@ volume:subscribe("mouse.clicked", function()
 		show_label()
 	end)
 end)
-
--- Initial sync on startup/reload
-sbar.exec("osascript -e 'output volume of (get volume settings)'", function(output)
-	local v = tonumber(output)
-
-	if not v then
-		return
-	end
-
-	volume:set({
-		icon = {
-			string = icon_for_volume(v),
-		},
-
-		label = {
-			string = ("%d%%"):format(v),
-		},
-	})
-end)

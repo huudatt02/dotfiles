@@ -1,5 +1,5 @@
 return {
 	font = "SF Pro",
-	paddings = 5,
+	paddings = 3,
 	icons = "sf-symbols",
 }

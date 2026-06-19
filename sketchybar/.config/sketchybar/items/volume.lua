@@ -1,79 +1,112 @@
-local colors = require("colors")
 local icons = require("icons")
 
-local volume_slider = sbar.add("slider", 100, {
-	position = "right",
-	updates = true,
-	label = { drawing = false },
-	icon = { drawing = false },
-	slider = {
-		highlight_color = colors.blue,
-		width = 0,
-		background = {
-			height = 6,
-			corner_radius = 3,
-			color = colors.bg2,
-		},
-		knob = {
-			string = "􀀁",
-			drawing = false,
-		},
-	},
+local volume = sbar.add("item", "volume", {
+  position = "right",
+
+  icon = {
+    string = icons.volume.medium,
+  },
+
+  label = {
+    string = "--%",
+    width = 0,
+  },
+
+  updates = true,
 })
 
-local volume_icon = sbar.add("item", {
-	position = "right",
-	icon = {
-		string = icons.volume._100,
-		width = 0,
-		align = "left",
-		color = colors.grey,
-		font = {
-			style = "Regular",
-			size = 14.0,
-		},
-	},
-	label = {
-		width = 25,
-		align = "left",
-		font = {
-			style = "Regular",
-			size = 14.0,
-		},
-	},
-})
+local hide_id = 0
 
-volume_slider:subscribe("mouse.clicked", function(env)
-	sbar.exec("osascript -e 'set volume output volume " .. env["PERCENTAGE"] .. "'")
-end)
+local function show_label()
+  hide_id = hide_id + 1
+  local current_id = hide_id
 
-volume_slider:subscribe("volume_change", function(env)
-	local volume = tonumber(env.INFO)
-	local icon = icons.volume._0
-	if volume > 60 then
-		icon = icons.volume._100
-	elseif volume > 30 then
-		icon = icons.volume._66
-	elseif volume > 10 then
-		icon = icons.volume._33
-	elseif volume > 0 then
-		icon = icons.volume._10
-	end
+  local width = tonumber(volume:query().label.width) or 0
 
-	volume_icon:set({ label = icon })
-	volume_slider:set({ slider = { percentage = volume } })
-end)
+  if width == 0 then
+    sbar.animate("tanh", 20, function()
+      volume:set({
+        label = {
+          width = 42,
+        },
+      })
+    end)
+  else
+    volume:set({
+      label = {
+        width = 42,
+      },
+    })
+  end
 
-local function animate_slider_width(width)
-	sbar.animate("tanh", 30.0, function()
-		volume_slider:set({ slider = { width = width } })
-	end)
+  sbar.exec("sleep 2", function()
+    if current_id ~= hide_id then
+      return
+    end
+
+    sbar.animate("tanh", 20, function()
+      volume:set({
+        label = {
+          width = 0,
+        },
+      })
+    end)
+  end)
 end
 
-volume_icon:subscribe("mouse.clicked", function()
-	if tonumber(volume_slider:query().slider.width) > 0 then
-		animate_slider_width(0)
-	else
-		animate_slider_width(100)
-	end
+local function icon_for_volume(v)
+  if v == 0 then
+    return icons.volume.mute
+  elseif v <= 20 then
+    return icons.volume.min
+  elseif v <= 40 then
+    return icons.volume.low
+  elseif v <= 70 then
+    return icons.volume.medium
+  else
+    return icons.volume.high
+  end
+end
+
+local function update_volume(env)
+  local v = tonumber(env.INFO)
+
+  if not v then
+    return
+  end
+
+  volume:set({
+    icon = {
+      string = icon_for_volume(v),
+    },
+
+    label = {
+      string = ("%d%%"):format(v),
+    },
+  })
+
+  show_label()
+end
+
+volume:subscribe("volume_change", update_volume)
+
+volume:subscribe("mouse.clicked", function()
+  sbar.exec(
+    "osascript -e 'output volume of (get volume settings)'",
+    function(output)
+      local v = tonumber(output)
+
+      if not v then
+        return
+      end
+
+      volume:set({
+        label = {
+          string = ("%d%%"):format(v),
+        },
+      })
+
+      show_label()
+    end
+  )
 end)

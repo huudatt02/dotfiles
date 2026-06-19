@@ -1,11 +1,11 @@
 local input_source = sbar.add("item", {
+	position = "right",
 	label = {
 		font = {
 			style = "Bold",
 			size = 14.0,
 		},
 	},
-	position = "right",
 })
 
 local function update_input_source()

@@ -3,7 +3,10 @@ local icons = require("icons")
 local wifi = sbar.add("item", "wifi", {
 	position = "right",
 	icon = {
-		string = icons.wifi.disconnected,
+		font = {
+			style = "Regular",
+			size = 16.0,
+		},
 	},
 	label = {
 		drawing = false,

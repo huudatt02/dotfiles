@@ -85,6 +85,7 @@ cask "firefox"
 # UI toolkit for building applications for mobile, web and desktop
 cask "flutter"
 cask "font-maple-mono-nl-nf"
+cask "font-sf-mono"
 cask "font-sf-pro"
 cask "font-sketchybar-app-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration

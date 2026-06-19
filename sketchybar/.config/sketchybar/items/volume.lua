@@ -68,9 +68,7 @@ local function icon_for_volume(v)
 	end
 end
 
-local function update_volume(env)
-	local v = tonumber(env.INFO)
-
+local function set_volume(v)
 	if not v then
 		return
 	end
@@ -88,26 +86,15 @@ local function update_volume(env)
 	show_label()
 end
 
-volume:subscribe("volume_change", update_volume)
+local function update_volume(env)
+	set_volume(tonumber(env.INFO))
+end
 
-volume:subscribe("mouse.clicked", function()
+local function show_current_volume()
 	sbar.exec("osascript -e 'output volume of (get volume settings)'", function(output)
-		local v = tonumber(output)
-
-		if not v then
-			return
-		end
-
-		volume:set({
-			icon = {
-				string = icon_for_volume(v),
-			},
-
-			label = {
-				string = ("%d%%"):format(v),
-			},
-		})
-
-		show_label()
+		set_volume(tonumber(output))
 	end)
-end)
+end
+
+volume:subscribe("volume_change", update_volume)
+volume:subscribe("mouse.clicked", show_current_volume)

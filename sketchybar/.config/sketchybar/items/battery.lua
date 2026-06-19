@@ -3,12 +3,14 @@ local icons = require("icons")
 local battery = sbar.add("item", {
 	position = "right",
 	icon = {
+		string = icons.battery._100,
 		font = {
 			style = "Regular",
 			size = 19.0,
 		},
 	},
 	label = {
+		string = "--%",
 		font = {
 			style = "Semibold",
 			size = 14.0,

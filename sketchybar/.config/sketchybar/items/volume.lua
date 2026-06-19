@@ -2,11 +2,9 @@ local icons = require("icons")
 
 local volume = sbar.add("item", "volume", {
 	position = "right",
-
 	icon = {
 		string = icons.volume.medium,
 	},
-
 	label = {
 		string = "--%",
 		width = 0,
@@ -15,7 +13,6 @@ local volume = sbar.add("item", "volume", {
 			size = 14.0,
 		},
 	},
-
 	updates = true,
 })
 

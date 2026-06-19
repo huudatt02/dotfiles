@@ -2,7 +2,6 @@ local icons = require("icons")
 
 local cal = sbar.add("item", {
 	position = "right",
-
 	icon = {
 		string = icons.calendar,
 		font = {
@@ -10,16 +9,13 @@ local cal = sbar.add("item", {
 			size = 16.0,
 		},
 	},
-
 	label = {
-		width = 75,
 		align = "right",
 		font = {
 			style = "Semibold",
 			size = 14.0,
 		},
 	},
-
 	update_freq = 30,
 	click_script = "open -a 'Calendar'",
 })

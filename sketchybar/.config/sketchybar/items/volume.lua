@@ -56,13 +56,15 @@ end
 
 local function icon_for_volume(v)
 	if v == 0 then
-		return icons.volume.mute
-	elseif v < 33 then
-		return icons.volume.low
-	elseif v < 66 then
-		return icons.volume.medium
+		return icons.volume._0
+	elseif v <= 20 then
+		return icons.volume._10
+	elseif v <= 40 then
+		return icons.volume._33
+	elseif v <= 70 then
+		return icons.volume._66
 	else
-		return icons.volume.high
+		return icons.volume._100
 	end
 end
 

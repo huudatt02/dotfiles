@@ -25,4 +25,4 @@ local function update_wifi()
 	end)
 end
 
-wifi:subscribe("wifi_change", update_wifi)
+wifi:subscribe({ "wifi_change", "system_woke" }, update_wifi)

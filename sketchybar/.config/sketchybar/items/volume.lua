@@ -31,7 +31,7 @@ local function show_label()
 		sbar.animate("tanh", 20, function()
 			volume:set({
 				label = {
-					width = 45,
+					width = 42,
 				},
 			})
 		end)

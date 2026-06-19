@@ -11,6 +11,7 @@ local volume = sbar.add("item", "volume", {
 		string = "--%",
 		width = 0,
 		font = {
+			style = "Semibold",
 			size = 14,
 		},
 	},

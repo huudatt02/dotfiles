@@ -1,27 +1,29 @@
+local settings = require("settings")
+local colors = require("colors")
+
 local cal = sbar.add("item", {
 	icon = {
+		color = colors.system.white,
 		font = {
-			style = "Semibold",
+			style = settings.font.style_map["Semibold"],
 			size = 14.0,
 		},
 	},
 	label = {
+		color = colors.system.white,
 		width = 45,
 		align = "right",
 		font = {
-			style = "Semibold",
+			family = settings.font.numbers,
+			style = settings.font.style_map["Semibold"],
 			size = 14.0,
 		},
 	},
 	position = "right",
-	update_freq = 15,
+	update_freq = 30,
+  click_script = "open -a 'Calendar'"
 })
 
-local function update()
-	local date = os.date("%a %d %b")
-	local time = os.date("%H:%M")
-	cal:set({ icon = date, label = time })
-end
-
-cal:subscribe("routine", update)
-cal:subscribe("forced", update)
+cal:subscribe({ "forced", "routine", "system_woke" }, function(env)
+  cal:set({ icon = os.date("%a %d %b"), label = os.date("%H:%M") })
+end)

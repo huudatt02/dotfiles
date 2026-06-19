@@ -18,4 +18,8 @@ return {
 		_0 = "􀛪",
 		charging = "􀢋",
 	},
+	wifi = {
+		connected = "􀙇",
+		disconnected = "􀙈",
+	},
 }

@@ -2,6 +2,7 @@ return {
 	loading = "􀖇",
 	apple = "􀣺",
 	preferences = "􀺽",
+	calendar = "􀉉",
 
 	volume = {
 		_100 = "􀊩",

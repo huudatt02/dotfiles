@@ -14,14 +14,9 @@ local cal = sbar.add("item", {
 		},
 	},
 	position = "right",
-	update_freq = 15,
+	update_freq = 30,
 })
 
-local function update()
-	local date = os.date("%a %d %b")
-	local time = os.date("%H:%M")
-	cal:set({ icon = date, label = time })
-end
-
-cal:subscribe("routine", update)
-cal:subscribe("forced", update)
+cal:subscribe({ "forced", "routine", "system_woke" }, function(env)
+  cal:set({ icon = os.date("%a %d %b"), label = os.date("%H:%M") })
+end)

@@ -10,6 +10,9 @@ local volume = sbar.add("item", "volume", {
 	label = {
 		string = "--%",
 		width = 0,
+		font = {
+			size = 14,
+		},
 	},
 
 	updates = true,

@@ -25,8 +25,13 @@ local apple_logo = sbar.add("item", {
 local popup_items = {
 	{
 		icon = icons.preferences,
-		label = "Preferences",
+		label = "System Settings",
 		action = "open -a 'System Settings'",
+	},
+	{
+		icon = icons.activity,
+		label = "Activity Monitor",
+		action = "open -a 'Activity Monitor'",
 	},
 	{
 		icon = icons.sleep,

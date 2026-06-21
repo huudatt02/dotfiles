@@ -1,9 +1,10 @@
 return {
 	apple = "􀣺",
 	gear = "􀍟",
-	user = "􀉭",
-	lock = "􀎠",
+	chart = "􀣉",
 	sleep = "􀜚",
+	lock = "􀎠",
+	user = "􀉭",
 	calendar = "􀉉",
 
 	wifi = {

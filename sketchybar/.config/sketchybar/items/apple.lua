@@ -29,7 +29,7 @@ local popup_items = {
 		action = "open -a 'System Settings'",
 	},
 	{
-		icon = icons.activity,
+		icon = icons.chart,
 		label = "Activity Monitor",
 		action = "open -a 'Activity Monitor'",
 	},

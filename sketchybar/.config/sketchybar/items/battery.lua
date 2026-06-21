@@ -1,4 +1,5 @@
 local icons = require("icons")
+local colors = require("colors")
 
 local battery = sbar.add("item", {
 	position = "right",
@@ -21,6 +22,7 @@ local function battery_update()
 	sbar.exec("pmset -g batt", function(batt_info)
 		local icon = "!"
 		local percentage = ""
+		local icon_color = colors.system.white
 
 		local found, _, charge = batt_info:find("(%d+)%%")
 		if found then
@@ -30,6 +32,7 @@ local function battery_update()
 
 		if string.find(batt_info, "AC Power") then
 			icon = icons.battery.charging
+			icon_color = colors.system.green
 		elseif charge > 80 then
 			icon = icons.battery._100
 		elseif charge > 60 then
@@ -38,12 +41,17 @@ local function battery_update()
 			icon = icons.battery._50
 		elseif charge > 20 then
 			icon = icons.battery._25
+			icon_color = colors.system.yellow
 		else
 			icon = icons.battery._0
+			icon_color = colors.system.red
 		end
 
 		battery:set({
-			icon = icon,
+			icon = {
+				string = icon,
+				color = icon_color,
+			},
 			label = percentage,
 		})
 	end)

@@ -6,8 +6,8 @@ sbar.default({
 	icon = {
 		font = {
 			family = settings.font,
-			style = "Bold",
-			size = 14.0,
+			style = "Regular",
+			size = 16.0,
 		},
 		color = colors.white,
 		padding_left = settings.paddings,
@@ -17,7 +17,7 @@ sbar.default({
 		font = {
 			family = settings.font,
 			style = "Semibold",
-			size = 13.0,
+			size = 14.0,
 		},
 		color = colors.white,
 		padding_left = settings.paddings,

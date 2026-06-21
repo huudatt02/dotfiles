@@ -1,8 +1,15 @@
 return {
-	loading = "􀖇",
 	apple = "􀣺",
-	preferences = "􀺽",
+	gear = "􀍟",
+	user = "􀉭",
+	lock = "􀎠",
+	sleep = "􀜚",
 	calendar = "􀉉",
+
+	wifi = {
+		connected = "􀙇",
+		disconnected = "􀙈",
+	},
 
 	volume = {
 		_100 = "􀊩",
@@ -11,6 +18,7 @@ return {
 		_10 = "􀊡",
 		_0 = "􀊣",
 	},
+
 	battery = {
 		_100 = "􀛨",
 		_75 = "􀺸",
@@ -18,9 +26,5 @@ return {
 		_25 = "􀛩",
 		_0 = "􀛪",
 		charging = "􀢋",
-	},
-	wifi = {
-		connected = "􀙇",
-		disconnected = "􀙈",
 	},
 }

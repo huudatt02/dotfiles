@@ -1,5 +1,6 @@
 sbar.add("item", "chevron", {
 	position = "left",
+	display = "active",
 	background = {
 		drawing = false,
 	},
@@ -7,7 +8,7 @@ sbar.add("item", "chevron", {
 		string = "􀆊",
 		font = {
 			style = "Bold",
-			size = 16,
+			size = 16.0,
 		},
 	},
 	label = {
@@ -26,7 +27,7 @@ local front_app = sbar.add("item", "front_app", {
 	label = {
 		font = {
 			style = "Bold",
-			size = 14,
+			size = 14.0,
 		},
 	},
 	click_script = "open -a 'Mission Control'",

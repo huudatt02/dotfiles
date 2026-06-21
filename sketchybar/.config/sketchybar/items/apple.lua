@@ -24,7 +24,7 @@ local apple_logo = sbar.add("item", {
 
 local popup_items = {
 	{
-		icon = icons.preferences,
+		icon = icons.gear,
 		label = "System Settings",
 		action = "open -a 'System Settings'",
 	},
@@ -44,7 +44,7 @@ local popup_items = {
 		action = "pmset displaysleepnow",
 	},
 	{
-		icon = icons.logout,
+		icon = icons.user,
 		label = "Logout",
 		action = "osascript -e 'tell application \"System Events\" to log out'",
 	},

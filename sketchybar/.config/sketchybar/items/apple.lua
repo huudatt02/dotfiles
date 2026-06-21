@@ -22,13 +22,37 @@ local apple_logo = sbar.add("item", {
 	},
 })
 
-local apple_prefs = sbar.add("item", {
-	position = "popup." .. apple_logo.name,
-	icon = icons.preferences,
-	label = "Preferences",
-})
+local popup_items = {
+	{
+		icon = icons.preferences,
+		label = "Preferences",
+		action = "open -a 'System Settings'",
+	},
+	{
+		icon = icons.lock,
+		label = "Lock Screen",
+		action = "pmset displaysleepnow",
+	},
+	{
+		icon = icons.power,
+		label = "Shutdown",
+		action = "osascript -e 'tell app \"System Events\" to shut down'",
+	},
+}
 
-apple_prefs:subscribe("mouse.clicked", function(_)
-	sbar.exec("open -a 'System Preferences'")
-	apple_logo:set({ popup = { drawing = false } })
-end)
+for _, item in ipairs(popup_items) do
+	local popup_item = sbar.add("item", {
+		position = "popup." .. apple_logo.name,
+		icon = item.icon,
+		label = item.label,
+	})
+
+	popup_item:subscribe("mouse.clicked", function()
+		sbar.exec(item.action)
+		apple_logo:set({
+			popup = {
+				drawing = false,
+			},
+		})
+	end)
+end

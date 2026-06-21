@@ -29,14 +29,19 @@ local popup_items = {
 		action = "open -a 'System Settings'",
 	},
 	{
+		icon = icons.sleep,
+		label = "Sleep",
+		action = "pmset sleepnow",
+	},
+	{
 		icon = icons.lock,
 		label = "Lock Screen",
 		action = "pmset displaysleepnow",
 	},
 	{
-		icon = icons.power,
-		label = "Shutdown",
-		action = "osascript -e 'tell app \"System Events\" to shut down'",
+		icon = icons.logout,
+		label = "Logout",
+		action = "osascript -e 'tell application \"System Events\" to log out'",
 	},
 }
 

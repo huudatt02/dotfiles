@@ -2,8 +2,8 @@ return {
 	apple = "􀣺",
 	gear = "􀍟",
 	chart = "􀣉",
-	sleep = "􀜚",
-	lock = "􀎠",
+	sleep = "􀥦",
+	lock = "􀎡",
 	user = "􀉭",
 	calendar = "􀉉",
 

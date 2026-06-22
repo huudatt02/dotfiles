@@ -52,8 +52,14 @@ local popup_items = {
 for _, item in ipairs(popup_items) do
 	local popup_item = sbar.add("item", {
 		position = "popup." .. apple_logo.name,
-		icon = item.icon,
+		icon = {
+			string = item.icon,
+			width = 30,
+			align = "center",
+		},
 		label = item.label,
+		padding_left = 10,
+		padding_right = 10,
 	})
 
 	popup_item:subscribe("mouse.clicked", function()

@@ -55,7 +55,7 @@ for _, item in ipairs(popup_items) do
 		icon = {
 			string = item.icon,
 			width = 30,
-			align = "center",
+			align = "left",
 		},
 		label = item.label,
 		padding_left = 10,

@@ -3,7 +3,7 @@ local colors = require("colors")
 
 local popup_toggle = "sketchybar --set $NAME popup.drawing=toggle"
 
-local apple_logo = sbar.add("item", {
+local apple_logo = sbar.add("item", "apple", {
 	click_script = popup_toggle,
 	icon = {
 		string = icons.apple,
@@ -23,26 +23,31 @@ local apple_logo = sbar.add("item", {
 
 local popup_items = {
 	{
+		name = "settings",
 		icon = icons.gear,
 		label = "System Settings",
 		action = "open -a 'System Settings'",
 	},
 	{
+		name = "activity_monitor",
 		icon = icons.chart,
 		label = "Activity Monitor",
 		action = "open -a 'Activity Monitor'",
 	},
 	{
+		name = "sleep",
 		icon = icons.sleep,
 		label = "Sleep",
 		action = "pmset sleepnow",
 	},
 	{
+		name = "lock",
 		icon = icons.lock,
 		label = "Lock Screen",
 		action = "pmset displaysleepnow",
 	},
 	{
+		name = "logout",
 		icon = icons.user,
 		label = "Logout",
 		action = "osascript -e 'tell application \"System Events\" to log out'",

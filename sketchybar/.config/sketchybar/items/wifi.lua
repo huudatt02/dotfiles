@@ -23,7 +23,7 @@ local function update_wifi()
 			local icon = nil
 
 			if vpn_connected then
-				icon = icons.vpn.connected
+				icon = icons.wifi.vpn
 			else
 				icon = connected and icons.wifi.connected or icons.wifi.disconnected
 			end

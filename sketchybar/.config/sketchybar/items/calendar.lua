@@ -1,6 +1,6 @@
 local icons = require("icons")
 
-local cal = sbar.add("item", {
+local cal = sbar.add("item", "calendar", {
 	position = "right",
 	icon = {
 		string = icons.calendar,

@@ -1,4 +1,4 @@
-local input_source = sbar.add("item", {
+local input_source = sbar.add("item", "input_source", {
 	position = "right",
 	label = {
 		font = {

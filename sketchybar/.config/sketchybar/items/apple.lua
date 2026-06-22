@@ -55,7 +55,7 @@ local popup_items = {
 }
 
 for _, item in ipairs(popup_items) do
-	local popup_item = sbar.add("item", {
+	local popup_item = sbar.add("item", "apple." .. item.name, {
 		position = "popup." .. apple_logo.name,
 		icon = {
 			string = item.icon,

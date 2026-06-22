@@ -8,6 +8,7 @@ return {
 	calendar = "􀉉",
 
 	wifi = {
+		vpn = "􀞚",
 		connected = "􀙇",
 		disconnected = "􀙈",
 	},

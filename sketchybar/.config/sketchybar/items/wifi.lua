@@ -17,11 +17,23 @@ local function update_wifi()
 	sbar.exec("ipconfig getifaddr en0 2>/dev/null", function(output)
 		local connected = output and output:match("%S")
 
-		wifi:set({
-			icon = {
-				string = connected and icons.wifi.connected or icons.wifi.disconnected,
-			},
-		})
+		sbar.exec("scutil --nwi | grep -m1 'utun'", function(vpn_output)
+			local vpn_connected = vpn_output and vpn_output:match("utun")
+
+			local icon = nil
+
+			if vpn_connected then
+				icon = icons.vpn.connected
+			else
+				icon = connected and icons.wifi.connected or icons.wifi.disconnected
+			end
+
+			wifi:set({
+				icon = {
+					string = icon,
+				},
+			})
+		end)
 	end)
 end
 

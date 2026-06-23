@@ -6,7 +6,7 @@ local battery = sbar.add("item", "battery", {
 	icon = {
 		font = {
 			style = "Regular",
-			size = 19.0,
+			size = 18.0,
 		},
 	},
 	label = {

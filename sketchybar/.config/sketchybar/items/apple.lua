@@ -11,7 +11,7 @@ local apple_logo = sbar.add("item", "apple", {
 			style = "Regular",
 			size = 18.0,
 		},
-		color = colors.system.white,
+		color = colors.white,
 	},
 	label = {
 		drawing = false,

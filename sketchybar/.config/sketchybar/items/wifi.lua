@@ -1,4 +1,5 @@
 local icons = require("icons")
+local colors = require("colors")
 
 local wifi = sbar.add("item", "wifi", {
 	position = "right",
@@ -25,9 +26,9 @@ local function update_wifi()
 					},
 					background = {
 						drawing = true,
-						color = 0x00000000,
+						color = colors.transparent,
 						border_width = 1,
-						border_color = 0xffffffff,
+						border_color = colors.white,
 						corner_radius = 5,
 						height = 18,
 					},

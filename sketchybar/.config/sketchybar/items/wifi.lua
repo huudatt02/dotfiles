@@ -20,7 +20,7 @@ local function update_wifi()
 						string = "VPN",
 						font = {
 							style = "Bold",
-							size = 14.0,
+							size = 10.0,
 						},
 					},
 					background = {

@@ -23,6 +23,14 @@ local function update_wifi()
 							size = 14.0,
 						},
 					},
+					background = {
+						drawing = true,
+						color = 0x00000000,
+						border_width = 1,
+						border_color = 0xffffffff,
+						corner_radius = 5,
+						height = 18,
+					},
 				})
 			else
 				wifi:set({
@@ -32,6 +40,9 @@ local function update_wifi()
 							style = "Regular",
 							size = 16.0,
 						},
+					},
+					background = {
+						drawing = false,
 					},
 				})
 			end

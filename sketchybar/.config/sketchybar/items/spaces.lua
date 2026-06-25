@@ -235,7 +235,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	updateWindows()
 	updateWorkspaceMonitor()
 
-	local root = sbar.add("item", { drawing = false })
+	local root = sbar.add("item", { drawing = true })
 
 	-- Subscribe to window creation/destruction events
 	root:subscribe("aerospace_workspace_change", function()

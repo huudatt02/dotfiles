@@ -21,15 +21,17 @@ local function update_wifi()
 						string = "VPN",
 						font = {
 							style = "Bold",
-							size = 10.0,
+							size = 12.0,
 						},
+						padding_left = 6,
+						padding_right = 6,
 					},
 					background = {
 						drawing = true,
 						color = colors.transparent,
 						border_width = 1,
 						border_color = colors.white,
-						corner_radius = 5,
+						corner_radius = 6,
 						height = 18,
 					},
 				})

@@ -154,7 +154,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	for _, entry in ipairs(workspaces_and_monitors) do
 		local workspace_index = entry.workspace
 
-		local workspace = sbar.add("item", {
+		local workspace = sbar.add("item", "workspace." .. workspace_index, {
 			background = {
 				color = colors.with_alpha(colors.bg1, 0.3),
 				drawing = true,

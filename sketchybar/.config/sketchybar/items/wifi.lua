@@ -29,8 +29,8 @@ local function update_wifi()
 					background = {
 						drawing = true,
 						color = colors.transparent,
-						border_width = 1,
-						border_color = colors.white,
+						border_width = 2,
+						border_color = colors.with_alpha(colors.white, 0.8),
 						corner_radius = 6,
 						height = 20,
 					},

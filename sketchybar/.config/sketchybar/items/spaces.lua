@@ -4,7 +4,6 @@ local app_icons = require("helpers.app_icons")
 local query_workspaces =
 	"aerospace list-workspaces --all --format '%{workspace}%{monitor-appkit-nsscreen-screens-id}' --json"
 
--- Root is used to handle event subscriptions
 local workspaces = {}
 
 local function withWindows(f)
@@ -243,19 +242,21 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	updateWindows()
 	updateWorkspaceMonitor()
 
-	local root = sbar.add("item", { drawing = true })
+	local events = sbar.add("item", "workspace.events", {
+		drawing = true,
+	})
 
 	-- Subscribe to window creation/destruction events
-	root:subscribe("aerospace_workspace_change", function()
+	events:subscribe("aerospace_workspace_change", function()
 		updateWindows()
 	end)
 
 	-- Subscribe to front app changes too
-	root:subscribe("front_app_switched", function()
+	events:subscribe("front_app_switched", function()
 		updateWindows()
 	end)
 
-	root:subscribe("display_change", function()
+	events:subscribe("display_change", function()
 		updateWorkspaceMonitor()
 		updateWindows()
 	end)

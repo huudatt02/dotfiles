@@ -14,6 +14,7 @@ local function withWindows(f)
 	local query_visible_workspaces =
 		"aerospace list-workspaces --visible --monitor all --format '%{workspace}%{monitor-appkit-nsscreen-screens-id}' --json"
 	local get_focus_workspaces = "aerospace list-workspaces --focused"
+
 	sbar.exec(get_windows, function(workspace_and_windows)
 		-- Use a set to track unique window IDs
 		local processed_windows = {}
@@ -48,10 +49,11 @@ local function withWindows(f)
 		end
 
 		sbar.exec(get_focus_workspaces, function(focused_workspaces)
+			local clean_focused = focused_workspaces:match("^%s*(.-)%s*$")
 			sbar.exec(query_visible_workspaces, function(visible_workspaces)
 				local args = {
 					open_windows = open_windows,
-					focused_workspaces = focused_workspaces,
+					focused_workspaces = clean_focused,
 					visible_workspaces = visible_workspaces,
 				}
 				f(args)
@@ -79,7 +81,14 @@ local function updateWindow(workspace_index, args)
 		icon_line = icon_line .. " " .. icon
 	end
 
+	local is_focused = (workspace_index == focused_workspaces)
+
 	sbar.animate("tanh", 10, function()
+		workspaces[workspace_index]:set({
+			icon = { highlight = is_focused },
+			label = { highlight = is_focused },
+		})
+
 		for i, visible_workspace in ipairs(visible_workspaces) do
 			if no_app and workspace_index == visible_workspace["workspace"] then
 				local monitor_id = visible_workspace["monitor-appkit-nsscreen-screens-id"]
@@ -92,13 +101,13 @@ local function updateWindow(workspace_index, args)
 				return
 			end
 		end
-		if no_app and workspace_index ~= focused_workspaces then
+		if no_app and not is_focused then
 			workspaces[workspace_index]:set({
 				drawing = false,
 			})
 			return
 		end
-		if no_app and workspace_index == focused_workspaces then
+		if no_app and is_focused then
 			icon_line = " —"
 			workspaces[workspace_index]:set({
 				drawing = true,
@@ -168,19 +177,6 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 		})
 
 		workspaces[workspace_index] = workspace
-
-		workspace:subscribe("aerospace_workspace_change", function(env)
-			local focused_workspace = env.FOCUSED_WORKSPACE
-			local is_focused = focused_workspace == workspace_index
-
-			sbar.animate("tanh", 10, function()
-				workspace:set({
-					icon = { highlight = is_focused },
-					label = { highlight = is_focused },
-					blur_radius = 30,
-				})
-			end)
-		end)
 	end
 
 	sbar.add("item", "chevron", {
@@ -254,13 +250,5 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	root:subscribe("display_change", function()
 		updateWorkspaceMonitor()
 		updateWindows()
-	end)
-
-	sbar.exec("aerospace list-workspaces --focused", function(focused_workspace)
-		local focused_workspace = focused_workspace:match("^%s*(.-)%s*$")
-		workspaces[focused_workspace]:set({
-			icon = { highlight = true },
-			label = { highlight = true },
-		})
 	end)
 end)

@@ -87,6 +87,10 @@ local function updateWindow(workspace_index, args)
 		workspaces[workspace_index]:set({
 			icon = { highlight = is_focused },
 			label = { highlight = is_focused },
+			background = {
+				border_width = is_focused and 2 or 0,
+				border_color = colors.white,
+			},
 		})
 
 		for i, visible_workspace in ipairs(visible_workspaces) do
@@ -152,7 +156,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 
 		local workspace = sbar.add("item", {
 			background = {
-				color = colors.bg1,
+				color = colors.with_alpha(colors.bg1, 0.3),
 				drawing = true,
 			},
 			click_script = "aerospace workspace " .. workspace_index,
@@ -160,9 +164,13 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 			icon = {
 				color = colors.with_alpha(colors.white, 0.3),
 				drawing = true,
+				font = {
+					size = 16.0,
+					style = "Semibold",
+				},
 				highlight_color = colors.white,
-				padding_left = 5,
-				padding_right = 4,
+				padding_left = 10,
+				padding_right = 0,
 				string = workspace_index,
 			},
 			label = {
@@ -170,8 +178,8 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 				drawing = true,
 				font = "sketchybar-app-font:Regular:16.0",
 				highlight_color = colors.white,
-				padding_left = 2,
-				padding_right = 12,
+				padding_left = 5,
+				padding_right = 15,
 				y_offset = -1,
 			},
 		})

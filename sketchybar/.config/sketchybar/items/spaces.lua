@@ -242,6 +242,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	updateWindows()
 	updateWorkspaceMonitor()
 
+	-- Event subscription root
 	local events = sbar.add("item", "workspace.events", {
 		drawing = true,
 	})

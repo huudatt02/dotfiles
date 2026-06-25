@@ -164,8 +164,8 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 				color = colors.with_alpha(colors.white, 0.3),
 				drawing = true,
 				font = {
-					size = 16.0,
 					style = "Semibold",
+					size = 16.0,
 				},
 				highlight_color = colors.white,
 				padding_left = 10,

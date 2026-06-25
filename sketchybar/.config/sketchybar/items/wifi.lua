@@ -32,7 +32,7 @@ local function update_wifi()
 						border_width = 1,
 						border_color = colors.white,
 						corner_radius = 6,
-						height = 18,
+						height = 20,
 					},
 				})
 			else

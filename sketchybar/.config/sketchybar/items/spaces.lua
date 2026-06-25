@@ -257,6 +257,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 		updateWindows()
 	end)
 
+	-- Subscribe to display configuration changes
 	events:subscribe("display_change", function()
 		updateWorkspaceMonitor()
 		updateWindows()

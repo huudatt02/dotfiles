@@ -1,5 +1,4 @@
 local colors = require("colors")
-local settings = require("settings")
 local app_icons = require("helpers.app_icons")
 
 local query_workspaces =
@@ -153,7 +152,6 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 			icon = {
 				color = colors.with_alpha(colors.white, 0.3),
 				drawing = true,
-				font = { family = settings.font.numbers },
 				highlight_color = colors.white,
 				padding_left = 5,
 				padding_right = 4,

@@ -21,7 +21,7 @@ local function update_wifi()
 						string = "VPN",
 						font = {
 							style = "Bold",
-							size = 12.0,
+							size = 10.0,
 						},
 						padding_left = 6,
 						padding_right = 6,
@@ -30,9 +30,9 @@ local function update_wifi()
 						drawing = true,
 						color = colors.transparent,
 						border_width = 2,
-						border_color = colors.with_alpha(colors.white, 0.8),
+						border_color = colors.white,
 						corner_radius = 6,
-						height = 20,
+						height = 18,
 					},
 				})
 			else

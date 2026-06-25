@@ -5,7 +5,6 @@ local query_workspaces =
 	"aerospace list-workspaces --all --format '%{workspace}%{monitor-appkit-nsscreen-screens-id}' --json"
 
 -- Root is used to handle event subscriptions
-local root = sbar.add("item", { drawing = false })
 local workspaces = {}
 
 local function withWindows(f)
@@ -239,6 +238,8 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	-- Initial setup
 	updateWindows()
 	updateWorkspaceMonitor()
+
+	local root = sbar.add("item", { drawing = false })
 
 	-- Subscribe to window creation/destruction events
 	root:subscribe("aerospace_workspace_change", function()

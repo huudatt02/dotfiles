@@ -52,6 +52,7 @@ return {
 	["Cold Turkey Blocker"] = ":cold_turkey_blocker:",
 	["Color Picker"] = ":color_picker:",
 	["Copilot"] = ":copilot:",
+	["Contacts"] = ":contacts:",
 	["CotEditor"] = ":coteditor:",
 	["Creative Cloud"] = ":creative_cloud:",
 	["Cursor"] = ":cursor:",

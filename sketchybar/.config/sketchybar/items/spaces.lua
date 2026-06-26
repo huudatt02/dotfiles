@@ -6,7 +6,6 @@ local query_workspaces =
 
 local workspaces = {}
 
--- 1. TỐI ƯU: Phẳng hóa hàm lấy dữ liệu, chạy song song 3 lệnh không lồng nhau
 local function withWindows(f)
 	local open_windows = {}
 	local get_windows = "aerospace list-windows --monitor all --format '%{workspace}%{app-name}%{window-id}' --json"
@@ -62,7 +61,6 @@ local function withWindows(f)
 	end)
 end
 
--- 2. SỬA LỖI & TỐI ƯU: Tính toán trước thuộc tính, animate 1 lần duy nhất
 local function updateWindow(workspace_index, args)
 	local open_windows = args.open_windows[workspace_index] or {}
 	local focused_workspaces = args.focused_workspaces
@@ -70,7 +68,7 @@ local function updateWindow(workspace_index, args)
 
 	local icon_line = ""
 	local no_app = true
-	local rendered_icons = {} -- Bảng chặn trùng icon
+	local rendered_icons = {}
 
 	for _, app in ipairs(open_windows) do
 		if not rendered_icons[app] then
@@ -84,7 +82,6 @@ local function updateWindow(workspace_index, args)
 
 	local is_focused = (workspace_index == focused_workspaces)
 
-	-- Khởi tạo bảng chứa cấu hình hiển thị mặc định
 	local config = {
 		drawing = true,
 		icon = { highlight = is_focused },
@@ -95,7 +92,6 @@ local function updateWindow(workspace_index, args)
 		},
 	}
 
-	-- Xử lý logic rẽ nhánh (Sửa lỗi sai logic return của bản cũ)
 	local is_visible = false
 	local visible_monitor_id = nil
 	for _, visible_workspace in ipairs(visible_workspaces) do
@@ -117,7 +113,6 @@ local function updateWindow(workspace_index, args)
 		end
 	end
 
-	-- Thực hiện animation một lần duy nhất với cấu hình đã tính toán chuẩn
 	sbar.animate("tanh", 10, function()
 		workspaces[workspace_index]:set(config)
 	end)
@@ -222,7 +217,6 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	updateWindows()
 	updateWorkspaceMonitor()
 
-	-- 3. Smart Polling
 	local is_polling = false
 	local polls_remaining = 0
 

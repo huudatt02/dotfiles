@@ -6,122 +6,120 @@ local query_workspaces =
 
 local workspaces = {}
 
+-- 1. TỐI ƯU: Phẳng hóa hàm lấy dữ liệu, chạy song song 3 lệnh không lồng nhau
 local function withWindows(f)
 	local open_windows = {}
-	-- Include the window ID in the query so we can track unique windows
 	local get_windows = "aerospace list-windows --monitor all --format '%{workspace}%{app-name}%{window-id}' --json"
 	local query_visible_workspaces =
 		"aerospace list-workspaces --visible --monitor all --format '%{workspace}%{monitor-appkit-nsscreen-screens-id}' --json"
 	local get_focus_workspaces = "aerospace list-workspaces --focused"
 
-	sbar.exec(get_windows, function(workspace_and_windows)
-		-- Use a set to track unique window IDs
-		local processed_windows = {}
+	local res_windows, res_focused, res_visible
+	local counter = 0
 
-		for _, entry in ipairs(workspace_and_windows) do
-			local workspace_index = entry.workspace
-			local app = entry["app-name"]
-			local window_id = entry["window-id"]
+	local function check_and_proceed()
+		counter = counter + 1
+		if counter == 3 then
+			local processed_windows = {}
+			if res_windows then
+				for _, entry in ipairs(res_windows) do
+					local workspace_index = entry.workspace
+					local app = entry["app-name"]
+					local window_id = entry["window-id"]
 
-			-- Only process each window ID once
-			if not processed_windows[window_id] then
-				processed_windows[window_id] = true
+					if not processed_windows[window_id] then
+						processed_windows[window_id] = true
 
-				if open_windows[workspace_index] == nil then
-					open_windows[workspace_index] = {}
-				end
-
-				-- Check if this app is already in the list for this workspace
-				local app_exists = false
-				for _, existing_app in ipairs(open_windows[workspace_index]) do
-					if existing_app == app then
-						app_exists = true
-						break
+						if open_windows[workspace_index] == nil then
+							open_windows[workspace_index] = {}
+						end
+						table.insert(open_windows[workspace_index], app)
 					end
 				end
-
-				-- Only add the app if it's not already in the list
-				if not app_exists then
-					table.insert(open_windows[workspace_index], app)
-				end
 			end
-		end
 
-		sbar.exec(get_focus_workspaces, function(focused_workspaces)
-			local clean_focused = focused_workspaces:match("^%s*(.-)%s*$")
-			sbar.exec(query_visible_workspaces, function(visible_workspaces)
-				local args = {
-					open_windows = open_windows,
-					focused_workspaces = clean_focused,
-					visible_workspaces = visible_workspaces,
-				}
-				f(args)
-			end)
-		end)
+			local clean_focused = res_focused and res_focused:match("^%s*(.-)%s*$") or ""
+			local args = {
+				open_windows = open_windows,
+				focused_workspaces = clean_focused,
+				visible_workspaces = res_visible or {},
+			}
+			f(args)
+		end
+	end
+
+	sbar.exec(get_windows, function(res)
+		res_windows = res
+		check_and_proceed()
+	end)
+	sbar.exec(get_focus_workspaces, function(res)
+		res_focused = res
+		check_and_proceed()
+	end)
+	sbar.exec(query_visible_workspaces, function(res)
+		res_visible = res
+		check_and_proceed()
 	end)
 end
 
+-- 2. SỬA LỖI & TỐI ƯU: Tính toán trước thuộc tính, animate 1 lần duy nhất
 local function updateWindow(workspace_index, args)
-	local open_windows = args.open_windows[workspace_index]
+	local open_windows = args.open_windows[workspace_index] or {}
 	local focused_workspaces = args.focused_workspaces
 	local visible_workspaces = args.visible_workspaces
 
-	if open_windows == nil then
-		open_windows = {}
-	end
-
 	local icon_line = ""
 	local no_app = true
-	for i, open_window in ipairs(open_windows) do
-		no_app = false
-		local app = open_window
-		local lookup = app_icons[app]
-		local icon = ((lookup == nil) and app_icons["Default"] or lookup)
-		icon_line = icon_line .. " " .. icon
+	local rendered_icons = {} -- Bảng chặn trùng icon
+
+	for _, app in ipairs(open_windows) do
+		if not rendered_icons[app] then
+			rendered_icons[app] = true
+			no_app = false
+			local lookup = app_icons[app]
+			local icon = (lookup == nil) and app_icons["Default"] or lookup
+			icon_line = icon_line .. " " .. icon
+		end
 	end
 
 	local is_focused = (workspace_index == focused_workspaces)
 
+	-- Khởi tạo bảng chứa cấu hình hiển thị mặc định
+	local config = {
+		drawing = true,
+		icon = { highlight = is_focused },
+		label = { highlight = is_focused, string = icon_line },
+		background = {
+			border_width = is_focused and 2 or 0,
+			border_color = colors.white,
+		},
+	}
+
+	-- Xử lý logic rẽ nhánh (Sửa lỗi sai logic return của bản cũ)
+	local is_visible = false
+	local visible_monitor_id = nil
+	for _, visible_workspace in ipairs(visible_workspaces) do
+		if workspace_index == visible_workspace["workspace"] then
+			is_visible = true
+			visible_monitor_id = math.floor(visible_workspace["monitor-appkit-nsscreen-screens-id"])
+			break
+		end
+	end
+
+	if no_app then
+		if is_visible then
+			config.label.string = " —"
+			config.display = visible_monitor_id
+		elseif is_focused then
+			config.label.string = " —"
+		else
+			config.drawing = false
+		end
+	end
+
+	-- Thực hiện animation một lần duy nhất với cấu hình đã tính toán chuẩn
 	sbar.animate("tanh", 10, function()
-		workspaces[workspace_index]:set({
-			icon = { highlight = is_focused },
-			label = { highlight = is_focused },
-			background = {
-				border_width = is_focused and 2 or 0,
-				border_color = colors.white,
-			},
-		})
-
-		for i, visible_workspace in ipairs(visible_workspaces) do
-			if no_app and workspace_index == visible_workspace["workspace"] then
-				local monitor_id = visible_workspace["monitor-appkit-nsscreen-screens-id"]
-				icon_line = " —"
-				workspaces[workspace_index]:set({
-					drawing = true,
-					label = { string = icon_line },
-					display = monitor_id,
-				})
-				return
-			end
-		end
-		if no_app and not is_focused then
-			workspaces[workspace_index]:set({
-				drawing = false,
-			})
-			return
-		end
-		if no_app and is_focused then
-			icon_line = " —"
-			workspaces[workspace_index]:set({
-				drawing = true,
-				label = { string = icon_line },
-			})
-		end
-
-		workspaces[workspace_index]:set({
-			drawing = true,
-			label = { string = icon_line },
-		})
+		workspaces[workspace_index]:set(config)
 	end)
 end
 
@@ -159,7 +157,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 				drawing = true,
 			},
 			click_script = "aerospace workspace " .. workspace_index,
-			drawing = false, -- Hide all items at first
+			drawing = false,
 			icon = {
 				color = colors.with_alpha(colors.white, 0.3),
 				drawing = true,
@@ -189,44 +187,26 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	sbar.add("item", "chevron", {
 		position = "left",
 		display = "active",
-		background = {
-			drawing = false,
-		},
+		background = { drawing = false },
 		icon = {
 			string = "􀆊",
-			font = {
-				style = "Bold",
-				size = 16.0,
-			},
+			font = { style = "Bold", size = 16.0 },
 		},
-		label = {
-			drawing = false,
-		},
+		label = { drawing = false },
 	})
 
 	local front_app = sbar.add("item", "front_app", {
 		position = "left",
 		display = "active",
-		icon = {
-			background = {
-				drawing = true,
-			},
-		},
-		label = {
-			font = {
-				style = "Bold",
-				size = 14.0,
-			},
-		},
+		icon = { background = { drawing = true } },
+		label = { font = { style = "Bold", size = 14.0 } },
 		click_script = "open -a 'Mission Control'",
 	})
 
 	front_app:subscribe("front_app_switched", function(env)
 		local app = env.INFO
-
 		front_app:set({
 			label = app,
-
 			icon = {
 				background = {
 					image = {
@@ -242,12 +222,12 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	updateWindows()
 	updateWorkspaceMonitor()
 
+	-- 3. Smart Polling
 	local is_polling = false
 	local polls_remaining = 0
 
 	local function poll()
 		polls_remaining = polls_remaining - 1
-
 		updateWindows()
 
 		if polls_remaining <= 0 then
@@ -261,7 +241,6 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 
 	local function updateWindowsSmart()
 		updateWindows()
-
 		polls_remaining = 5
 
 		if is_polling then
@@ -274,20 +253,17 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 
 	-- Event subscription root
 	local events = sbar.add("item", "workspace.events", {
-		drawing = true,
+		drawing = false,
 	})
 
-	-- Subscribe to window creation/destruction events
 	events:subscribe("aerospace_workspace_change", function()
 		updateWindowsSmart()
 	end)
 
-	-- Subscribe to front app changes too
 	events:subscribe("front_app_switched", function()
 		updateWindowsSmart()
 	end)
 
-	-- Subscribe to display configuration changes
 	events:subscribe("display_change", function()
 		updateWorkspaceMonitor()
 		updateWindowsSmart()

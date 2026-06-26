@@ -247,14 +247,8 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 
 	-- Event subscription root
 	local events = sbar.add("item", "workspace.events", {
-		position = "left",
-		drawing = true,
-		width = 0,
-		padding_left = 0,
-		padding_right = 0,
-		icon = { drawing = false },
-		label = { drawing = false },
-		background = { drawing = false },
+		drawing = false,
+		updates = true,
 	})
 
 	events:subscribe("aerospace_workspace_change", function()

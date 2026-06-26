@@ -191,6 +191,7 @@ return {
 	["Pages"] = ":pages:",
 	["Parallels Desktop"] = ":parallels:",
 	["Parsec"] = ":parsec:",
+	["Phone"] = ":phone:",
 	["Preview"] = ":pdf:",
 	["Skim"] = ":pdf:",
 	["zathura"] = ":pdf:",

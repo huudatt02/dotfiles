@@ -242,6 +242,36 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	updateWindows()
 	updateWorkspaceMonitor()
 
+	local is_polling = false
+	local polls_remaining = 0
+
+	local function poll()
+		polls_remaining = polls_remaining - 1
+
+		updateWindows()
+
+		if polls_remaining <= 0 then
+			is_polling = false
+			polls_remaining = 0
+			return
+		end
+
+		sbar.delay(1, poll)
+	end
+
+	local function updateWindowsSmart()
+		updateWindows()
+
+		polls_remaining = 5
+
+		if is_polling then
+			return
+		end
+
+		is_polling = true
+		sbar.delay(1, poll)
+	end
+
 	-- Event subscription root
 	local events = sbar.add("item", "workspace.events", {
 		drawing = true,
@@ -249,17 +279,17 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 
 	-- Subscribe to window creation/destruction events
 	events:subscribe("aerospace_workspace_change", function()
-		updateWindows()
+		updateWindowsSmart()
 	end)
 
 	-- Subscribe to front app changes too
 	events:subscribe("front_app_switched", function()
-		updateWindows()
+		updateWindowsSmart()
 	end)
 
 	-- Subscribe to display configuration changes
 	events:subscribe("display_change", function()
 		updateWorkspaceMonitor()
-		updateWindows()
+		updateWindowsSmart()
 	end)
 end)

@@ -112,6 +112,7 @@ return {
 	["Inkdrop"] = ":inkdrop:",
 	["Inkscape"] = ":inkscape:",
 	["Insomnia"] = ":insomnia:",
+	["iPhone Mirroring"] = ":iphone_mirroring:",
 	["Iris"] = ":iris:",
 	["iTerm"] = ":iterm:",
 	["iTerm2"] = ":iterm:",

@@ -46,6 +46,7 @@ return {
 	["Citrix Workspace"] = ":citrix:",
 	["Citrix Viewer"] = ":citrix:",
 	["Claude"] = ":claude:",
+	["Cloudflare WARP"] = ":cloud:",
 	["ClickUp"] = ":click_up:",
 	["Code"] = ":code:",
 	["Code - Insiders"] = ":code:",

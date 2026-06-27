@@ -14,7 +14,7 @@ printf "{\"windows\":%s,\"focused\":\"%s\",\"visible\":%s}" "$windows" "$focused
 local workspaces = {}
 local last_state = {}
 
-local function fetchAerospaceState(f)
+local function fetchAerospace(f)
 	sbar.exec(query_all, function(r)
 		if not r then
 			return
@@ -116,7 +116,7 @@ local function buildWorkspace(workspace_index, args)
 end
 
 local function updateWorkspaces()
-	fetchAerospaceState(function(args)
+	fetchAerospace(function(args)
 		local changed = {}
 		for workspace_index in pairs(workspaces) do
 			local config = buildWorkspace(workspace_index, args)

@@ -12,6 +12,7 @@ printf "{\"windows\":%s,\"focused\":\"%s\",\"visible\":%s}" "$windows" "$focused
 ']]
 
 local workspaces = {}
+local last_state = {}
 
 local function withWindows(f)
 	sbar.exec(query_all, function(r)
@@ -98,10 +99,27 @@ local function updateWindow(workspace_index, args)
 		end
 	end
 
+	local old = last_state[workspace_index]
+
+	if
+		old
+		and old.drawing == config.drawing
+		and old.label == config.label.string
+		and old.focused == is_focused
+		and old.display == raw_monitor_id
+	then
+		return
+	end
+
+	old = old or {}
+	old.drawing = config.drawing
+	old.label = config.label.string
+	old.focused = is_focused
+	old.display = raw_monitor_id
+	last_state[workspace_index] = old
+
 	sbar.animate("tanh", 10, function()
-		if workspaces[workspace_index] then
-			workspaces[workspace_index]:set(config)
-		end
+		workspaces[workspace_index]:set(config)
 	end)
 end
 

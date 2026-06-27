@@ -234,6 +234,7 @@ return {
 	["Setapp"] = ":setapp:",
 	["SF Symbols"] = ":sf_symbols:",
 	["Signal"] = ":signal:",
+	["Simulator"] = ":iphone_mirroring:",
 	["sioyek"] = ":sioyek:",
 	["Sketch"] = ":sketch:",
 	["Skype"] = ":skype:",

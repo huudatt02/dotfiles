@@ -41,8 +41,6 @@ local function withWindows(f)
 	end)
 end
 
-local rendered_icons = {}
-
 local function updateWindow(workspace_index, args)
 	local open_windows = args.open_windows[workspace_index] or {}
 	local visible_workspaces = args.visible_workspaces
@@ -59,10 +57,7 @@ local function updateWindow(workspace_index, args)
 		args._visible_map = visible_map
 	end
 
-	for k in pairs(rendered_icons) do
-		rendered_icons[k] = nil
-	end
-
+	local rendered_icons = {}
 	local icons = {}
 
 	for i = 1, #open_windows do

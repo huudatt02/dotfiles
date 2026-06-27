@@ -226,7 +226,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 		sbar.delay(1, pollWorkspaceUpdates)
 	end
 
-	local function updateWindowsSmart()
+	local function ensureWorkspacePolling()
 		renderWorkspaces()
 		polls_remaining = 3
 
@@ -245,14 +245,14 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	})
 
 	events:subscribe("aerospace_workspace_change", function()
-		updateWindowsSmart()
+		ensureWorkspacePolling()
 	end)
 
 	events:subscribe("front_app_switched", function()
-		updateWindowsSmart()
+		ensureWorkspacePolling()
 	end)
 
 	events:subscribe("display_change", function()
-		updateWindowsSmart()
+		ensureWorkspacePolling()
 	end)
 end)

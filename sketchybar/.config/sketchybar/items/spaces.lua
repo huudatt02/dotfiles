@@ -80,8 +80,6 @@ local function updateWindow(workspace_index, args)
 		},
 	}
 
-	-- Luôn gán display nếu biết monitor hiện hành của workspace này,
-	-- bất kể workspace có icon hay không (trước đây updateWorkspaceMonitor lo việc này)
 	if raw_monitor_id then
 		config.display = raw_monitor_id
 	end

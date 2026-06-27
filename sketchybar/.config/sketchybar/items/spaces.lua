@@ -44,8 +44,7 @@ end
 local function updateWindow(workspace_index, args)
 	local open_windows = args.open_windows[workspace_index] or {}
 	local visible_workspaces = args.visible_workspaces
-
-	local focused = tonumber((args.focused_workspaces or ""):match("^%s*(.-)%s*$"))
+	local focused = tonumber(args.focused_workspaces)
 
 	local visible_map = args._visible_map
 	if not visible_map then

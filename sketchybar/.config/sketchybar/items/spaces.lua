@@ -80,6 +80,12 @@ local function updateWindow(workspace_index, args)
 		},
 	}
 
+	-- Luôn gán display nếu biết monitor hiện hành của workspace này,
+	-- bất kể workspace có icon hay không (trước đây updateWorkspaceMonitor lo việc này)
+	if raw_monitor_id then
+		config.display = raw_monitor_id
+	end
+
 	if #icons > 0 then
 		config.label.string = " " .. table.concat(icons, " ")
 	else
@@ -87,9 +93,6 @@ local function updateWindow(workspace_index, args)
 			config.drawing = false
 		else
 			config.label.string = " —"
-			if raw_monitor_id then
-				config.display = raw_monitor_id
-			end
 		end
 	end
 
@@ -131,22 +134,6 @@ local function updateWindows()
 					workspaces[workspace_index]:set(config)
 				end
 			end)
-		end
-	end)
-end
-
-local function updateWorkspaceMonitor()
-	local workspace_monitor = {}
-	sbar.exec(query_workspaces, function(workspaces_and_monitors)
-		for _, entry in ipairs(workspaces_and_monitors) do
-			local space_index = entry.workspace
-			local monitor_id = math.floor(entry["monitor-appkit-nsscreen-screens-id"])
-			workspace_monitor[space_index] = monitor_id
-		end
-		for workspace_index, _ in pairs(workspaces) do
-			workspaces[workspace_index]:set({
-				display = workspace_monitor[workspace_index],
-			})
 		end
 	end)
 end
@@ -224,7 +211,6 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 
 	-- Initial setup
 	updateWindows()
-	updateWorkspaceMonitor()
 
 	local is_polling = false
 	local polls_remaining = 0
@@ -269,7 +255,6 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	end)
 
 	events:subscribe("display_change", function()
-		updateWorkspaceMonitor()
 		updateWindowsSmart()
 	end)
 end)

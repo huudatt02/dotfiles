@@ -46,7 +46,6 @@ local function updateWindow(workspace_index, args)
 	local open_windows = args.open_windows[workspace_index] or {}
 	local visible_workspaces = args.visible_workspaces
 	local focused = args.focused_workspaces
-
 	local visible_map = args._visible_map
 	if not visible_map then
 		visible_map = {}
@@ -59,10 +58,8 @@ local function updateWindow(workspace_index, args)
 
 	local icons = {}
 	local rendered_icons = {}
-
 	for i = 1, #open_windows do
 		local app = open_windows[i]
-
 		if not rendered_icons[app] then
 			rendered_icons[app] = true
 			icons[#icons + 1] = app_icons[app] or app_icons.Default
@@ -76,10 +73,7 @@ local function updateWindow(workspace_index, args)
 	local config = {
 		drawing = true,
 		icon = { highlight = is_focused },
-		label = {
-			highlight = is_focused,
-			string = "",
-		},
+		label = { highlight = is_focused, string = "" },
 		background = {
 			border_width = is_focused and 2 or 0,
 			border_color = colors.white,
@@ -100,7 +94,6 @@ local function updateWindow(workspace_index, args)
 	end
 
 	local old = last_state[workspace_index]
-
 	if
 		old
 		and old.drawing == config.drawing
@@ -108,7 +101,7 @@ local function updateWindow(workspace_index, args)
 		and old.focused == is_focused
 		and old.display == raw_monitor_id
 	then
-		return
+		return nil
 	end
 
 	old = old or {}
@@ -118,15 +111,26 @@ local function updateWindow(workspace_index, args)
 	old.display = raw_monitor_id
 	last_state[workspace_index] = old
 
-	sbar.animate("tanh", 10, function()
-		workspaces[workspace_index]:set(config)
-	end)
+	return config
 end
 
 local function updateWindows()
 	withWindows(function(args)
+		local changed = {}
 		for workspace_index in pairs(workspaces) do
-			updateWindow(workspace_index, args)
+			local config = updateWindow(workspace_index, args)
+			if config then
+				changed[#changed + 1] = { workspace_index, config }
+			end
+		end
+
+		if #changed > 0 then
+			sbar.animate("tanh", 10, function()
+				for _, entry in ipairs(changed) do
+					local workspace_index, config = entry[1], entry[2]
+					workspaces[workspace_index]:set(config)
+				end
+			end)
 		end
 	end)
 end

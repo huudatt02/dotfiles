@@ -3,61 +3,61 @@ local app_icons = require("helpers.app_icons")
 
 local query_workspaces =
 	"aerospace list-workspaces --all --format '%{workspace}%{monitor-appkit-nsscreen-screens-id}' --json"
+local get_windows = "aerospace list-windows --monitor all --format '%{workspace}%{app-name}%{window-id}' --json"
+local query_visible_workspaces =
+	"aerospace list-workspaces --visible --monitor all --format '%{workspace}%{monitor-appkit-nsscreen-screens-id}' --json"
+local get_focus_workspaces = "aerospace list-workspaces --focused"
 
 local workspaces = {}
 
 local function withWindows(f)
-	local open_windows = {}
-	local get_windows = "aerospace list-windows --monitor all --format '%{workspace}%{app-name}%{window-id}' --json"
-	local query_visible_workspaces =
-		"aerospace list-workspaces --visible --monitor all --format '%{workspace}%{monitor-appkit-nsscreen-screens-id}' --json"
-	local get_focus_workspaces = "aerospace list-workspaces --focused"
+	local results = {
+		windows = nil,
+		focused = nil,
+		visible = nil,
+		count = 0,
+	}
 
-	local res_windows, res_focused, res_visible
-	local counter = 0
+	local function done()
+		if results.count ~= 3 then
+			return
+		end
 
-	local function check_and_proceed()
-		counter = counter + 1
-		if counter == 3 then
-			local processed_windows = {}
-			if res_windows then
-				for _, entry in ipairs(res_windows) do
-					local workspace_index = entry.workspace
-					local app = entry["app-name"]
-					local window_id = entry["window-id"]
+		local open_windows = {}
+		local processed = {}
 
-					if not processed_windows[window_id] then
-						processed_windows[window_id] = true
-
-						if open_windows[workspace_index] == nil then
-							open_windows[workspace_index] = {}
-						end
-						table.insert(open_windows[workspace_index], app)
-					end
+		if results.windows then
+			for _, entry in ipairs(results.windows) do
+				local wid = entry["window-id"]
+				if not processed[wid] then
+					processed[wid] = true
+					open_windows[entry.workspace] = open_windows[entry.workspace] or {}
+					table.insert(open_windows[entry.workspace], entry["app-name"])
 				end
 			end
-
-			local clean_focused = res_focused and res_focused:match("^%s*(.-)%s*$") or ""
-			local args = {
-				open_windows = open_windows,
-				focused_workspaces = clean_focused,
-				visible_workspaces = res_visible or {},
-			}
-			f(args)
 		end
+
+		f({
+			open_windows = open_windows,
+			focused_workspaces = (results.focused or ""):match("^%s*(.-)%s*$"),
+			visible_workspaces = results.visible or {},
+		})
 	end
 
-	sbar.exec(get_windows, function(res)
-		res_windows = res
-		check_and_proceed()
+	local function set(key, value)
+		results[key] = value
+		results.count = results.count + 1
+		done()
+	end
+
+	sbar.exec(get_windows, function(r)
+		set("windows", r)
 	end)
-	sbar.exec(get_focus_workspaces, function(res)
-		res_focused = res
-		check_and_proceed()
+	sbar.exec(get_focus_workspaces, function(r)
+		set("focused", r)
 	end)
-	sbar.exec(query_visible_workspaces, function(res)
-		res_visible = res
-		check_and_proceed()
+	sbar.exec(query_visible_workspaces, function(r)
+		set("visible", r)
 	end)
 end
 

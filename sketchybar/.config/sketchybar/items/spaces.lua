@@ -57,8 +57,8 @@ local function updateWindow(workspace_index, args)
 		args._visible_map = visible_map
 	end
 
-	local rendered_icons = {}
 	local icons = {}
+	local rendered_icons = {}
 
 	for i = 1, #open_windows do
 		local app = open_windows[i]

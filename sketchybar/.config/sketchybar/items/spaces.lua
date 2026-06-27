@@ -3,31 +3,27 @@ local app_icons = require("helpers.app_icons")
 
 local query_workspaces =
 	"aerospace list-workspaces --all --format '%{workspace}%{monitor-appkit-nsscreen-screens-id}' --json"
-local get_windows = "aerospace list-windows --monitor all --format '%{workspace}%{app-name}%{window-id}' --json"
-local query_visible_workspaces =
-	"aerospace list-workspaces --visible --monitor all --format '%{workspace}%{monitor-appkit-nsscreen-screens-id}' --json"
-local get_focus_workspaces = "aerospace list-workspaces --focused"
+
+local query_all = [[sh -c '
+windows=$(aerospace list-windows --monitor all --format "%{workspace}%{app-name}%{window-id}" --json)
+focused=$(aerospace list-workspaces --focused)
+visible=$(aerospace list-workspaces --visible --monitor all --format "%{workspace}%{monitor-appkit-nsscreen-screens-id}" --json)
+printf "{\"windows\":%s,\"focused\":\"%s\",\"visible\":%s}" "$windows" "$focused" "$visible"
+']]
 
 local workspaces = {}
 
 local function withWindows(f)
-	local results = {
-		windows = nil,
-		focused = nil,
-		visible = nil,
-		count = 0,
-	}
-
-	local function done()
-		if results.count ~= 3 then
+	sbar.exec(query_all, function(r)
+		if not r then
 			return
 		end
 
 		local open_windows = {}
 		local processed = {}
 
-		if results.windows then
-			for _, entry in ipairs(results.windows) do
+		if r.windows then
+			for _, entry in ipairs(r.windows) do
 				local wid = entry["window-id"]
 				if not processed[wid] then
 					processed[wid] = true
@@ -39,25 +35,9 @@ local function withWindows(f)
 
 		f({
 			open_windows = open_windows,
-			focused_workspaces = (results.focused or ""):match("^%s*(.-)%s*$"),
-			visible_workspaces = results.visible or {},
+			focused_workspaces = (r.focused or ""):match("^%s*(.-)%s*$"),
+			visible_workspaces = r.visible or {},
 		})
-	end
-
-	local function set(key, value)
-		results[key] = value
-		results.count = results.count + 1
-		done()
-	end
-
-	sbar.exec(get_windows, function(r)
-		set("windows", r)
-	end)
-	sbar.exec(get_focus_workspaces, function(r)
-		set("focused", r)
-	end)
-	sbar.exec(query_visible_workspaces, function(r)
-		set("visible", r)
 	end)
 end
 
@@ -132,8 +112,6 @@ local function updateWindow(workspace_index, args)
 end
 
 local function updateWindows()
-	rendered_icons = {}
-
 	local function render(args)
 		for workspace_index in pairs(workspaces) do
 			updateWindow(workspace_index, args)

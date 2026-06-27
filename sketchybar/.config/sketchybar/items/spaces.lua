@@ -105,7 +105,9 @@ local function updateWindow(workspace_index, args)
 	end
 
 	sbar.animate("tanh", 10, function()
-		workspaces[workspace_index]:set(config)
+		if workspaces[workspace_index] then
+			workspaces[workspace_index]:set(config)
+		end
 	end)
 end
 

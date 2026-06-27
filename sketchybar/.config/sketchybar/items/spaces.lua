@@ -35,7 +35,7 @@ local function withWindows(f)
 
 		f({
 			open_windows = open_windows,
-			focused_workspaces = (r.focused or ""):match("^%s*(.-)%s*$"),
+			focused_workspaces = tonumber((r.focused or ""):match("^%s*(.-)%s*$")),
 			visible_workspaces = r.visible or {},
 		})
 	end)
@@ -44,7 +44,7 @@ end
 local function updateWindow(workspace_index, args)
 	local open_windows = args.open_windows[workspace_index] or {}
 	local visible_workspaces = args.visible_workspaces
-	local focused = tonumber(args.focused_workspaces)
+	local focused = args.focused_workspaces
 
 	local visible_map = args._visible_map
 	if not visible_map then

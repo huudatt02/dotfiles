@@ -61,57 +61,78 @@ local function withWindows(f)
 	end)
 end
 
+local rendered_icons = {}
+
 local function updateWindow(workspace_index, args)
 	local open_windows = args.open_windows[workspace_index] or {}
-	local focused_workspaces = args.focused_workspaces
 	local visible_workspaces = args.visible_workspaces
 
-	local icon_line = ""
-	local no_app = true
-	local rendered_icons = {}
+	-- normalize focused ONCE
+	local focused = args.focused_workspaces
+	focused = focused and focused:match("^%s*(.-)%s*$")
+	focused = tonumber(focused)
 
-	for _, app in ipairs(open_windows) do
+	-- build visible map (IMPORTANT: tránh O(n) per workspace)
+	local visible_map = args._visible_map
+	if not visible_map then
+		visible_map = {}
+		for i = 1, #visible_workspaces do
+			local v = visible_workspaces[i]
+			visible_map[v.workspace] = math.floor(v["monitor-appkit-nsscreen-screens-id"])
+		end
+		args._visible_map = visible_map
+	end
+
+	-- reset dedupe buffer
+	for k in pairs(rendered_icons) do
+		rendered_icons[k] = nil
+	end
+
+	local icons = {}
+
+	-- build icon list
+	for i = 1, #open_windows do
+		local app = open_windows[i]
+
 		if not rendered_icons[app] then
 			rendered_icons[app] = true
-			no_app = false
-			local icon = app_icons[app] or app_icons["Default"]
-			icon_line = icon_line .. " " .. icon
+			icons[#icons + 1] = app_icons[app] or app_icons.Default
 		end
 	end
 
-	local is_focused = (workspace_index == focused_workspaces)
+	local is_focused = tonumber(workspace_index) == focused
+	local raw_monitor_id = visible_map[workspace_index]
+	local is_visible = raw_monitor_id ~= nil
 
+	-- base config
 	local config = {
 		drawing = true,
 		icon = { highlight = is_focused },
-		label = { highlight = is_focused, string = icon_line },
+		label = {
+			highlight = is_focused,
+			string = "",
+		},
 		background = {
 			border_width = is_focused and 2 or 0,
 			border_color = colors.white,
 		},
 	}
 
-	local is_visible = false
-	local visible_monitor_id = nil
-	for _, visible_workspace in ipairs(visible_workspaces) do
-		if workspace_index == visible_workspace["workspace"] then
-			is_visible = true
-			visible_monitor_id = math.floor(visible_workspace["monitor-appkit-nsscreen-screens-id"])
-			break
-		end
-	end
-
-	if no_app then
-		if is_visible then
-			config.label.string = " —"
-			config.display = visible_monitor_id
-		elseif is_focused then
-			config.label.string = " —"
-		else
+	-- render label
+	if #icons > 0 then
+		config.label.string = " " .. table.concat(icons, " ")
+	else
+		if not is_visible and not is_focused then
 			config.drawing = false
+		else
+			config.label.string = " —"
+			if raw_monitor_id then
+				config.display = raw_monitor_id
+			end
 		end
 	end
 
+	-- apply
 	sbar.animate("tanh", 10, function()
 		workspaces[workspace_index]:set(config)
 	end)

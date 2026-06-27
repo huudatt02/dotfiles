@@ -112,13 +112,11 @@ local function updateWindow(workspace_index, args)
 end
 
 local function updateWindows()
-	local function render(args)
+	withWindows(function(args)
 		for workspace_index in pairs(workspaces) do
 			updateWindow(workspace_index, args)
 		end
-	end
-
-	withWindows(render)
+	end)
 end
 
 local function updateWorkspaceMonitor()

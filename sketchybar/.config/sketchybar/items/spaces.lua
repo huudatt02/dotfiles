@@ -115,7 +115,7 @@ local function buildWorkspaceConfig(workspace_index, args)
 	return config
 end
 
-local function renderWorkspaces()
+local function updateWorkspaces()
 	fetchAerospaceState(function(args)
 		local changed = {}
 		for workspace_index in pairs(workspaces) do
@@ -208,14 +208,14 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	end)
 
 	-- Initial setup
-	renderWorkspaces()
+	updateWorkspaces()
 
 	local is_polling = false
 	local polls_remaining = 0
 
 	local function pollWorkspaceUpdates()
 		polls_remaining = polls_remaining - 1
-		renderWorkspaces()
+		updateWorkspaces()
 
 		if polls_remaining <= 0 then
 			is_polling = false
@@ -227,7 +227,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	end
 
 	local function ensureWorkspacePolling()
-		renderWorkspaces()
+		updateWorkspaces()
 		polls_remaining = 3
 
 		if is_polling then

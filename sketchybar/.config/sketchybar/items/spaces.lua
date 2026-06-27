@@ -74,8 +74,7 @@ local function updateWindow(workspace_index, args)
 		if not rendered_icons[app] then
 			rendered_icons[app] = true
 			no_app = false
-			local lookup = app_icons[app]
-			local icon = (lookup == nil) and app_icons["Default"] or lookup
+			local icon = app_icons[app] or app_icons["Default"]
 			icon_line = icon_line .. " " .. icon
 		end
 	end

@@ -42,7 +42,7 @@ local function fetchAerospaceState(f)
 	end)
 end
 
-local function buildWorkspaceConfig(workspace_index, args)
+local function buildWorkspace(workspace_index, args)
 	local open_windows = args.open_windows[workspace_index] or {}
 	local visible_workspaces = args.visible_workspaces
 	local focused = args.focused_workspaces
@@ -119,7 +119,7 @@ local function updateWorkspaces()
 	fetchAerospaceState(function(args)
 		local changed = {}
 		for workspace_index in pairs(workspaces) do
-			local config = buildWorkspaceConfig(workspace_index, args)
+			local config = buildWorkspace(workspace_index, args)
 			if config then
 				changed[#changed + 1] = { workspace_index, config }
 			end

@@ -17,16 +17,16 @@ return {
 	transparent = 0x00000000,
 
 	bar = {
-		bg = 0xd01e1e2e,
-		border = 0xff494d64,
+		bg = 0xff1c1c1e,
+		border = 0xff3a3a3c,
 	},
 
 	popup = {
-		bg = 0xff1e1e2e,
-		border = 0xffcad3f5,
+		bg = 0xff1c1c1e,
+		border = 0xff3a3a3c,
 	},
 
-	bg1 = 0xff1e1e2e,
+	bg1 = 0xff1c1c1e,
 	bg2 = 0xffcad3f5,
 
 	with_alpha = function(color, alpha)

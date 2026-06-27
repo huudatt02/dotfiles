@@ -142,7 +142,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 
 		local workspace = sbar.add("item", "workspace." .. workspace_index, {
 			background = {
-				color = colors.with_alpha(colors.bg1, 0.3),
+				color = colors.with_alpha(colors.bg, 0.3),
 				drawing = true,
 			},
 			click_script = "aerospace workspace " .. workspace_index,

@@ -226,7 +226,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 		sbar.delay(1, pollWorkspaces)
 	end
 
-	local function ensureWorkspacePolling()
+	local function refreshWorkspaces()
 		updateWorkspaces()
 		polls_remaining = 3
 
@@ -245,14 +245,14 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	})
 
 	events:subscribe("aerospace_workspace_change", function()
-		ensureWorkspacePolling()
+		refreshWorkspaces()
 	end)
 
 	events:subscribe("front_app_switched", function()
-		ensureWorkspacePolling()
+		refreshWorkspaces()
 	end)
 
 	events:subscribe("display_change", function()
-		ensureWorkspacePolling()
+		refreshWorkspaces()
 	end)
 end)

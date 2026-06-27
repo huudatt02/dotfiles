@@ -67,12 +67,10 @@ local function updateWindow(workspace_index, args)
 	local open_windows = args.open_windows[workspace_index] or {}
 	local visible_workspaces = args.visible_workspaces
 
-	-- normalize focused ONCE
 	local focused = args.focused_workspaces
 	focused = focused and focused:match("^%s*(.-)%s*$")
 	focused = tonumber(focused)
 
-	-- build visible map (IMPORTANT: tránh O(n) per workspace)
 	local visible_map = args._visible_map
 	if not visible_map then
 		visible_map = {}
@@ -83,14 +81,12 @@ local function updateWindow(workspace_index, args)
 		args._visible_map = visible_map
 	end
 
-	-- reset dedupe buffer
 	for k in pairs(rendered_icons) do
 		rendered_icons[k] = nil
 	end
 
 	local icons = {}
 
-	-- build icon list
 	for i = 1, #open_windows do
 		local app = open_windows[i]
 
@@ -104,7 +100,6 @@ local function updateWindow(workspace_index, args)
 	local raw_monitor_id = visible_map[workspace_index]
 	local is_visible = raw_monitor_id ~= nil
 
-	-- base config
 	local config = {
 		drawing = true,
 		icon = { highlight = is_focused },
@@ -118,7 +113,6 @@ local function updateWindow(workspace_index, args)
 		},
 	}
 
-	-- render label
 	if #icons > 0 then
 		config.label.string = " " .. table.concat(icons, " ")
 	else
@@ -132,7 +126,6 @@ local function updateWindow(workspace_index, args)
 		end
 	end
 
-	-- apply
 	sbar.animate("tanh", 10, function()
 		workspaces[workspace_index]:set(config)
 	end)

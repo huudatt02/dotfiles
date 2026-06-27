@@ -252,7 +252,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 
 	local function updateWindowsSmart()
 		updateWindows()
-		polls_remaining = 5
+		polls_remaining = 3
 
 		if is_polling then
 			return

@@ -80,7 +80,15 @@ cd ~/dotfiles
 stow aerospace bat ghostty mise nvim sketchybar starship tmux yazi zsh
 ```
 
-### 6. Setup Mise (runtime manager)
+### 6. Install SbarLua (SketchyBar Lua helpers)
+
+Required for Lua-based SketchyBar modules.
+
+```zsh
+(git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install && rm -rf /tmp/SbarLua/)
+```
+
+### 7. Setup Mise (runtime manager)
 ```zsh
 # Trust configuration:
 mise trust ~/.config/mise
@@ -89,7 +97,7 @@ mise trust ~/.config/mise
 mise install
 ```
 
-### 7. Setup Bat (syntax highlighting cache)
+### 8. Setup Bat (syntax highlighting cache)
 Build cache:
 ```zsh
 bat cache --build

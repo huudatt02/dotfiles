@@ -213,7 +213,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	local is_polling = false
 	local polls_remaining = 0
 
-	local function pollWorkspaceUpdates()
+	local function pollWorkspaces()
 		polls_remaining = polls_remaining - 1
 		updateWorkspaces()
 
@@ -223,7 +223,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 			return
 		end
 
-		sbar.delay(1, pollWorkspaceUpdates)
+		sbar.delay(1, pollWorkspaces)
 	end
 
 	local function ensureWorkspacePolling()
@@ -235,7 +235,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 		end
 
 		is_polling = true
-		sbar.delay(1, pollWorkspaceUpdates)
+		sbar.delay(1, pollWorkspaces)
 	end
 
 	-- Event subscription root

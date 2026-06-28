@@ -279,6 +279,7 @@ return {
 	["VimR"] = ":vim:",
 	["Vivaldi"] = ":vivaldi:",
 	["VLC"] = ":vlc:",
+	["Voice Memos"] = ":voice_memos:",
 	["VMware Fusion"] = ":vmware_fusion:",
 	["VSCodium"] = ":vscodium:",
 	["Warp"] = ":warp:",

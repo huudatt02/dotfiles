@@ -274,6 +274,7 @@ return {
 	["VMware Fusion"] = ":vmware_fusion:",
 	["VSCodium"] = ":vscodium:",
 	["Warp"] = ":warp:",
+	["Weather"] = ":weather:",
 	["WebStorm"] = ":web_storm:",
 	["WeChat"] = ":wechat:",
 	["WeCom"] = ":wecom:",

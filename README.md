@@ -82,10 +82,15 @@ stow aerospace bat ghostty mise nvim sketchybar starship tmux yazi zsh
 
 ### 6. Install SbarLua (SketchyBar Lua helpers)
 
-Required for Lua-based SketchyBar modules.
+Required for Lua-based SketchyBar modules:
 
 ```zsh
 (git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install && rm -rf /tmp/SbarLua/)
+```
+Run the bar automatically at startup:
+
+```zsh
+brew services start sketchybar
 ```
 
 ### 7. Setup Mise (Runtime Manager)

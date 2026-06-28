@@ -36,7 +36,7 @@ local function fetchAerospace(f)
 
 		f({
 			open_windows = open_windows,
-			focused_workspaces = tonumber((r.focused or ""):match("^%s*(.-)%s*$")),
+			focused_workspaces = tonumber(r.focused),
 			visible_workspaces = r.visible or {},
 		})
 	end)

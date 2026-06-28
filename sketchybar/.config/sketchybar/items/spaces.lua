@@ -44,6 +44,8 @@ end
 
 local function buildWorkspace(workspace_index, args)
 	local open_windows = args.open_windows[workspace_index] or {}
+	table.sort(open_windows)
+
 	local visible_workspaces = args.visible_workspaces
 	local focused = args.focused_workspaces
 	local visible_map = args._visible_map

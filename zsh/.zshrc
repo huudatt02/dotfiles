@@ -80,7 +80,7 @@ alias mkdir='mkdir -p'
 alias lzg='lazygit'
 alias lzd='lazydocker'
 alias dk='docker'
-alias dkc='docker-compose'
+alias dc='docker-compose'
 
 alias cls='colima start'
 alias clt='colima stop'

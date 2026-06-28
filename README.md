@@ -88,7 +88,7 @@ Required for Lua-based SketchyBar modules.
 (git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install && rm -rf /tmp/SbarLua/)
 ```
 
-### 7. Setup Mise (runtime manager)
+### 7. Setup Mise (Runtime Manager)
 ```zsh
 # Trust configuration:
 mise trust ~/.config/mise
@@ -97,7 +97,7 @@ mise trust ~/.config/mise
 mise install
 ```
 
-### 8. Setup Bat (syntax highlighting cache)
+### 8. Setup Bat (Syntax Highlighting Cache)
 Build cache:
 ```zsh
 bat cache --build

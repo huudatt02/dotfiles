@@ -73,8 +73,3 @@ end)
 ram:subscribe("mouse.clicked", function(env)
 	sbar.exec("open -a 'Activity Monitor'")
 end)
-
--- Background around the ram item
-sbar.add("bracket", "widgets.ram.bracket", { ram.name }, {
-	background = { color = colors.bg1 },
-})

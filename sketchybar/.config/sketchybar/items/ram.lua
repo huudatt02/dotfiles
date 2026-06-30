@@ -1,5 +1,4 @@
 local icons = require("icons")
-local colors = require("colors")
 
 local ram = sbar.add("item", "widgets.ram", {
 	position = "right",
@@ -47,28 +46,11 @@ ram:subscribe({ "routine", "forced" }, function(env)
 			local used_pages = pages_active + pages_wired + pages_occupied
 			local usage_percent = math.floor((used_pages / total_pages) * 100)
 
-			local color = colors.blue
-			if usage_percent > 60 then
-				color = colors.yellow
-			end
-			if usage_percent > 80 then
-				color = colors.orange
-			end
-			if usage_percent > 90 then
-				color = colors.red
-			end
-
 			ram:set({
 				label = {
 					string = usage_percent .. "%",
-					color = color,
 				},
-				icon = { color = color },
 			})
 		end
 	end)
-end)
-
-ram:subscribe("mouse.clicked", function(env)
-	sbar.exec("open -a 'Activity Monitor'")
 end)

@@ -7,6 +7,7 @@ return {
 	user = "􀉭",
 	calendar = "􀉉",
 	memory = "􀫦",
+	cpu = "􀫥",
 
 	wifi = {
 		vpn = "􀞚",

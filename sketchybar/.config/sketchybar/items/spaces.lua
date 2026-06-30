@@ -82,9 +82,7 @@ local function buildWorkspace(workspace_index, args)
 		},
 	}
 
-	if raw_monitor_id then
-		config.display = raw_monitor_id
-	end
+	config.display = raw_monitor_id or "active"
 
 	if #icons > 0 then
 		config.label.string = " " .. table.concat(icons, " ")

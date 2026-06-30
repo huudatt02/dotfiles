@@ -6,7 +6,7 @@ local ram = sbar.add("item", "widgets.ram", {
 	icon = {
 		string = icons.memory,
 		font = {
-			style = "Regular",
+			style = "Bold",
 			size = 16.0,
 		},
 	},

@@ -20,23 +20,19 @@ local ram = sbar.add("item", "widgets.ram", {
 })
 
 ram:subscribe({ "routine", "forced" }, function(env)
-	sbar.exec("memory_pressure", function(output)
-		-- Parse memory pressure output to calculate RAM usage
-		local pages_free = output:match("Pages free:%s+(%d+)")
-		local pages_active = output:match("Pages active:%s+(%d+)")
-		local pages_inactive = output:match("Pages inactive:%s+(%d+)")
-		local pages_speculative = output:match("Pages speculative:%s+(%d+)")
-		local pages_wired = output:match("Pages wired down:%s+(%d+)")
-		local pages_occupied = output:match("Pages occupied by compressor:%s+(%d+)")
+	sbar.exec("vm_stat", function(output)
+		local function pages(name)
+			return tonumber(output:match(name .. ":%s+(%d+)"))
+		end
+
+		local pages_free = pages("Pages free")
+		local pages_active = pages("Pages active")
+		local pages_inactive = pages("Pages inactive")
+		local pages_wired = pages("Pages wired down")
+		local pages_speculative = pages("Pages speculative") or 0
+		local pages_occupied = pages("Pages occupied by compressor") or 0
 
 		if pages_free and pages_active and pages_inactive and pages_wired then
-			pages_free = tonumber(pages_free)
-			pages_active = tonumber(pages_active)
-			pages_inactive = tonumber(pages_inactive)
-			pages_speculative = tonumber(pages_speculative or 0)
-			pages_wired = tonumber(pages_wired)
-			pages_occupied = tonumber(pages_occupied or 0)
-
 			local total_pages = pages_free
 				+ pages_active
 				+ pages_inactive
@@ -47,9 +43,7 @@ ram:subscribe({ "routine", "forced" }, function(env)
 			local usage_percent = math.floor((used_pages / total_pages) * 100)
 
 			ram:set({
-				label = {
-					string = usage_percent .. "%",
-				},
+				label = { string = usage_percent .. "%" },
 			})
 		end
 	end)

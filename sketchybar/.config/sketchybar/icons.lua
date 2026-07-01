@@ -1,20 +1,27 @@
 return {
+	-- System
 	apple = "􀣺",
 	gear = "􀍟",
-	chart = "􀣉",
-	sleep = "􀥦",
 	lock = "􀎡",
+	sleep = "􀥦",
+
+	-- Monitoring
+	cpu = "􀫥",
+	ram = "􀫦",
+	chart = "􀣉",
+
+	-- User
 	user = "􀉭",
 	calendar = "􀉉",
-	ram = "􀫦",
-	cpu = "􀫥",
 
+	-- Network
 	wifi = {
-		vpn = "􀞚",
 		connected = "􀙇",
 		disconnected = "􀙈",
+		vpn = "􀞚",
 	},
 
+	-- Audio
 	volume = {
 		_100 = "􀊩",
 		_66 = "􀊧",
@@ -23,12 +30,13 @@ return {
 		_0 = "􀊣",
 	},
 
+	-- Power
 	battery = {
+		charging = "􀢋",
 		_100 = "􀛨",
 		_75 = "􀺸",
 		_50 = "􀺶",
 		_25 = "􀛩",
 		_0 = "􀛪",
-		charging = "􀢋",
 	},
 }

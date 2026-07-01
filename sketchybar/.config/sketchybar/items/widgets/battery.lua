@@ -10,6 +10,7 @@ local battery = sbar.add("item", "battery", {
 		},
 	},
 	label = {
+		string = "--%",
 		font = {
 			style = "Semibold",
 			size = 14.0,

@@ -17,6 +17,8 @@ local en = sbar.add("item", "input_source.en", {
 	label = {
 		string = "ABC",
 	},
+	padding_left = 10,
+	padding_right = 10,
 })
 
 local vi = sbar.add("item", "input_source.vi", {
@@ -25,6 +27,8 @@ local vi = sbar.add("item", "input_source.vi", {
 	label = {
 		string = "Vietnamese Telex",
 	},
+	padding_left = 10,
+	padding_right = 10,
 })
 
 local function update_input_source()

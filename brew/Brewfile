@@ -1,6 +1,7 @@
 tap "anomalyco/tap"
-tap "felixkratz/formulae"
-tap "nikitabobko/tap"
+tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae"
+tap "laishulu/homebrew", trusted: true
+tap "nikitabobko/tap", trusted: { formulae: ["aerospace"] }
 tap "oven-sh/bun"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
@@ -70,10 +71,12 @@ brew "zoxide"
 brew "anomalyco/tap/opencode", trusted: true
 # Custom macOS statusbar with shell plugin, interaction and graph support
 brew "felixkratz/formulae/sketchybar", trusted: true
+# macOS Input Source Manager
+brew "laishulu/homebrew/macism"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun", trusted: true
 # AeroSpace is an i3-like tiling window manager for macOS
-cask "nikitabobko/tap/aerospace"
+cask "nikitabobko/tap/aerospace", trusted: true
 # Tools for building Android applications
 cask "android-studio"
 # Open source IDE for exploring and testing APIs
@@ -91,7 +94,7 @@ cask "font-sketchybar-app-font"
 cask "ghostty"
 # Open-source software for live streaming and screen recording
 cask "obs"
-# System monitor for the menu bar
-cask "stats"
 # Native database client for many database types
 cask "tablepro"
+# Temperature monitoring, fan control and diagnostics
+cask "tg-pro"

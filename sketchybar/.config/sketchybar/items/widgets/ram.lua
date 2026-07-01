@@ -48,3 +48,7 @@ ram:subscribe({ "routine", "forced" }, function(env)
 		end
 	end)
 end)
+
+ram:subscribe("mouse.clicked", function(env)
+	sbar.exec("open -a 'Activity Monitor'")
+end)

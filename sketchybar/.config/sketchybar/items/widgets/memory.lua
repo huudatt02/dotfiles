@@ -11,7 +11,7 @@ local ram = sbar.add("item", "widgets.ram", {
 		},
 	},
 	label = {
-		string = "??%",
+		string = "--%",
 		font = {
 			style = "Semibold",
 			size = 14.0,

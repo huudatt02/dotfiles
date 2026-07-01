@@ -27,8 +27,22 @@ local function update_input_source()
 	sbar.exec("macism", function(source)
 		source = source:gsub("%s+$", "")
 
+		local is_vi = source:find("Vietnamese")
+
 		input_source:set({
-			icon = source:find("Vietnamese") and "VI" or "EN",
+			icon = is_vi and "VI" or "EN",
+		})
+
+		en:set({
+			icon = {
+				string = is_vi and "" or "✓",
+			},
+		})
+
+		vi:set({
+			icon = {
+				string = is_vi and "✓" or "",
+			},
 		})
 	end)
 end

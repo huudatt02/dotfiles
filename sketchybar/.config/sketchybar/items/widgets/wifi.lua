@@ -33,6 +33,8 @@ local function update_wifi()
 						border_color = colors.white,
 						corner_radius = 6,
 						height = 18,
+						padding_left = 10,
+						padding_right = 10,
 					},
 				})
 			else
@@ -46,6 +48,8 @@ local function update_wifi()
 					},
 					background = {
 						drawing = false,
+						padding_left = 5,
+						padding_right = 5,
 					},
 				})
 			end

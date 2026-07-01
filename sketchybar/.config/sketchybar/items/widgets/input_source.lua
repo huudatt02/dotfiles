@@ -12,9 +12,11 @@ local input_source = sbar.add("item", "input_source", {
 })
 
 local function update_input_source()
-	sbar.exec("defaults read com.apple.HIToolbox AppleSelectedInputSources", function(plist)
+	sbar.exec("macism", function(source)
+		source = source:gsub("%s+$", "")
+
 		input_source:set({
-			icon = plist:find("VietnameseIM") and "VI" or "EN",
+			icon = source:find("Vietnamese") and "VI" or "EN",
 		})
 	end)
 end

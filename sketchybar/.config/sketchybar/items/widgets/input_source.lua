@@ -11,6 +11,18 @@ local input_source = sbar.add("item", "input_source", {
 	},
 })
 
+local en = sbar.add("item", "input_source.en", {
+	position = "popup.input_source",
+	icon = { string = "EN" },
+	label = { string = "ABC" },
+})
+
+local vi = sbar.add("item", "input_source.vi", {
+	position = "popup.input_source",
+	icon = { string = "VI" },
+	label = { string = "Vietnamese Telex" },
+})
+
 local function update_input_source()
 	sbar.exec("macism", function(source)
 		source = source:gsub("%s+$", "")
@@ -24,5 +36,28 @@ end
 sbar.add("event", "input_source_change", "AppleSelectedInputSourcesChangedNotification")
 
 input_source:subscribe("input_source_change", update_input_source)
+
+local popup_open = false
+
+input_source:subscribe("mouse.clicked", function()
+	popup_open = not popup_open
+	input_source:set({
+		popup = {
+			drawing = popup_open,
+		},
+	})
+end)
+
+en:subscribe("mouse.clicked", function()
+	sbar.exec("macism com.apple.keylayout.ABC")
+	input_source:set({ popup = { drawing = false } })
+	popup_open = false
+end)
+
+vi:subscribe("mouse.clicked", function()
+	sbar.exec("macism com.apple.inputmethod.VietnameseIM.VietnameseSimpleTelex")
+	input_source:set({ popup = { drawing = false } })
+	popup_open = false
+end)
 
 update_input_source()

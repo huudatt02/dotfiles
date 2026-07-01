@@ -1,17 +1,20 @@
 local input_source = sbar.add("item", "input_source", {
 	position = "right",
-	label = {
+	icon = {
 		font = {
 			style = "Bold",
 			size = 14.0,
 		},
+	},
+	label = {
+		drawing = false,
 	},
 })
 
 local function update_input_source()
 	sbar.exec("defaults read com.apple.HIToolbox AppleSelectedInputSources", function(plist)
 		input_source:set({
-			label = plist:find("VietnameseIM") and "VI" or "EN",
+			icon = plist:find("VietnameseIM") and "VI" or "EN",
 		})
 	end)
 end

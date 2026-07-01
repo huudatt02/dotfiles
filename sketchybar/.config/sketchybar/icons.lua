@@ -6,7 +6,7 @@ return {
 	lock = "􀎡",
 	user = "􀉭",
 	calendar = "􀉉",
-	memory = "􀫦",
+	ram = "􀫦",
 	cpu = "􀫥",
 
 	wifi = {

@@ -13,20 +13,18 @@ local input_source = sbar.add("item", "input_source", {
 
 local en = sbar.add("item", "input_source.en", {
 	position = "popup.input_source",
-	icon = {
+	icon = { width = 20 },
+	label = {
 		string = "ABC",
-		width = 100,
 	},
-	label = { width = 20 },
 })
 
 local vi = sbar.add("item", "input_source.vi", {
 	position = "popup.input_source",
-	icon = {
+	icon = { width = 20 },
+	label = {
 		string = "Vietnamese Telex",
-		width = 100,
 	},
-	label = { width = 20 },
 })
 
 local function update_input_source()
@@ -40,13 +38,13 @@ local function update_input_source()
 		})
 
 		en:set({
-			label = {
+			icon = {
 				string = is_vi and "" or "✓",
 			},
 		})
 
 		vi:set({
-			label = {
+			icon = {
 				string = is_vi and "✓" or "",
 			},
 		})

@@ -23,12 +23,16 @@ local wifi_toggle = sbar.add("item", "wifi.toggle", {
 		},
 		y_offset = 1,
 	},
+	padding_left = 10,
+	padding_right = 10,
 })
 
 local wifi_settings = sbar.add("item", "wifi.settings", {
 	position = "popup.wifi",
 	icon = { string = "Wi-Fi Settings…" },
 	label = { drawing = false },
+	padding_left = 10,
+	padding_right = 10,
 })
 
 local function update_wifi()

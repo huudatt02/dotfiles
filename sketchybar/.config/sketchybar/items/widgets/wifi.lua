@@ -15,8 +15,14 @@ local wifi = sbar.add("item", "wifi", {
 
 local wifi_toggle = sbar.add("item", "wifi.toggle", {
 	position = "popup.wifi",
-	icon = { string = icons.wifi.connected, width = 20 },
-	label = { string = "Toggle Wi-Fi" },
+	icon = { string = "Toggle Wi-Fi" },
+	label = {
+		string = "󰔢",
+		font = {
+			size = 34.0,
+		},
+		y_offset = 1,
+	},
 })
 
 local wifi_settings = sbar.add("item", "wifi.settings", {
@@ -76,11 +82,8 @@ local function update_wifi_toggle()
 	sbar.exec("networksetup -getairportpower en0", function(result)
 		local is_on = result:match("On")
 		wifi_toggle:set({
-			icon = {
-				string = is_on and icons.wifi.connected or icons.wifi.disconnected,
-			},
 			label = {
-				string = is_on and "Turn Wi-Fi Off" or "Turn Wi-Fi On",
+				string = is_on and "󰔡" or "󰔢",
 			},
 		})
 	end)

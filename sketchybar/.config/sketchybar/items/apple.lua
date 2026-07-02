@@ -14,7 +14,7 @@ local apple_logo = sbar.add("item", "apple", {
 		drawing = false,
 	},
 	popup = {
-		height = 35,
+		align = "left",
 	},
 })
 

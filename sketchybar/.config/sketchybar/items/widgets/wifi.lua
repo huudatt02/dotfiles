@@ -8,6 +8,9 @@ local wifi = sbar.add("item", "wifi", {
 	label = {
 		drawing = false,
 	},
+	popup = {
+		align = "left",
+	},
 })
 
 local wifi_toggle = sbar.add("item", "wifi.toggle", {

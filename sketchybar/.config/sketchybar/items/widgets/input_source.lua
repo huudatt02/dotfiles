@@ -11,6 +11,9 @@ local input_source = sbar.add("item", "input_source", {
 	label = {
 		drawing = false,
 	},
+	popup = {
+		align = "left",
+	},
 })
 
 local en = sbar.add("item", "input_source.en", {

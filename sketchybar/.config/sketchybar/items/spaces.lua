@@ -228,7 +228,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 
 	local function refreshWorkspaces()
 		updateWorkspaces()
-		polls_remaining = 3
+		polls_remaining = 5
 
 		if is_polling then
 			return

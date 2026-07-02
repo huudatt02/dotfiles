@@ -74,6 +74,7 @@ for _, item in ipairs(popup_items) do
 	})
 
 	popup_item:subscribe("mouse.clicked", function()
+		sbar.exec(item.action)
 		apple_logo:set({ popup = { drawing = false } })
 		popup_open = false
 	end)

@@ -25,10 +25,8 @@ local wifi_settings = sbar.add("item", "wifi.settings", {
 local function update_wifi()
 	sbar.exec("ipconfig getifaddr en0 2>/dev/null", function(output)
 		local connected = output and output:match("%S")
-
 		sbar.exec("scutil --nwi | grep -m1 'utun'", function(vpn_output)
 			local vpn_connected = vpn_output and vpn_output:match("utun")
-
 			if vpn_connected then
 				wifi:set({
 					icon = {
@@ -71,6 +69,20 @@ local function update_wifi()
 	end)
 end
 
+local function update_wifi_toggle()
+	sbar.exec("networksetup -getairportpower en0", function(result)
+		local is_on = result:match("On")
+		wifi_toggle:set({
+			icon = {
+				string = is_on and icons.wifi.connected or icons.wifi.disconnected,
+			},
+			label = {
+				string = is_on and "Turn Wi-Fi Off" or "Turn Wi-Fi On",
+			},
+		})
+	end)
+end
+
 wifi:subscribe("mouse.clicked", function()
 	popup_open = not popup_open
 	wifi:set({
@@ -78,6 +90,25 @@ wifi:subscribe("mouse.clicked", function()
 			drawing = popup_open,
 		},
 	})
+	if popup_open then
+		update_wifi_toggle()
+	end
+end)
+
+wifi_toggle:subscribe("mouse.clicked", function()
+	sbar.exec("networksetup -getairportpower en0", function(result)
+		local is_on = result:match("On")
+		sbar.exec("networksetup -setairportpower en0 " .. (is_on and "off" or "on"), function()
+			update_wifi_toggle()
+			update_wifi()
+		end)
+	end)
+end)
+
+wifi_settings:subscribe("mouse.clicked", function()
+	sbar.exec("open 'x-apple.systempreferences:com.apple.wifi-settings'")
+	popup_open = false
+	wifi:set({ popup = { drawing = false } })
 end)
 
 wifi:subscribe({ "wifi_change", "system_woke" }, update_wifi)

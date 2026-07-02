@@ -17,7 +17,7 @@ local wifi_toggle = sbar.add("item", "wifi.toggle", {
 	position = "popup.wifi",
 	icon = {
 		string = "Wi-Fi",
-		width = 20,
+		width = 120,
 	},
 	label = {
 		string = "󰔢",

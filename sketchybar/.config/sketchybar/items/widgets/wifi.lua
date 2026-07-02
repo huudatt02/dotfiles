@@ -17,6 +17,10 @@ local wifi_toggle = sbar.add("item", "wifi.toggle", {
 	position = "popup.wifi",
 	icon = {
 		string = "Wi-Fi",
+		font = {
+			style = "Semibold",
+			size = 14.0,
+		},
 		width = 120,
 	},
 	label = {
@@ -32,7 +36,13 @@ local wifi_toggle = sbar.add("item", "wifi.toggle", {
 
 local wifi_settings = sbar.add("item", "wifi.settings", {
 	position = "popup.wifi",
-	icon = { string = "Wi-Fi Settings…" },
+	icon = {
+		string = "Wi-Fi Settings…",
+		font = {
+			style = "Semibold",
+			size = 14.0,
+		},
+	},
 	label = { drawing = false },
 	padding_left = 10,
 	padding_right = 10,

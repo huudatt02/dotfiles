@@ -91,6 +91,7 @@ local function update_wifi_toggle()
 		wifi_toggle:set({
 			label = {
 				string = is_on and "󰔡" or "󰔢",
+				color = is_on and colors.green or colors.white,
 			},
 		})
 	end)

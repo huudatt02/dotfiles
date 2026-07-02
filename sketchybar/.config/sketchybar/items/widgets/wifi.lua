@@ -1,6 +1,8 @@
 local icons = require("icons")
 local colors = require("colors")
 
+local popup_open = false
+
 local wifi = sbar.add("item", "wifi", {
 	position = "right",
 	label = {
@@ -68,5 +70,14 @@ local function update_wifi()
 		end)
 	end)
 end
+
+wifi:subscribe("mouse.clicked", function()
+	popup_open = not popup_open
+	wifi:set({
+		popup = {
+			drawing = popup_open,
+		},
+	})
+end)
 
 wifi:subscribe({ "wifi_change", "system_woke" }, update_wifi)

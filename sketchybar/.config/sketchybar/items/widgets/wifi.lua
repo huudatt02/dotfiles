@@ -8,6 +8,18 @@ local wifi = sbar.add("item", "wifi", {
 	},
 })
 
+local wifi_toggle = sbar.add("item", "wifi.toggle", {
+	position = "popup.wifi",
+	icon = { string = icons.wifi.connected, width = 20 },
+	label = { string = "Toggle Wi-Fi" },
+})
+
+local wifi_settings = sbar.add("item", "wifi.settings", {
+	position = "popup.wifi",
+	icon = { string = icons.gear, width = 20 },
+	label = { string = "Wi-Fi Settings…" },
+})
+
 local function update_wifi()
 	sbar.exec("ipconfig getifaddr en0 2>/dev/null", function(output)
 		local connected = output and output:match("%S")

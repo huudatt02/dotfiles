@@ -1,3 +1,5 @@
+local popup_open = false
+
 local input_source = sbar.add("item", "input_source", {
 	position = "right",
 	icon = {
@@ -58,8 +60,6 @@ end
 sbar.add("event", "input_source_change", "AppleSelectedInputSourcesChangedNotification")
 
 input_source:subscribe("input_source_change", update_input_source)
-
-local popup_open = false
 
 input_source:subscribe("mouse.clicked", function()
 	popup_open = not popup_open

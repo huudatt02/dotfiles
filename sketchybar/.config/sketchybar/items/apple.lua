@@ -1,9 +1,8 @@
 local icons = require("icons")
 
-local popup_toggle = "sketchybar --set $NAME popup.drawing=toggle"
+local popup_open = false
 
 local apple_logo = sbar.add("item", "apple", {
-	click_script = popup_toggle,
 	icon = {
 		string = icons.apple,
 		font = {
@@ -52,6 +51,15 @@ local popup_items = {
 	},
 }
 
+apple_logo:subscribe("mouse.clicked", function()
+	popup_open = not popup_open
+	apple_logo:set({
+		popup = {
+			drawing = popup_open,
+		},
+	})
+end)
+
 for _, item in ipairs(popup_items) do
 	local popup_item = sbar.add("item", "apple." .. item.name, {
 		position = "popup." .. apple_logo.name,
@@ -66,11 +74,11 @@ for _, item in ipairs(popup_items) do
 	})
 
 	popup_item:subscribe("mouse.clicked", function()
-		sbar.exec(item.action)
 		apple_logo:set({
 			popup = {
 				drawing = false,
 			},
 		})
+		popup_open = false
 	end)
 end

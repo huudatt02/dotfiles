@@ -27,8 +27,8 @@ local wifi_toggle = sbar.add("item", "wifi.toggle", {
 
 local wifi_settings = sbar.add("item", "wifi.settings", {
 	position = "popup.wifi",
-	icon = { string = icons.gear, width = 20 },
-	label = { string = "Wi-Fi Settings…" },
+	icon = { string = "Wi-Fi Settings…" },
+	label = { drawing = false },
 })
 
 local function update_wifi()

@@ -1,0 +1,127 @@
+# dotfiles
+
+Personal configuration for a development environment, organized to be modular, maintainable, and easily reproducible across multiple machines.
+
+This dotfiles repository manages CLI tools and the working environment such as `nvim`, `zsh`, `tmux`, `starship`, `bat`, `mise`, etc., using GNU Stow to create and manage symlinks in a structured and systematic way.
+
+
+## 🎯 Goals
+
+- **Reproducible**: set up a new machine quickly with just a few commands  
+- **Modular**: each tool is an independent package  
+- **Minimal**: keep only what’s necessary and avoid clutter  
+- **CLI-first**: optimized for terminal-based workflows (Neovim, shell, tmux)
+
+
+## ⚙️ How it works
+
+Each directory in this repo is a **package** that mirrors the structure of `$HOME`.
+
+**GNU Stow will:**
+- create symlinks from `$HOME` → dotfiles  
+- manage the full lifecycle of configs (apply / remove / update)
+
+
+## 🚀 Setup
+
+### 1. Setup GitHub SSH
+```zsh
+# Generate a new SSH key:
+ssh-keygen -t ed25519 -C "you@gmail.com" -f ~/.ssh/id_ed25519_github_me
+
+# Add SSH key to the ssh-agent
+eval "$(ssh-agent -s)"
+
+# Add your SSH private key to the ssh-agent and store your passphrase in the keychain
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519_github_me
+
+# Create ssh config file
+touch ~/.ssh/config
+chmod 600 ~/.ssh/config
+
+# Add ssh config file
+vim ~/.ssh/config
+
+Host github-me
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_github_me
+    AddKeysToAgent yes
+    UseKeychain yes
+
+# Add the SSH key to GitHub
+pbcopy < ~/.ssh/id_ed25519_github_me.pub
+
+# Test SSH connection
+ssh -T git@github-me
+```
+
+### 2. Clone repository
+```zsh
+git clone https://github.com/huudatt02/dotfiles.git ~/dotfiles
+```
+
+### 3. Install packages
+**macOS** (Homebrew)
+```zsh
+brew bundle --file=~/dotfiles/brew/Brewfile
+```
+
+**Linux:** Install required packages manually or adapt Brewfile.
+
+### 4. Stow packages
+```zsh
+cd ~/dotfiles
+
+stow aerospace bat ghostty git lazygit mise nvim sketchybar starship tmux yazi zsh
+```
+
+### 5. Install SbarLua (SketchyBar Lua helpers)
+
+Required for Lua-based SketchyBar modules:
+
+```zsh
+(git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install && rm -rf /tmp/SbarLua/)
+```
+Run the bar automatically at startup:
+
+```zsh
+brew services start sketchybar
+```
+
+### 6. Setup Yazi (File Manager)
+
+```zsh
+# Install plugins on a new system
+ya pkg install
+
+# Upgrade plugins
+ya pkg upgrade
+```
+
+### 7. Setup Mise (Runtime Manager)
+```zsh
+# Trust configuration:
+mise trust ~/.config/mise
+
+# Install tools:
+mise install
+```
+
+### 8. Setup Bat (Syntax Highlighting Cache)
+Build cache:
+```zsh
+bat cache --build
+```
+
+## 🧠 Notes
+Do not edit files directly in $HOME — always modify within this repository
+
+Keep configurations minimal and explicit
+
+Prefer CLI tools over GUI alternatives
+
+Use stow instead of manual symlink management
+
+## 📜 License
+![MIT License](https://img.shields.io/badge/license-MIT-green)

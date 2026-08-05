@@ -11,7 +11,6 @@ macos-titlebar-proxy-icon = hidden
 macos-window-shadow = false
 
 window-padding-x = 10
-window-padding-y = 10
 window-padding-balance = true
 
 background-opacity = 0.85

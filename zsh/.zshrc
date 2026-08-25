@@ -95,6 +95,3 @@ alias ls='eza --icons --group-directories-first'
 alias la='eza -a --icons --group-directories-first'
 alias ll='eza -lah --icons --group-directories-first'
 
-
-# Added by Antigravity IDE
-export PATH="/Users/huudatt02/.antigravity-ide/antigravity-ide/bin:$PATH"

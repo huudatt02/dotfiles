@@ -163,7 +163,7 @@ on-window-detected = [
     alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
     alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
 
-    alt-shift-f = 'fullscreen'
+    alt-shift-enter = 'fullscreen'
     alt-tab = 'workspace-back-and-forth'
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 

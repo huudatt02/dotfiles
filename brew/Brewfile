@@ -35,6 +35,8 @@ brew "lazydocker"
 brew "lazygit"
 # Powerful, lightweight programming language
 brew "lua"
+# Java-based project management
+brew "maven"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Ambitious Vim-fork focused on extensibility and agility

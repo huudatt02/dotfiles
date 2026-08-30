@@ -3,7 +3,16 @@ return {
     basedpyright = {
       disableOrganizeImports = true,
       analysis = {
-        ignore = { "*" },
+        autoSearchPaths = true,
+        typeCheckingMode = "standard",
+        diagnosticMode = "openFilesOnly",
+        useLibraryCodeForTypes = true,
+
+        inlayHints = {
+          callArgumentNames = true,
+          functionReturnTypes = true,
+          variableTypes = true,
+        },
       },
     },
   },

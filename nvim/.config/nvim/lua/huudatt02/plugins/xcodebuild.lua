@@ -19,39 +19,30 @@ return {
       enabled = true,
     },
   },
-  config = function(_, opts)
-    require("xcodebuild").setup(opts)
+  keys = {
+    -- Build & Run
+    { "<leader>xb", "<cmd>XcodebuildBuild<cr>", desc = "Build Project", ft = "swift" },
+    { "<leader>xB", "<cmd>XcodebuildBuildForTesting<cr>", desc = "Build For Testing", ft = "swift" },
+    { "<leader>xr", "<cmd>XcodebuildBuildRun<cr>", desc = "Build & Run Project", ft = "swift" },
+    { "<leader>xR", "<cmd>XcodebuildRun<cr>", desc = "Run Project", ft = "swift" },
 
-    local function map(lhs, rhs, desc)
-      vim.keymap.set("n", lhs, rhs, {
-        silent = true,
-        desc = desc,
-      })
-    end
+    -- Tests
+    { "<leader>xt", "<cmd>XcodebuildTest<cr>", desc = "Run Tests", ft = "swift" },
+    { "<leader>xT", "<cmd>XcodebuildTestClass<cr>", desc = "Run Current Test Class", ft = "swift" },
 
-    -- build & run
-    map("<leader>xb", "<cmd>XcodebuildBuild<cr>", "Build Project")
-    map("<leader>xB", "<cmd>XcodebuildBuildForTesting<cr>", "Build For Testing")
-    map("<leader>xr", "<cmd>XcodebuildBuildRun<cr>", "Build & Run Project")
-    map("<leader>xR", "<cmd>XcodebuildRun<cr>", "Run Project")
+    -- Project
+    { "<leader>xp", "<cmd>XcodebuildPicker<cr>", desc = "Xcode Picker", ft = "swift" },
+    { "<leader>xs", "<cmd>XcodebuildSetup<cr>", desc = "Setup Project", ft = "swift" },
+    { "<leader>xS", "<cmd>XcodebuildSelectScheme<cr>", desc = "Select Scheme", ft = "swift" },
+    { "<leader>xd", "<cmd>XcodebuildSelectDevice<cr>", desc = "Select Device", ft = "swift" },
 
-    -- tests
-    map("<leader>xt", "<cmd>XcodebuildTest<cr>", "Run Tests")
-    map("<leader>xT", "<cmd>XcodebuildTestClass<cr>", "Run Current Test Class")
+    -- Utilities
+    { "<leader>xl", "<cmd>XcodebuildToggleLogs<cr>", desc = "Toggle Logs", ft = "swift" },
+    { "<leader>xc", "<cmd>XcodebuildCleanBuild<cr>", desc = "Clean Build", ft = "swift" },
 
-    -- project
-    map("<leader>xp", "<cmd>XcodebuildPicker<cr>", "Xcode Picker")
-    map("<leader>xs", "<cmd>XcodebuildSetup<cr>", "Setup Project")
-    map("<leader>xS", "<cmd>XcodebuildSelectScheme<cr>", "Select Scheme")
-    map("<leader>xd", "<cmd>XcodebuildSelectDevice<cr>", "Select Device")
-
-    -- utilities
-    map("<leader>xl", "<cmd>XcodebuildToggleLogs<cr>", "Toggle Logs")
-    map("<leader>xc", "<cmd>XcodebuildCleanBuild<cr>", "Clean Build")
-
-    -- simulator
-    map("<leader>xo", "<cmd>XcodebuildBootSimulator<cr>", "Boot Simulator")
-    map("<leader>xi", "<cmd>XcodebuildInstallApp<cr>", "Install App")
-    map("<leader>xu", "<cmd>XcodebuildUninstallApp<cr>", "Uninstall App")
-  end,
+    -- Simulator
+    { "<leader>xo", "<cmd>XcodebuildBootSimulator<cr>", desc = "Boot Simulator", ft = "swift" },
+    { "<leader>xi", "<cmd>XcodebuildInstallApp<cr>", desc = "Install App", ft = "swift" },
+    { "<leader>xu", "<cmd>XcodebuildUninstallApp<cr>", desc = "Uninstall App", ft = "swift" },
+  },
 }

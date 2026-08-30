@@ -5,17 +5,21 @@ return {
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
     "sidlatau/neotest-dart",
+    "nvim-neotest/neotest-python",
   },
-  config = function()
-    require("neotest").setup({
-      adapters = {
-        require("neotest-dart")({
-          command = "flutter",
-          use_lsp = true,
-        }),
+  opts = {
+    adapters = {
+      ["neotest-dart"] = {
+        command = "flutter",
+        use_lsp = true,
       },
-    })
-  end,
+      ["neotest-python"] = {
+        -- Here you can specify the settings for the adapter, i.e.
+        -- runner = "pytest",
+        -- python = ".venv/bin/python",
+      },
+    },
+  },
   -- stylua: ignore
   keys = {
     { "<leader>tr", function() require("neotest").run.run() end, desc = "Run Nearest (Neotest)" },

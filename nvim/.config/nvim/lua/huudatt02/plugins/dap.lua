@@ -7,35 +7,33 @@ return {
       opts = {},
     },
     "nvim-neotest/nvim-nio",
+    "mfussenegger/nvim-dap-python",
   },
   config = function()
     local dap = require("dap")
     local dapui = require("dapui")
     dapui.setup()
 
-    vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+    require("dap-python").setup("debugpy-adapter")
 
+    vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
     vim.fn.sign_define("DapStopped", {
       text = "󰁕 ",
       texthl = "DiagnosticWarn",
       linehl = "DapStoppedLine",
     })
-
     vim.fn.sign_define("DapBreakpoint", {
       text = " ",
       texthl = "DiagnosticError",
     })
-
     vim.fn.sign_define("DapBreakpointCondition", {
       text = " ",
       texthl = "DiagnosticInfo",
     })
-
     vim.fn.sign_define("DapBreakpointRejected", {
       text = " ",
       texthl = "DiagnosticError",
     })
-
     vim.fn.sign_define("DapLogPoint", {
       text = ".>",
       texthl = "DiagnosticInfo",

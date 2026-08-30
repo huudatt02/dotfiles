@@ -11,6 +11,11 @@ return {
       lua = { "stylua" },
       -- java = { "google-java-format" },
       kotlin = { "ktlint" },
+      python = {
+        "ruff_fix",
+        "ruff_organize_imports",
+        "ruff_format",
+      },
       html = { "prettierd" },
       css = { "prettierd" },
       scss = { "prettierd" },

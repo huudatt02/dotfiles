@@ -20,6 +20,8 @@ return {
         "bashls",
         "lua_ls",
         "jdtls",
+        "basedpyright",
+        "ruff",
         "html",
         "cssls",
         "tsgo",

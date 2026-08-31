@@ -2,42 +2,37 @@ return {
   "mfussenegger/nvim-dap",
   dependencies = {
     "rcarriga/nvim-dap-ui",
-    {
-      "theHamsta/nvim-dap-virtual-text",
-      opts = {},
-    },
+    "theHamsta/nvim-dap-virtual-text",
     "nvim-neotest/nvim-nio",
     "mfussenegger/nvim-dap-python",
   },
   config = function()
     local dap = require("dap")
     local dapui = require("dapui")
+    local dap_virtual_text = require("nvim-dap-virtual-text")
+
+    dap_virtual_text.setup()
     dapui.setup()
 
     require("dap-python").setup("debugpy-adapter")
 
     vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
-    vim.fn.sign_define("DapStopped", {
-      text = "󰁕 ",
-      texthl = "DiagnosticWarn",
-      linehl = "DapStoppedLine",
-    })
-    vim.fn.sign_define("DapBreakpoint", {
-      text = " ",
-      texthl = "DiagnosticError",
-    })
-    vim.fn.sign_define("DapBreakpointCondition", {
-      text = " ",
-      texthl = "DiagnosticInfo",
-    })
-    vim.fn.sign_define("DapBreakpointRejected", {
-      text = " ",
-      texthl = "DiagnosticError",
-    })
-    vim.fn.sign_define("DapLogPoint", {
-      text = ".>",
-      texthl = "DiagnosticInfo",
-    })
+
+    local signs = {
+      DapStopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+      DapBreakpoint = { " ", "DiagnosticError" },
+      DapBreakpointCondition = { " ", "DiagnosticInfo" },
+      DapBreakpointRejected = { " ", "DiagnosticError" },
+      DapLogPoint = { ".>", "DiagnosticInfo" },
+    }
+
+    for name, sign in pairs(signs) do
+      vim.fn.sign_define(name, {
+        text = sign[1],
+        texthl = sign[2],
+        linehl = sign[3],
+      })
+    end
 
     dap.listeners.before.attach.dapui_config = function()
       dapui.open()

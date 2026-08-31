@@ -22,8 +22,8 @@ return {
       symbols = {
         error = " ",
         warn = " ",
-        info = " ",
-        hint = " ",
+        hint = " ",
+        info = " ",
       },
     }
 

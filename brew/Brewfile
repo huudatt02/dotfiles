@@ -61,6 +61,8 @@ brew "tmux"
 brew "tpm"
 # Parser generator tool
 brew "tree-sitter-cli"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # Build server protocol implementation for integrating Xcode with sourcekit-lsp
 brew "xcode-build-server"
 # Fast & lightweight command-line tool for managing Xcode projects, built in Swift

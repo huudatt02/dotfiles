@@ -52,6 +52,7 @@ return {
         "java-debug-adapter",
         "java-test",
         "ktlint",
+        "golangci-lint",
         "goimports",
         "gofumpt",
         "prettierd",

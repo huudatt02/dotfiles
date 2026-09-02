@@ -11,7 +11,7 @@ return {
   opts = {
     adapters = {
       ["neotest-golang"] = {
-        dap_go_enabled = true,
+        runner = "gotestsum",
       },
       ["neotest-dart"] = {
         command = "flutter",

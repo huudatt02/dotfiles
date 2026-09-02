@@ -4,11 +4,15 @@ return {
     "nvim-neotest/nvim-nio",
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
+    "fredrikaverpil/neotest-golang",
     "sidlatau/neotest-dart",
     "nvim-neotest/neotest-python",
   },
   opts = {
     adapters = {
+      ["neotest-golang"] = {
+        dap_go_enabled = true,
+      },
       ["neotest-dart"] = {
         command = "flutter",
         use_lsp = true,

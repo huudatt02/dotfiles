@@ -53,6 +53,7 @@ return {
         "java-test",
         "ktlint",
         "golangci-lint",
+        "gotestsum",
         "goimports",
         "gofumpt",
         "delve",

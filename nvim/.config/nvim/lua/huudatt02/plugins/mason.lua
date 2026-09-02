@@ -24,7 +24,7 @@ return {
         "ruff",
         "html",
         "cssls",
-        "tsgo",
+        "tsc",
         "jsonls",
         "yamlls",
         "tailwindcss",

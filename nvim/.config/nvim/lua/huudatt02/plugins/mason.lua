@@ -55,6 +55,7 @@ return {
         "golangci-lint",
         "goimports",
         "gofumpt",
+        "delve",
         "prettierd",
         "eslint_d",
         "yamlfmt",

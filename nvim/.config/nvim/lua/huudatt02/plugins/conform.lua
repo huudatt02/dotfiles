@@ -11,6 +11,7 @@ return {
       lua = { "stylua" },
       -- java = { "google-java-format" },
       kotlin = { "ktlint" },
+      go = { "goimports", "gofumpt" },
       python = {
         "ruff_organize_imports",
         "ruff_format",

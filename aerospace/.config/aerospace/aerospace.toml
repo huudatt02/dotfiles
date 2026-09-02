@@ -113,14 +113,6 @@ on-window-detected = [
         run = 'layout floating',
     },
     {
-        if = 'test %{app-bundle-id} = com.usebruno.app',
-        run = 'layout floating',
-    },
-    {
-        if = 'test %{app-bundle-id} = com.TablePro',
-        run = 'layout floating',
-    },
-    {
         if = 'test %{app-bundle-id} = com.obsproject.obs-studio',
         run = 'layout floating',
     },

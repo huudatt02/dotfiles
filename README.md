@@ -73,7 +73,7 @@ brew bundle --file=~/dotfiles/brew/Brewfile
 ```zsh
 cd ~/dotfiles
 
-stow aerospace bat ghostty git lazygit mise nvim starship tmux yazi zsh
+stow aerospace bat ghostty git lazygit mise nvim starship tmux wezterm yazi zsh
 ```
 
 ### 5. Setup Yazi (File Manager)

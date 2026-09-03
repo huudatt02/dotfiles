@@ -9,6 +9,7 @@ config.macos_window_background_blur = 20
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.default_cursor_style = 'SteadyBar'
+config.window_close_confirmation = 'NeverPrompt'
 
 config.window_padding = {
     left = 10,

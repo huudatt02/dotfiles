@@ -69,6 +69,14 @@ eval "$(starship init zsh)"
 
 source <(fzf --zsh)
 
+HISTFILE=$HOME/.zhistory
+SAVEHIST=10000
+HISTSIZE=10000
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
+
 alias vim='nvim'
 alias v='nvim'
 alias n='nvim'

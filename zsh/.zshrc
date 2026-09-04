@@ -39,12 +39,6 @@ export FZF_DEFAULT_OPTS="
 
 source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
 
-zstyle ':completion:*:git-checkout:*' sort false
-zstyle ':completion:*:descriptions' format '[%d]'
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' menu no
-
 zinit light hlissner/zsh-autopair
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -53,6 +47,12 @@ zinit light Aloxaf/fzf-tab
 
 autoload -Uz compinit
 compinit
+
+zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu no
 
 zstyle ':fzf-tab:complete:(cd|z):*' fzf-preview '
   eza --tree --level=2 --color=always --group-directories-first $realpath

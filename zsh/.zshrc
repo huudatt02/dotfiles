@@ -45,20 +45,14 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu no
 
-zinit ice wait lucid blockf atpull'zinit creinstall -q .'
+zinit light hlissner/zsh-autopair
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
-
-zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
 zinit light Aloxaf/fzf-tab
 
-zinit ice wait lucid
-zinit light hlissner/zsh-autopair
-
-zinit ice wait lucid atload'_zsh_autosuggest_start'
-zinit light zsh-users/zsh-autosuggestions
-
-zinit ice wait lucid
-zinit light zdharma-continuum/fast-syntax-highlighting
+autoload -Uz compinit
+compinit
 
 zstyle ':fzf-tab:complete:(cd|z):*' fzf-preview '
   eza --tree --level=2 --color=always --group-directories-first $realpath

@@ -39,6 +39,7 @@ export FZF_DEFAULT_OPTS="
 
 source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
 
+# Zsh plugins
 zinit light hlissner/zsh-autopair
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -63,12 +64,14 @@ zstyle ':fzf-tab:complete:(vim|nvim|cat):*' fzf-preview '
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
+# Initialize tools
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 source <(fzf --zsh)
 
+# History setup
 HISTFILE=$HOME/.zhistory
 SAVEHIST=10000
 HISTSIZE=10000

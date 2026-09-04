@@ -1,17 +1,22 @@
+# Android SDK
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"
 
+# Environment
 export XDG_CONFIG_HOME="$HOME/.config"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export BAT_THEME='tokyonight_moon'
 
+# FZF commands
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --strip-cwd-prefix'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git --strip-cwd-prefix'
 
+# FZF previews
 export FZF_CTRL_T_OPTS="--preview 'if [ -d {} ]; then eza --tree --level=2 --icons --color=always --group-directories-first {}; else bat -n --color=always --line-range=:500 {}; fi'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 --icons --color=always --group-directories-first {}'"
 
+# FZF appearance
 export FZF_DEFAULT_OPTS="
   --highlight-line
   --info=inline-right
@@ -37,6 +42,7 @@ export FZF_DEFAULT_OPTS="
   --color=spinner:#ff966c
 "
 
+# Zinit
 source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
 
 # Zsh plugins
@@ -46,6 +52,7 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
 
+# Zsh completion
 autoload -Uz compinit
 compinit
 
@@ -55,6 +62,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu no
 
+# FZF Tab completion
 zstyle ':fzf-tab:complete:(cd|z):*' fzf-preview '
   eza --tree --level=2 --color=always --group-directories-first $realpath
 '
@@ -64,7 +72,7 @@ zstyle ':fzf-tab:complete:(vim|nvim|cat):*' fzf-preview '
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
-# Initialize tools
+# Tool initialization
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
@@ -80,6 +88,7 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
+# Aliases
 alias vim='nvim'
 alias v='nvim'
 alias n='nvim'

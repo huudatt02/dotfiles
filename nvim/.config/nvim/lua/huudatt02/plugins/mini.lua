@@ -8,11 +8,14 @@ return {
         [".keep"] = { glyph = "󰊢", hl = "MiniIconsGrey" },
         ["devcontainer.json"] = { glyph = "", hl = "MiniIconsAzure" },
         [".go-version"] = { glyph = "", hl = "MiniIconsBlue" },
+        ["go.mod"] = { glyph = "", hl = "MiniIconsBlue" },
+        ["go.sum"] = { glyph = "", hl = "MiniIconsPurple" },
       },
       filetype = {
         env = { glyph = "", hl = "MiniIconsYellow" },
         dotenv = { glyph = "", hl = "MiniIconsYellow" },
-        gotmpl = { glyph = "󰟓", hl = "MiniIconsGrey" },
+        go = { glyph = "", hl = "MiniIconsBlue" },
+        gotmpl = { glyph = "", hl = "MiniIconsGrey" },
       },
     },
     init = function()

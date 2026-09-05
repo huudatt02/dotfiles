@@ -8,8 +8,8 @@ return {
         [".keep"] = { glyph = "󰊢", hl = "MiniIconsGrey" },
         ["devcontainer.json"] = { glyph = "", hl = "MiniIconsAzure" },
         [".go-version"] = { glyph = "", hl = "MiniIconsBlue" },
-        ["go.mod"] = { glyph = "", hl = "MiniIconsBlue" },
-        ["go.sum"] = { glyph = "", hl = "MiniIconsPurple" },
+        ["go.mod"] = { glyph = "", hl = "MiniIconsCyan" },
+        ["go.sum"] = { glyph = "", hl = "MiniIconsCyan" },
       },
       filetype = {
         env = { glyph = "", hl = "MiniIconsYellow" },

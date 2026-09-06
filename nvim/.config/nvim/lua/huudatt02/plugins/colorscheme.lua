@@ -25,11 +25,6 @@ return {
       hl.PmenuSel = { bg = "#2f3d66" }
       hl.PmenuThumb = { bg = "#2c395f" }
       hl.CursorLine = { bg = "#2f3d66" }
-
-      hl.NeoTreeExpander = { fg = c.blue }
-      hl.NeoTreeDimText = { fg = c.dark3 }
-      hl.NeoTreeDotfile = { fg = c.dark3 }
-      hl.NeoTreeMessage = { fg = c.dark3, italic = true }
     end,
   },
   config = function(_, opts)

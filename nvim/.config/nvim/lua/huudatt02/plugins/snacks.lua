@@ -13,6 +13,7 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
+    explorer = { enabled = true },
     image = { enabled = true },
     indent = {
       enabled = false,
@@ -89,6 +90,9 @@ return {
     -- terminal
     { "<C-/>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
     { "<C-_>", function() Snacks.terminal() end, desc = "which_key_ignore" },
+
+    -- explorer
+    { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
 
     -- find
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },

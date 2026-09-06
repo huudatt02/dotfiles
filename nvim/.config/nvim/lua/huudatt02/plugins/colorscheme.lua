@@ -24,7 +24,8 @@ return {
       hl.Pmenu = { bg = c.none }
       hl.PmenuSel = { bg = "#2f3d66" }
       hl.PmenuThumb = { bg = "#2c395f" }
-      hl.CursorLine = { bg = "#2f3d66" }
+
+      hl.SnacksPickerTree = { fg = c.dark3 }
     end,
   },
   config = function(_, opts)

@@ -5,7 +5,6 @@ return {
     "theHamsta/nvim-dap-virtual-text",
     "nvim-neotest/nvim-nio",
     "leoluz/nvim-dap-go",
-    "mfussenegger/nvim-dap-python",
   },
   config = function()
     local dap = require("dap")
@@ -16,7 +15,6 @@ return {
     dapui.setup()
 
     require("dap-go").setup()
-    require("dap-python").setup("debugpy-adapter")
 
     vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 

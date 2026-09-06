@@ -6,7 +6,6 @@ return {
     "antoinemadec/FixCursorHold.nvim",
     "fredrikaverpil/neotest-golang",
     "sidlatau/neotest-dart",
-    "nvim-neotest/neotest-python",
   },
   opts = {
     adapters = {
@@ -16,10 +15,6 @@ return {
       ["neotest-dart"] = {
         command = "flutter",
         use_lsp = true,
-      },
-      ["neotest-python"] = {
-        runner = "pytest",
-        python = ".venv/bin/python",
       },
     },
   },

@@ -3,7 +3,6 @@ return {
   ft = { "swift" },
   dependencies = {
     "MunifTanjim/nui.nvim",
-    "nvim-neo-tree/neo-tree.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
   opts = {

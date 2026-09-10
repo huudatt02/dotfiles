@@ -104,7 +104,5 @@ cask "obsidian"
 cask "stats"
 # Native database client for many database types
 cask "tablepro"
-# Open-source code editor
-cask "visual-studio-code"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"

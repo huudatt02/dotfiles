@@ -19,8 +19,6 @@ brew "fd"
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# GitHub command-line tool
-brew "gh"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # Open-source build automation tool based on the Groovy and Kotlin DSL

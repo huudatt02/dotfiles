@@ -14,13 +14,15 @@ return {
   opts = {
     bigfile = { enabled = true },
     explorer = { enabled = true },
-    image = { enabled = true },
     indent = {
       enabled = false,
       animate = { enabled = false },
     },
     input = { enabled = true },
-    notifier = { enabled = true },
+    notifier = {
+      enabled = true,
+      timeout = 3000,
+    },
     picker = {
       enabled = true,
       previewers = {
@@ -80,12 +82,6 @@ return {
     },
     toggle = { enabled = true },
     words = { enabled = true },
-    styles = {
-      notification_history = {
-        width = 0.8,
-        height = 0.6,
-      },
-    },
   },
   config = function(_, opts)
     require("snacks").setup(opts)

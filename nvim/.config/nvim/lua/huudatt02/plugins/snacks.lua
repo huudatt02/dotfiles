@@ -14,6 +14,12 @@ return {
   opts = {
     bigfile = { enabled = true },
     explorer = { enabled = true },
+    image = {
+      enabled = true,
+      doc = {
+        enabled = false,
+      },
+    },
     indent = {
       enabled = false,
       animate = { enabled = false },

@@ -1,6 +1,6 @@
 return {
   "olexsmir/gopher.nvim",
-  ft = { "go" },
+  ft = { "go", "gomod" },
   build = function()
     require("gopher.installer").install_deps({ sync = true })
   end,

@@ -2,21 +2,23 @@ return {
   filetypes = {
     "javascript",
     "javascriptreact",
+    "javascript.jsx",
     "typescript",
     "typescriptreact",
+    "typescript.tsx",
   },
   settings = {
     ["js/ts"] = {
       inlayHints = {
+        enumMemberValues = { enabled = true },
+        functionLikeReturnTypes = { enabled = false },
         parameterNames = {
           enabled = "literals",
           suppressWhenArgumentMatchesName = true,
         },
         parameterTypes = { enabled = true },
-        variableTypes = { enabled = true },
         propertyDeclarationTypes = { enabled = true },
-        functionLikeReturnTypes = { enabled = true },
-        enumMemberValues = { enabled = true },
+        variableTypes = { enabled = false },
       },
     },
   },

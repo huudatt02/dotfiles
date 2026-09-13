@@ -9,6 +9,7 @@ return {
       bash = { "shellcheck" },
       kotlin = { "ktlint" },
       go = { "golangcilint" },
+      python = { "ruff" },
       html = { "htmlhint" },
       css = { "stylelint" },
       scss = { "stylelint" },

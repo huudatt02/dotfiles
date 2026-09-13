@@ -60,6 +60,7 @@ return {
         "prettierd",
         "eslint_d",
         "yamlfmt",
+        "yamllint",
         "jsonlint",
       },
     },

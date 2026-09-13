@@ -3,3 +3,4 @@ flutter = { version = "latest", checksum_expr = '"sha256:" + filter(fromJSON(bod
 go = "latest"
 java = "temurin-21"
 node = "latest"
+python = "latest"

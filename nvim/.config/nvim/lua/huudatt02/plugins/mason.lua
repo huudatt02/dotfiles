@@ -55,6 +55,8 @@ return {
         "goimports",
         "gofumpt",
         "delve",
+        "htmlhint",
+        "stylelint",
         "prettierd",
         "eslint_d",
         "yamlfmt",

@@ -56,8 +56,5 @@ return {
     { "<leader>dO", function() require("dap").step_out() end, desc = "Step Out" },
     { "<leader>dr", function() require("dap").restart() end, desc = "Restart" },
     { "<leader>du", function() require("dapui").toggle() end, desc = "DAP UI Toggle" },
-
-    { "<leader>dp", function() require('dap-python').test_method() end, desc = "Debug Method", ft = "python" },
-    { "<leader>dP", function() require('dap-python').test_class() end, desc = "Debug Class", ft = "python" },
   },
 }

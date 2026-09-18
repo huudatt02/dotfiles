@@ -6,7 +6,6 @@ return {
     "antoinemadec/FixCursorHold.nvim",
     "fredrikaverpil/neotest-golang",
     "sidlatau/neotest-dart",
-    "nvim-neotest/neotest-python",
   },
   opts = {
     adapters = {

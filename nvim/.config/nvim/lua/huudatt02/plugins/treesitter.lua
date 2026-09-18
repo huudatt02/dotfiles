@@ -17,7 +17,6 @@ return {
       "gomod",
       "gowork",
       "gosum",
-      "python",
       "dart",
       "swift",
       "sql",

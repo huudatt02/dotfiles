@@ -17,10 +17,6 @@ return {
         command = "flutter",
         use_lsp = true,
       },
-      ["neotest-python"] = {
-        runner = "pytest",
-        python = ".venv/bin/python",
-      },
     },
   },
   -- stylua: ignore

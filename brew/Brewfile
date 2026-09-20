@@ -73,8 +73,6 @@ brew "anomalyco/tap/opencode"
 brew "oven-sh/bun/bun"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace"
-# Tools for building Android applications
-cask "android-studio"
 # Web browser focusing on privacy
 cask "brave-browser"
 # Open source IDE for exploring and testing APIs

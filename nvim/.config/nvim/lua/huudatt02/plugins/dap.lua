@@ -1,3 +1,22 @@
+local function find_lldb_dap()
+  -- macOS: Try lldb-dap with xcrun.
+  local xcrun_result = vim.system({ "xcrun", "--find", "lldb-dap" }, { text = true }):wait()
+  if xcrun_result.code == 0 then
+    local xcrun_dap_path = vim.fn.trim(xcrun_result.stdout)
+    if vim.fn.executable(xcrun_dap_path) then
+      return xcrun_dap_path
+    end
+  end
+
+  -- Fallback the lldb-dap in the ${PATH} environment.
+  if vim.fn.executable("lldb-dap") == 1 then
+    return "lldb-dap"
+  end
+
+  vim.notify("lldb-dap not found, add it to your PATH environment variable", vim.log.levels.WARN)
+  return ""
+end
+
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
@@ -10,6 +29,49 @@ return {
     local dap = require("dap")
     local dapui = require("dapui")
     local dap_virtual_text = require("nvim-dap-virtual-text")
+
+    dap.adapters["lldb-dap"] = {
+      type = "executable",
+      name = "lldb-dap",
+      command = find_lldb_dap(),
+      options = {
+        -- Uncomment and set a path to enable lldb-dap logging (useful for bug reports).
+        -- env = { LLDBDAP_LOG = "/path/to/store/lldb-dap.log" },
+      },
+    }
+
+    dap.configurations.swift = {
+      {
+        name = "Launch",
+        type = "lldb-dap",
+        request = "launch",
+        program = function()
+          return require("dap.utils").pick_file({ executables = true })
+        end,
+        cwd = "${workspaceFolder}",
+      },
+      {
+        name = "Launch with arguments",
+        type = "lldb-dap",
+        request = "launch",
+        program = function()
+          return require("dap.utils").pick_file({ executables = true })
+        end,
+        cwd = "${workspaceFolder}",
+        args = function()
+          local args_str = vim.fn.input("Arguments: ")
+          return require("dap.utils").splitstr(args_str)
+        end,
+      },
+      {
+        name = "Attach",
+        type = "lldb-dap",
+        request = "attach",
+        pid = function()
+          return require("dap.utils").pick_process()
+        end,
+      },
+    }
 
     dap_virtual_text.setup()
     dapui.setup()

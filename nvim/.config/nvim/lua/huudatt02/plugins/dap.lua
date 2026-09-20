@@ -22,14 +22,16 @@ return {
     "mfussenegger/nvim-dap",
     dependencies = {
       "rcarriga/nvim-dap-ui",
-      "theHamsta/nvim-dap-virtual-text",
-      "nvim-neotest/nvim-nio",
+      {
+        "theHamsta/nvim-dap-virtual-text",
+        opts = {},
+      },
       "leoluz/nvim-dap-go",
     },
     config = function()
       local dap = require("dap")
-      local dapui = require("dapui")
-      local dap_virtual_text = require("nvim-dap-virtual-text")
+
+      require("dap-go").setup()
 
       dap.adapters["lldb-dap"] = {
         type = "executable",
@@ -74,11 +76,6 @@ return {
         },
       }
 
-      dap_virtual_text.setup()
-      dapui.setup()
-
-      require("dap-go").setup()
-
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
       local signs = {
@@ -96,19 +93,6 @@ return {
           linehl = sign[3],
         })
       end
-
-      dap.listeners.before.attach.dapui_config = function()
-        dapui.open()
-      end
-      dap.listeners.before.launch.dapui_config = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated.dapui_config = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited.dapui_config = function()
-        dapui.close()
-      end
     end,
     -- stylua: ignore
     keys = {
@@ -120,5 +104,28 @@ return {
       { "<leader>dr", function() require("dap").restart() end, desc = "Restart" },
       { "<leader>du", function() require("dapui").toggle() end, desc = "DAP UI Toggle" },
     },
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+    },
+    config = function()
+      local dap = require("dap")
+      local dapui = require("dapui")
+
+      dapui.setup()
+
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open({})
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close({})
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close({})
+      end
+    end,
   },
 }

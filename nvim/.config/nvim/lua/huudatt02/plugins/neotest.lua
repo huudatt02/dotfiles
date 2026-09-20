@@ -5,16 +5,11 @@ return {
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
     "fredrikaverpil/neotest-golang",
-    "sidlatau/neotest-dart",
   },
   opts = {
     adapters = {
       ["neotest-golang"] = {
         runner = "gotestsum",
-      },
-      ["neotest-dart"] = {
-        command = "flutter",
-        use_lsp = true,
       },
     },
   },

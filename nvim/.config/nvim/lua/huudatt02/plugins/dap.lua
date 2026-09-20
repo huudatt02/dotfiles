@@ -18,105 +18,107 @@ local function find_lldb_dap()
 end
 
 return {
-  "mfussenegger/nvim-dap",
-  dependencies = {
-    "rcarriga/nvim-dap-ui",
-    "theHamsta/nvim-dap-virtual-text",
-    "nvim-neotest/nvim-nio",
-    "leoluz/nvim-dap-go",
-  },
-  config = function()
-    local dap = require("dap")
-    local dapui = require("dapui")
-    local dap_virtual_text = require("nvim-dap-virtual-text")
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
+      "nvim-neotest/nvim-nio",
+      "leoluz/nvim-dap-go",
+    },
+    config = function()
+      local dap = require("dap")
+      local dapui = require("dapui")
+      local dap_virtual_text = require("nvim-dap-virtual-text")
 
-    dap.adapters["lldb-dap"] = {
-      type = "executable",
-      name = "lldb-dap",
-      command = find_lldb_dap(),
-      options = {
-        -- Uncomment and set a path to enable lldb-dap logging (useful for bug reports).
-        -- env = { LLDBDAP_LOG = "/path/to/store/lldb-dap.log" },
-      },
-    }
+      dap.adapters["lldb-dap"] = {
+        type = "executable",
+        name = "lldb-dap",
+        command = find_lldb_dap(),
+        options = {
+          -- Uncomment and set a path to enable lldb-dap logging (useful for bug reports).
+          -- env = { LLDBDAP_LOG = "/path/to/store/lldb-dap.log" },
+        },
+      }
 
-    dap.configurations.swift = {
-      {
-        name = "Launch",
-        type = "lldb-dap",
-        request = "launch",
-        program = function()
-          return require("dap.utils").pick_file({ executables = true })
-        end,
-        cwd = "${workspaceFolder}",
-      },
-      {
-        name = "Launch with arguments",
-        type = "lldb-dap",
-        request = "launch",
-        program = function()
-          return require("dap.utils").pick_file({ executables = true })
-        end,
-        cwd = "${workspaceFolder}",
-        args = function()
-          local args_str = vim.fn.input("Arguments: ")
-          return require("dap.utils").splitstr(args_str)
-        end,
-      },
-      {
-        name = "Attach",
-        type = "lldb-dap",
-        request = "attach",
-        pid = function()
-          return require("dap.utils").pick_process()
-        end,
-      },
-    }
+      dap.configurations.swift = {
+        {
+          name = "Launch",
+          type = "lldb-dap",
+          request = "launch",
+          program = function()
+            return require("dap.utils").pick_file({ executables = true })
+          end,
+          cwd = "${workspaceFolder}",
+        },
+        {
+          name = "Launch with arguments",
+          type = "lldb-dap",
+          request = "launch",
+          program = function()
+            return require("dap.utils").pick_file({ executables = true })
+          end,
+          cwd = "${workspaceFolder}",
+          args = function()
+            local args_str = vim.fn.input("Arguments: ")
+            return require("dap.utils").splitstr(args_str)
+          end,
+        },
+        {
+          name = "Attach",
+          type = "lldb-dap",
+          request = "attach",
+          pid = function()
+            return require("dap.utils").pick_process()
+          end,
+        },
+      }
 
-    dap_virtual_text.setup()
-    dapui.setup()
+      dap_virtual_text.setup()
+      dapui.setup()
 
-    require("dap-go").setup()
+      require("dap-go").setup()
 
-    vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+      vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
-    local signs = {
-      DapStopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
-      DapBreakpoint = { " ", "DiagnosticError" },
-      DapBreakpointCondition = { " ", "DiagnosticInfo" },
-      DapBreakpointRejected = { " ", "DiagnosticError" },
-      DapLogPoint = { ".>", "DiagnosticInfo" },
-    }
+      local signs = {
+        DapStopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+        DapBreakpoint = { " ", "DiagnosticError" },
+        DapBreakpointCondition = { " ", "DiagnosticInfo" },
+        DapBreakpointRejected = { " ", "DiagnosticError" },
+        DapLogPoint = { ".>", "DiagnosticInfo" },
+      }
 
-    for name, sign in pairs(signs) do
-      vim.fn.sign_define(name, {
-        text = sign[1],
-        texthl = sign[2],
-        linehl = sign[3],
-      })
-    end
+      for name, sign in pairs(signs) do
+        vim.fn.sign_define(name, {
+          text = sign[1],
+          texthl = sign[2],
+          linehl = sign[3],
+        })
+      end
 
-    dap.listeners.before.attach.dapui_config = function()
-      dapui.open()
-    end
-    dap.listeners.before.launch.dapui_config = function()
-      dapui.open()
-    end
-    dap.listeners.before.event_terminated.dapui_config = function()
-      dapui.close()
-    end
-    dap.listeners.before.event_exited.dapui_config = function()
-      dapui.close()
-    end
-  end,
-  -- stylua: ignore
-  keys = {
-    { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
-    { "<leader>dc", function() require("dap").continue() end, desc = "Start/Continue" },
-    { "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
-    { "<leader>do", function() require("dap").step_over() end, desc = "Step Over" },
-    { "<leader>dO", function() require("dap").step_out() end, desc = "Step Out" },
-    { "<leader>dr", function() require("dap").restart() end, desc = "Restart" },
-    { "<leader>du", function() require("dapui").toggle() end, desc = "DAP UI Toggle" },
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated.dapui_config = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited.dapui_config = function()
+        dapui.close()
+      end
+    end,
+    -- stylua: ignore
+    keys = {
+      { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+      { "<leader>dc", function() require("dap").continue() end, desc = "Start/Continue" },
+      { "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
+      { "<leader>do", function() require("dap").step_over() end, desc = "Step Over" },
+      { "<leader>dO", function() require("dap").step_out() end, desc = "Step Out" },
+      { "<leader>dr", function() require("dap").restart() end, desc = "Restart" },
+      { "<leader>du", function() require("dapui").toggle() end, desc = "DAP UI Toggle" },
+    },
   },
 }

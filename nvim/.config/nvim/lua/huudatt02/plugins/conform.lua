@@ -23,6 +23,7 @@ return {
       yaml = { "yamlfmt" },
       sh = { "shfmt" },
       bash = { "shfmt" },
+      swift = { "swiftformat" },
     },
     -- formatters = {
     --   ["google-java-format"] = {

@@ -52,16 +52,16 @@ export FZF_DEFAULT_OPTS="
 # Zinit
 source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
 
+# Zsh completion
+autoload -Uz compinit
+compinit
+
 # Zsh plugins
 zinit light hlissner/zsh-autopair
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
-
-# Zsh completion
-autoload -Uz compinit
-compinit
 
 zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':completion:*:descriptions' format '[%d]'

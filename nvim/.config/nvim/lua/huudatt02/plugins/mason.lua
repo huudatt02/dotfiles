@@ -62,8 +62,6 @@ return {
         "yamlfmt",
         "yamllint",
         "jsonlint",
-        "swiftformat",
-        "swiftlint",
       },
     },
   },

@@ -18,7 +18,6 @@ return {
       typescriptreact = { "eslint_d" },
       yaml = { "yamllint" },
       json = { "jsonlint" },
-      swift = { "swiftlint" },
     }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {

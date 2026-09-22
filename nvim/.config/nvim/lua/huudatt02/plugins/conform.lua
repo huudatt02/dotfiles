@@ -8,10 +8,12 @@ return {
       lsp_format = "fallback",
     },
     formatters_by_ft = {
+      sh = { "shfmt" },
+      bash = { "shfmt" },
       lua = { "stylua" },
+      go = { "goimports", "gofumpt" },
       -- java = { "google-java-format" },
       kotlin = { "ktlint" },
-      go = { "goimports", "gofumpt" },
       html = { "prettierd" },
       css = { "prettierd" },
       scss = { "prettierd" },
@@ -21,8 +23,6 @@ return {
       typescriptreact = { "prettierd" },
       json = { "prettierd" },
       yaml = { "yamlfmt" },
-      sh = { "shfmt" },
-      bash = { "shfmt" },
     },
     -- formatters = {
     --   ["google-java-format"] = {

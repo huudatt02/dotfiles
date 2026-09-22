@@ -7,8 +7,8 @@ return {
     lint.linters_by_ft = {
       sh = { "shellcheck" },
       bash = { "shellcheck" },
-      kotlin = { "ktlint" },
       go = { "golangcilint" },
+      kotlin = { "ktlint" },
       html = { "htmlhint" },
       css = { "stylelint" },
       scss = { "stylelint" },

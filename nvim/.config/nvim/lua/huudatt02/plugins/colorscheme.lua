@@ -22,8 +22,6 @@ return {
       hl.LspInlayHint = { fg = c.dark3, italic = true }
 
       hl.Pmenu = { bg = c.none }
-      hl.PmenuSel = { bg = "#2f3d66" }
-      hl.PmenuThumb = { bg = "#2c395f" }
 
       hl.SnacksPickerTree = { fg = c.dark3 }
     end,

@@ -57,8 +57,12 @@ brew "tmux"
 brew "tpm"
 # Parser generator tool
 brew "tree-sitter-cli"
+# Little beautifier tool for xcodebuild
+brew "xcbeautify"
 # Build server protocol implementation for integrating Xcode with sourcekit-lsp
 brew "xcode-build-server"
+# Generate your Xcode project from a spec file and your folder structure
+brew "xcodegen"
 # Fast & lightweight command-line tool for managing Xcode projects, built in Swift
 brew "xcp"
 # Blazing fast terminal file manager written in Rust, based on async I/O

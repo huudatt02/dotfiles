@@ -23,6 +23,7 @@ return {
       typescriptreact = { "prettierd" },
       json = { "prettierd" },
       yaml = { "yamlfmt" },
+      swift = { "swiftformat" },
     },
     -- formatters = {
     --   ["google-java-format"] = {

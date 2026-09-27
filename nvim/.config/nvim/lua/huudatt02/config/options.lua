@@ -24,6 +24,7 @@ opt.fillchars = {
 opt.foldcolumn = "0"
 opt.foldlevel = 99
 opt.foldlevelstart = 99
+opt.foldtext = ""
 opt.foldenable = true
 opt.ignorecase = true
 opt.inccommand = "nosplit"

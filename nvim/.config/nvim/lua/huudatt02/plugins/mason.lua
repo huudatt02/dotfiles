@@ -59,8 +59,6 @@ return {
         "stylelint",
         "prettierd",
         "eslint_d",
-        "yamlfmt",
-        "yamllint",
         "jsonlint",
         "swiftformat",
         "swiftlint",

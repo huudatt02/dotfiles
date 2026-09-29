@@ -60,8 +60,6 @@ return {
         "prettierd",
         "eslint_d",
         "jsonlint",
-        "swiftformat",
-        "swiftlint",
       },
     },
   },

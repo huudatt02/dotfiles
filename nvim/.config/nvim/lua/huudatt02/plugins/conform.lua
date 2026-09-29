@@ -21,7 +21,6 @@ return {
       typescript = { "prettierd" },
       javascriptreact = { "prettierd" },
       typescriptreact = { "prettierd" },
-      json = { "prettierd" },
     },
     -- formatters = {
     --   ["google-java-format"] = {

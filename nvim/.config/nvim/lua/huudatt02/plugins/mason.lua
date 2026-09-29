@@ -59,7 +59,6 @@ return {
         "stylelint",
         "prettierd",
         "eslint_d",
-        "jsonlint",
       },
     },
   },

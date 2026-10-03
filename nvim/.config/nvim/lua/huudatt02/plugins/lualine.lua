@@ -43,16 +43,16 @@ return {
 
     local function xcodebuild_device()
       if vim.g.xcodebuild_platform == "macOS" then
-        return " macOS"
+        return "󰌢"
       end
 
       local deviceIcon = ""
       if vim.g.xcodebuild_platform:match("watch") then
-        deviceIcon = "􀟤"
+        deviceIcon = "󰢗"
       elseif vim.g.xcodebuild_platform:match("tv") then
-        deviceIcon = "􀡴 "
+        deviceIcon = "󰔂"
       elseif vim.g.xcodebuild_platform:match("vision") then
-        deviceIcon = "􁎖 "
+        deviceIcon = "󰴰"
       end
 
       if vim.g.xcodebuild_os then

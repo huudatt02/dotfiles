@@ -1,0 +1,48 @@
+return {
+  "stevearc/conform.nvim",
+  opts = {
+    default_format_opts = {
+      timeout_ms = 3000,
+      async = false,
+      quiet = false,
+      lsp_format = "fallback",
+    },
+    formatters_by_ft = {
+      sh = { "shfmt" },
+      bash = { "shfmt" },
+      lua = { "stylua" },
+      go = { "goimports", "gofumpt" },
+      -- java = { "google-java-format" },
+      kotlin = { "ktlint" },
+      python = {
+        "ruff_format",
+        "ruff_organize_imports",
+      },
+      html = { "prettierd" },
+      css = { "prettierd" },
+      scss = { "prettierd" },
+      javascript = { "prettierd" },
+      typescript = { "prettierd" },
+      javascriptreact = { "prettierd" },
+      typescriptreact = { "prettierd" },
+    },
+    -- formatters = {
+    --   ["google-java-format"] = {
+    --     prepend_args = { "--aosp" }, -- Ensure 4-space indentation
+    --   },
+    -- },
+  },
+  keys = {
+    {
+      "<leader>cf",
+      function()
+        require("conform").format({
+          timeout_ms = 3000,
+          lsp_format = "fallback",
+        })
+      end,
+      mode = { "n", "x" },
+      desc = "Format file or range",
+    },
+  },
+}

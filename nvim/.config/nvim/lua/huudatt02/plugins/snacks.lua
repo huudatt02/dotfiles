@@ -1,0 +1,143 @@
+-- Terminal Mappings
+local function term_nav(dir)
+  return function(self)
+    return self:is_floating() and "<c-" .. dir .. ">" or vim.schedule(function()
+      vim.cmd.wincmd(dir)
+    end)
+  end
+end
+
+return {
+  "folke/snacks.nvim",
+  priority = 1000,
+  lazy = false,
+  opts = {
+    bigfile = { enabled = true },
+    explorer = { enabled = true },
+    image = {
+      enabled = true,
+      doc = {
+        enabled = false,
+      },
+    },
+    indent = {
+      enabled = false,
+      animate = { enabled = false },
+    },
+    input = { enabled = true },
+    notifier = {
+      enabled = true,
+      timeout = 3000,
+    },
+    picker = {
+      enabled = true,
+      previewers = {
+        diff = {
+          style = "terminal",
+          cmd = { "delta" },
+        },
+      },
+      win = {
+        input = {
+          keys = {
+            ["<a-h>"] = false,
+            ["<a-.>"] = { "toggle_hidden", mode = { "i", "n" } },
+          },
+        },
+        list = {
+          keys = {
+            ["<a-h>"] = false,
+            ["<a-.>"] = "toggle_hidden",
+          },
+        },
+      },
+      icons = {
+        git = {
+          enabled = true,
+          commit = "󰜘 ",
+          staged = "",
+          added = "",
+          deleted = "",
+          ignored = " ",
+          modified = "",
+          renamed = "󰁕",
+          unmerged = " ",
+          untracked = "󰋖",
+        },
+      },
+    },
+    quickfile = { enabled = true },
+    scope = { enabled = true },
+    scroll = { enabled = true },
+    statuscolumn = { enabled = true },
+    terminal = {
+      enabled = true,
+      win = {
+        wo = {
+          winbar = "",
+        },
+        keys = {
+          nav_h = { "<C-h>", term_nav("h"), desc = "Go to Left Window", expr = true, mode = "t" },
+          nav_j = { "<C-j>", term_nav("j"), desc = "Go to Lower Window", expr = true, mode = "t" },
+          nav_k = { "<C-k>", term_nav("k"), desc = "Go to Upper Window", expr = true, mode = "t" },
+          nav_l = { "<C-l>", term_nav("l"), desc = "Go to Right Window", expr = true, mode = "t" },
+          hide_slash = { "<C-/>", "hide", desc = "Hide Terminal", mode = "t" },
+          hide_underscore = { "<c-_>", "hide", desc = "which_key_ignore", mode = "t" },
+        },
+      },
+    },
+    toggle = { enabled = true },
+    words = { enabled = true },
+  },
+  config = function(_, opts)
+    require("snacks").setup(opts)
+
+    Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
+    Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
+    Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>ur")
+    Snacks.toggle.line_number():map("<leader>ul")
+    Snacks.toggle.dim():map("<leader>ud")
+    Snacks.toggle.indent():map("<leader>ug")
+    Snacks.toggle.inlay_hints():map("<leader>uh")
+  end,
+  -- stylua: ignore
+  keys = {
+    -- bufdelete
+    { "<leader>bd", function() Snacks.bufdelete.delete() end, desc = "Delete buffer" },
+    { "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Delete other buffers" },
+    { "<leader>ba", function() Snacks.bufdelete.all() end, desc = "Delete all buffers" },
+
+    -- terminal
+    { "<C-/>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
+    { "<C-_>", function() Snacks.terminal() end, desc = "which_key_ignore" },
+
+    -- explorer
+    { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
+
+    -- find
+    { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+    { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+    { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
+    { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
+    { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
+
+    -- git
+    { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
+    { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
+    { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "Git Log Line" },
+    { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
+    { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
+    { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
+    { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
+
+    -- search
+    { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
+    { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
+    { "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep" },
+    { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
+    { "<leader>sn", function() Snacks.picker.notifications() end, desc = "Notification History" },
+    { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
+
+    { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
+  },
+}

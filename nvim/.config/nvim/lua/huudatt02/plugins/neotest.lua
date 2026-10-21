@@ -5,19 +5,23 @@ return {
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
     "fredrikaverpil/neotest-golang",
+    "arthur944/neotest-bun",
     "nvim-neotest/neotest-python",
   },
-  opts = {
-    adapters = {
-      ["neotest-golang"] = {
-        runner = "gotestsum",
+  config = function()
+    require("neotest").setup({
+      adapters = {
+        require("neotest-golang")({
+          runner = "gotestsum",
+        }),
+        require("neotest-bun"),
+        require("neotest-python")({
+          runner = "pytest",
+          python = ".venv/bin/python",
+        }),
       },
-      ["neotest-python"] = {
-        runner = "pytest",
-        python = ".venv/bin/python",
-      },
-    },
-  },
+    })
+  end,
   -- stylua: ignore
   keys = {
     { "<leader>ta", function() require("neotest").run.attach() end, desc = "Attach to Test" },

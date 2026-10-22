@@ -8,20 +8,18 @@ return {
     "arthur944/neotest-bun",
     "nvim-neotest/neotest-python",
   },
-  config = function()
-    require("neotest").setup({
-      adapters = {
-        require("neotest-golang")({
-          runner = "gotestsum",
-        }),
-        require("neotest-bun"),
-        require("neotest-python")({
-          runner = "pytest",
-          python = ".venv/bin/python",
-        }),
+  opts = {
+    adapters = {
+      ["neotest-golang"] = {
+        runner = "gotestsum",
       },
-    })
-  end,
+      ["neotest-bun"] = {},
+      ["neotest-python"] = {
+        runner = "pytest",
+        python = ".venv/bin/python",
+      },
+    },
+  },
   -- stylua: ignore
   keys = {
     { "<leader>ta", function() require("neotest").run.attach() end, desc = "Attach to Test" },

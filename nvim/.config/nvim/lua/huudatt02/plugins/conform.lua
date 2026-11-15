@@ -14,10 +14,6 @@ return {
       go = { "goimports", "gofumpt" },
       -- java = { "google-java-format" },
       kotlin = { "ktlint" },
-      python = {
-        "ruff_format",
-        "ruff_organize_imports",
-      },
       html = { "prettierd" },
       css = { "prettierd" },
       scss = { "prettierd" },

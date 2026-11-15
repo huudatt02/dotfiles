@@ -18,7 +18,6 @@ return {
         "gomod",
         "gowork",
         "gosum",
-        "python",
         "sql",
         "xml",
         "yaml",

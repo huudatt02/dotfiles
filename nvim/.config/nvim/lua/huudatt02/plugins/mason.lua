@@ -21,8 +21,6 @@ return {
         "lua_ls",
         "jdtls",
         "gopls",
-        "pyright",
-        "ruff",
         "jsonls",
         "yamlls",
         "html",

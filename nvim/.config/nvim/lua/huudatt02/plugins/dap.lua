@@ -8,11 +8,9 @@ return {
         opts = {},
       },
       "leoluz/nvim-dap-go",
-      "mfussenegger/nvim-dap-python",
     },
     config = function()
       require("dap-go").setup()
-      require("dap-python").setup("uv")
 
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
@@ -49,8 +47,6 @@ return {
       { "<leader>ds", function() require("dap").session() end, desc = "Session" },
       { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
       { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
-      { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method", ft = "python" },
-      { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class", ft = "python" },
     },
   },
   {

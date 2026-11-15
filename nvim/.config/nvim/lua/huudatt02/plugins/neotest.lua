@@ -6,7 +6,6 @@ return {
     "antoinemadec/FixCursorHold.nvim",
     "fredrikaverpil/neotest-golang",
     "arthur944/neotest-bun",
-    "nvim-neotest/neotest-python",
   },
   opts = {
     adapters = {
@@ -14,10 +13,6 @@ return {
         runner = "gotestsum",
       },
       ["neotest-bun"] = {},
-      ["neotest-python"] = {
-        runner = "pytest",
-        python = ".venv/bin/python",
-      },
     },
   },
   -- stylua: ignore

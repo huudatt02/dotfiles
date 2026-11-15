@@ -2,4 +2,3 @@
 go = "latest"
 java = "temurin-21"
 node = "latest"
-python = "latest"

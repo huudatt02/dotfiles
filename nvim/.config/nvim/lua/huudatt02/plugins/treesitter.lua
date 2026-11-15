@@ -19,7 +19,6 @@ return {
         "gowork",
         "gosum",
         "python",
-        "swift",
         "sql",
         "xml",
         "yaml",

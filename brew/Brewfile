@@ -88,6 +88,8 @@ cask "ghostty"
 cask "google-chrome"
 # Open-source software for live streaming and screen recording
 cask "obs"
+# Music streaming service
+cask "spotify"
 # System monitor for the menu bar
 cask "stats"
 # Native database client for many database types

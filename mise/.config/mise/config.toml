@@ -1,4 +1,4 @@
 [tools]
 go = "latest"
-java = "temurin-21"
+java = "latest"
 node = "latest"

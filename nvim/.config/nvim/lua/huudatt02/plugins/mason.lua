@@ -26,7 +26,7 @@ return {
         "html",
         "cssls",
         "tsc",
-        "eslint-lsp",
+        "eslint",
         "tailwindcss",
         "emmet_language_server",
         "docker_language_server",

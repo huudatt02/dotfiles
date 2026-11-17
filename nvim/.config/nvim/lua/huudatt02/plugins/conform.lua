@@ -14,13 +14,6 @@ return {
       go = { "goimports", "gofumpt" },
       -- java = { "google-java-format" },
       kotlin = { "ktlint" },
-      html = { "prettierd" },
-      css = { "prettierd" },
-      scss = { "prettierd" },
-      javascript = { "prettierd" },
-      typescript = { "prettierd" },
-      javascriptreact = { "prettierd" },
-      typescriptreact = { "prettierd" },
     },
     -- formatters = {
     --   ["google-java-format"] = {

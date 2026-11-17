@@ -9,9 +9,6 @@ return {
       bash = { "shellcheck" },
       go = { "golangcilint" },
       kotlin = { "ktlint" },
-      html = { "htmlhint" },
-      css = { "stylelint" },
-      scss = { "stylelint" },
     }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {

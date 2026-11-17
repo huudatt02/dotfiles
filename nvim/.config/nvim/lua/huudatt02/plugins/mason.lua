@@ -23,6 +23,7 @@ return {
         "gopls",
         "jsonls",
         "yamlls",
+        "buf_ls",
         "html",
         "cssls",
         "tsc",

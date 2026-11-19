@@ -35,8 +35,6 @@ return {
         end,
       })
 
-      vim.lsp.enable({ "sourcekit" })
-
       vim.diagnostic.config({
         signs = {
           text = {

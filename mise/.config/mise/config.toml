@@ -2,3 +2,4 @@
 go = "latest"
 java = "latest"
 node = "latest"
+rust = "latest"

@@ -21,6 +21,7 @@ return {
         "lua_ls",
         "jdtls",
         "gopls",
+        "rust_analyzer",
         "jsonls",
         "yamlls",
         "buf_ls",

@@ -12,6 +12,7 @@ return {
       ["neotest-golang"] = {
         runner = "gotestsum",
       },
+      ["rustaceanvim.neotest"] = {},
       ["neotest-bun"] = {},
     },
   },

@@ -1,5 +1,10 @@
 return {
   {
+    "mrcjkb/rustaceanvim",
+    ft = { "rust" },
+  },
+
+  {
     "Saecki/crates.nvim",
     event = { "BufRead Cargo.toml" },
     opts = {
@@ -15,11 +20,5 @@ return {
         hover = true,
       },
     },
-  },
-
-  {
-    "mrcjkb/rustaceanvim",
-    ft = { "rust" },
-    opts = {},
   },
 }

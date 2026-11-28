@@ -100,6 +100,11 @@ Build cache:
 ```zsh
 bat cache --build
 ```
+## ⚡️ Tip of the day
+```zsh
+defaults write -g NSWindowShouldDragOnGesture -bool true
+```
+Now, you can move windows by holding `ctrl`+`cmd` and dragging any part of the window (not necessarily the window title)
 
 ## 🧠 Notes
 Do not edit files directly in $HOME — always modify within this repository

@@ -36,6 +36,7 @@ return {
       automatic_enable = {
         exclude = {
           "jdtls",
+          "rust_analyzer",
         },
       },
     },
